@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\AnalysisController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Ecommerce\HomeController;
 use App\Http\Controllers\OAuthController;
@@ -46,6 +50,18 @@ Route::middleware(['auth:sanctum', 'verified', 'is_admin'])->group(function () {
     //Dashboard Apis
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    //Orders Apis
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+
     //Products Apis
     Route::get('/products', [ProductController::class, 'index'])->name('products');
+
+    //categories Apis
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+
+    //brands Apis
+    Route::get('/brands', [BrandController::class, 'index'])->name('brands');
+
+    //analysis Apis
+    Route::get('/analysis', [AnalysisController::class, 'index'])->name('analysis');
 });

@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div>
-                <h2 class="text-2xl md:text-4xl font-bold mb-12">Products ☕</h2>
+                <h2 class="text-2xl md:text-4xl font-bold mb-12">Analysis 💲</h2>
             </div>
 
             {{-- Header --}}

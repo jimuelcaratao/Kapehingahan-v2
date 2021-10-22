@@ -54,7 +54,7 @@
         <div
             class="bg-gray-800 shadow-xl h-auto md:min-h-screen fixed bottom-0  content-center  md:relative z-20 w-full md:w-48 sidebars">
             <div
-                class="md:ml-7 md:mt-12 md:w-48 content-center fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
+                class="md:ml-7 mt-3 md:mt-12 md:w-48 content-center fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
 
                 <!-- <a href="#" class="">
                     <span class="text-xl pl-2"><i class="em em-grinning"></i></span>
@@ -71,16 +71,44 @@
                     <li class="mr-3 flex-1">
 
                         <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            <i class="fas fa-tasks pr-0 md:pr-3 md:mb-2"></i><span
-                                class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Dashboard</span>
+                            <i class="fas fa-tachometer-alt pr-0 md:pr-3 md:mb-4"></i>
+                            <span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Dashboard</span>
                         </x-jet-nav-link>
 
                     </li>
 
                     <li class="mr-3 flex-1">
+                        <x-jet-nav-link href="{{ route('orders') }}" :active="request()->routeIs('orders')">
+                            <i class="fas fa-th-list pr-0 md:pr-3 md:mb-4"></i>
+                            <span class="pb-1 md:pb-0 text-xs md:text-base  block md:inline-block">Orders</span>
+                        </x-jet-nav-link>
+                    </li>
+
+                    <li class="mr-3 flex-1">
                         <x-jet-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')">
-                            <i class="fas fa-tasks pr-0 md:pr-3 md:mb-2"></i><span
-                                class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Products</span>
+                            <i class="fas fa-boxes pr-0 md:pr-3 md:mb-4"></i>
+                            <span class="pb-1 md:pb-0 text-xs md:text-base  block md:inline-block">Products</span>
+                        </x-jet-nav-link>
+                    </li>
+
+                    <li class="mr-3 flex-1">
+                        <x-jet-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categories')">
+                            <i class="fas fa-tasks pr-0 md:pr-3 md:mb-4"></i>
+                            <span class="pb-1 md:pb-0 text-xs md:text-base  block md:inline-block">Categories</span>
+                        </x-jet-nav-link>
+                    </li>
+
+                    <li class="mr-3 flex-1">
+                        <x-jet-nav-link href="{{ route('brands') }}" :active="request()->routeIs('brands')">
+                            <i class="fas fa-coffee pr-0 md:pr-3 md:mb-4"></i>
+                            <span class="pb-1 md:pb-0 text-xs md:text-base  block md:inline-block">Brands</span>
+                        </x-jet-nav-link>
+                    </li>
+
+                    <li class="mr-3 flex-1">
+                        <x-jet-nav-link href="{{ route('analysis') }}" :active="request()->routeIs('analysis')">
+                            <i class="fas fa-chart-line pr-0 md:pr-3 md:mb-4"></i>
+                            <span class="pb-1 md:pb-0 text-xs md:text-base  block md:inline-block">Analysis</span>
                         </x-jet-nav-link>
                     </li>
 
@@ -91,7 +119,6 @@
         <!-- Page Content -->
         <div class="main-content flex-1 mt-12 md:mt-2 pb-24 md:pb-5 pt-12 md:pt-20">
             {{ $slot }}
-
         </div>
     </div>
 
