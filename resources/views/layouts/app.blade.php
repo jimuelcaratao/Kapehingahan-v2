@@ -71,7 +71,7 @@
                     <li class="mr-3 flex-1">
 
                         <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span
+                            <i class="fas fa-tasks pr-0 md:pr-3 md:mb-2"></i><span
                                 class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Dashboard</span>
                         </x-jet-nav-link>
 
@@ -79,7 +79,7 @@
 
                     <li class="mr-3 flex-1">
                         <x-jet-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')">
-                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span
+                            <i class="fas fa-tasks pr-0 md:pr-3 md:mb-2"></i><span
                                 class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Products</span>
                         </x-jet-nav-link>
                     </li>
