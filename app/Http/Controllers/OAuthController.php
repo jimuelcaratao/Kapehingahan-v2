@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -25,7 +26,7 @@ class OAuthController extends Controller
 
         if ($existingUser) {
             Auth::login($existingUser);
-            return Redirect::route('dashboard');
+            return redirect('/dashboard');
         }
 
         if ($existingUser === null) {
@@ -39,14 +40,14 @@ class OAuthController extends Controller
                 ]);
 
                 Auth::login($new_user, true);
-                return Redirect::route('dashboard');
+                return redirect('/dashboard');
             } catch (QueryException $e) {
 
                 $errorCode = $e->errorInfo[1];
 
                 //code duplicate entry
                 if ($errorCode == '1062') {
-                    return Redirect::route('register')->withErrors('Cannot create a account email is already taken. Please use another email.');
+                    return redirect('/dashboard')->withErrors('Cannot create a account email is already taken. Please use another email.');
                 }
             }
         }

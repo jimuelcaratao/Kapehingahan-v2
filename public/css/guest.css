@@ -1,0 +1,16 @@
+/* Login styles */
+
+.text-seperator {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgb(193, 193, 193);
+    line-height: 0.1em;
+    margin: 30px 0px 30px 0;
+    color: rgb(193, 193, 193);
+}
+
+.text-seperator span {
+    background: #fff;
+    padding: 0px 10px;
+    margin: 0 2px;
+}
