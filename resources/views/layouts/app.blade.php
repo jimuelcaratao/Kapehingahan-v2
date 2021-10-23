@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
@@ -22,7 +23,12 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/admin.js') }}" defer></script>
+    @stack('styles')
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         @media only screen and (max-width: 600px) {
             .sidebars {
@@ -34,69 +40,45 @@
 </head>
 
 <body class="font-sans antialiased bg-gray-50">
+    @include('sweetalert::alert')
+    <x-jet-banner />
+    <div class="min-h-screen bg-gray-100">
 
-    <!--Nav-->
-    <nav class="bg-white  pt-2 md:pt-1 pb-1 px-1 mt-0 h-16 fixed w-full z-10 top-0 shadow-sm">
+        {{-- main navbar for admin --}}
+        @livewire('navigation-menu')
 
-        <div class="flex flex-wrap ">
-
-            <div class="flex pt-2 md:pt-3  mr-12 w-full justify-end">
-                <div className="m4-3 relative">
-                    @livewire('navigation-menu')
+        <!-- Page Heading -->
+        @if (isset($header))
+            <header class="bg-white shadow-sm" id="pageHeader">
+                <div class="max-w-7xl mx-auto pt-3 pb-2 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
                 </div>
-            </div>
-        </div>
-
-    </nav>
-
-
-    <div class="flex flex-col md:flex-row">
-        <div
-            class="bg-gray-800 shadow-xl h-auto md:min-h-screen fixed bottom-0  content-center  md:relative z-20 w-full md:w-48 sidebars">
-            <div
-                class="md:ml-7 md:mt-12 md:w-48 content-center fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
-
-                <!-- <a href="#" class="">
-                    <span class="text-xl pl-2"><i class="em em-grinning"></i></span>
-                </a> -->
-
-                <ul
-                    class="md:mt-12 list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2  text-center md:text-left">
-
-                    <li
-                        class="text-gray-500 uppercase text-xs font-semibold flex-1 mb-4 invisible md:visible pages-header">
-                        <h6>Pages</h6>
-                    </li>
-
-                    <li class="mr-3 flex-1">
-
-                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            <i class="fas fa-tasks pr-0 md:pr-3 md:mb-2"></i><span
-                                class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Dashboard</span>
-                        </x-jet-nav-link>
-
-                    </li>
-
-                    <li class="mr-3 flex-1">
-                        <x-jet-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')">
-                            <i class="fas fa-tasks pr-0 md:pr-3 md:mb-2"></i><span
-                                class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Products</span>
-                        </x-jet-nav-link>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
+            </header>
+        @endif
 
         <!-- Page Content -->
-        <div class="main-content flex-1 mt-12 md:mt-2 pb-24 md:pb-5 pt-12 md:pt-20">
+        <div id="pageContent">
             {{ $slot }}
-
         </div>
+
     </div>
 
 
+    {{-- Sweet alert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    @stack('scripts')
     @stack('modals')
+
 
     @livewireScripts
 </body>
