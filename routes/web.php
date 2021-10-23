@@ -57,6 +57,8 @@ Route::middleware(['auth:sanctum', 'verified', 'is_admin'])->group(function () {
     //Products Apis
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::delete('/products/{product_code}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::put('/products/update', [ProductController::class, 'update'])->name('products.update');
 
     //categories Apis
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');

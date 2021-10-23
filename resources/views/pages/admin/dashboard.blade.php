@@ -16,12 +16,12 @@
                 class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
+                        <h5 class="font-bold text-sm uppercase text-gray-600">New Users</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-yellow-600"><i
                                     class="fas fa-caret-up"></i></span></h3>
                     </div>
                 </div>
@@ -33,12 +33,12 @@
                 class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
+                        <h5 class="font-bold text-sm uppercase text-gray-600">New Users</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-yellow-600"><i
                                     class="fas fa-caret-up"></i></span></h3>
                     </div>
                 </div>
@@ -50,12 +50,12 @@
                 class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
+                        <h5 class="font-bold text-sm uppercase text-gray-600">New Users</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-yellow-600"><i
                                     class="fas fa-caret-up"></i></span></h3>
                     </div>
                 </div>
@@ -67,12 +67,12 @@
                 class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
+                        <h5 class="font-bold text-sm uppercase text-gray-600">New Users</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-yellow-600"><i
                                     class="fas fa-caret-up"></i></span></h3>
                     </div>
                 </div>

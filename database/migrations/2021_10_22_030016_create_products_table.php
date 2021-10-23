@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('category_name');
             $table->string('brand_name')->nullable();
             $table->string('stock');
+            $table->string('stock_measurement');
             $table->string('price');
             $table->text('default_photo')->nullable();
             $table->softDeletes();
