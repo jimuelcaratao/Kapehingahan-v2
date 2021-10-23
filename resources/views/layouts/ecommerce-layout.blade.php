@@ -17,6 +17,7 @@
     @livewireStyles
 
     <!-- Scripts -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
@@ -39,6 +40,10 @@
         <main>
             {{ $slot }}
         </main>
+
+        <!-- Page Footer -->
+        @include('footer-ecommerce')
+
     </div>
 
     @stack('modals')
