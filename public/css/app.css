@@ -2607,6 +2607,10 @@ select {
 		visibility: visible;
 	}
 
+	.md\:fixed {
+		position: fixed;
+	}
+
 	.md\:relative {
 		position: relative;
 	}
@@ -2662,6 +2666,14 @@ select {
 
 	.md\:mt-2 {
 		margin-top: 0.5rem;
+	}
+
+	.md\:ml-3 {
+		margin-left: 0.75rem;
+	}
+
+	.md\:ml-4 {
+		margin-left: 1rem;
 	}
 
 	.md\:inline-block {
