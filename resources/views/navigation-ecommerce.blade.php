@@ -1,5 +1,7 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
+
 <nav x-data="{ open: false }" class="bg-black">
+
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -11,7 +13,9 @@
                     <!--
               Icon when menu is closed.
 
+
               Heroicon name: outline/menu
+
 
               Menu open: "hidden", Menu closed: "block"
             -->
@@ -25,6 +29,7 @@
 
               Heroicon name: outline/x
 
+
               Menu open: "block", Menu closed: "hidden"
             -->
                     <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -36,12 +41,25 @@
             </div>
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex-shrink-0 flex items-center">
+
                     <img class="block lg:hidden h-10 w-auto"
                         src={{ asset('img/icon.png') }} alt="Workflow">
                     <img class="hidden lg:block h-10 w-auto"
                         src={{ asset('img/main-logo.png') }}
+
                         alt="Workflow">
                 </div>
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                        <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                            aria-current="page">Dashboard</a>
+
+                        <a href="#"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+
+                        <a href="#"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
 
             <div class="hidden sm:block sm:ml-6">
                 <div class="flex space-x-4">
@@ -86,11 +104,13 @@
                             @if (Route::has('login'))
                                 <div class=" md:fixed top-0 right-0 px-6 py-4 sm:block">
                                     <a href="{{ route('login') }}"
+
                                         class="text-sm text-white dark:text-gray-500">Log in</a>
 
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}"
                                             class="ml-4 text-sm text-white dark:text-gray-500">Register</a>
+
                                     @endif
                                 </div>
                             @endif
@@ -133,7 +153,6 @@
                                         {{ __('Profile') }}
                                     </x-jet-dropdown-link>
 
-
                                     <div class="border-t border-gray-100"></div>
 
                                     <!-- Authentication -->
@@ -143,6 +162,7 @@
                                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             this.closest('form').submit();">
+
                                             {{ __('Log Out') }}
                                         </x-jet-dropdown-link>
                                     </form>
@@ -170,6 +190,7 @@
 
             <a href="#"
                 class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+
         </div>
     </div>
 </nav>

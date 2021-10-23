@@ -21,6 +21,7 @@ class Product extends Model
         'brand_name',
         'description',
         'stock',
+        'stock_measurement',
         'default_photo',
         'price',
     ];

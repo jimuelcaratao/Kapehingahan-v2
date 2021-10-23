@@ -13,16 +13,16 @@
 
         <div class="w-full md:w-1/2 xl:w-1/4 px-6 pb-4 ">
             <div
-                class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
+                class="bg-gradient-to-b from-purple-200 to-purple-100 border-b-4 border-purple-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-purple-600">
+                            <i class="fas fa-list-alt fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
-                                    class="fas fa-caret-up"></i></span></h3>
+                        <h5 class="font-bold text-sm uppercase text-gray-600">New Orders</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-purple-600"></span></h3>
                     </div>
                 </div>
             </div>
@@ -30,16 +30,16 @@
 
         <div class="w-full md:w-1/2 xl:w-1/4 px-6 pb-4 ">
             <div
-                class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
+                class="bg-gradient-to-b from-purple-200 to-purple-100 border-b-4 border-purple-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-purple-600">
+                            <i class="fas fa-tasks  fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
-                                    class="fas fa-caret-up"></i></span></h3>
+                        <h5 class="font-bold text-sm uppercase text-gray-600">Total Categories</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-purple-600"></span></h3>
                     </div>
                 </div>
             </div>
@@ -47,16 +47,16 @@
 
         <div class="w-full md:w-1/2 xl:w-1/4 px-6 pb-4 ">
             <div
-                class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
+                class="bg-gradient-to-b from-purple-200 to-purple-100 border-b-4 border-purple-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-purple-600">
+                            <i class="fas fa-box-open fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
-                                    class="fas fa-caret-up"></i></span></h3>
+                        <h5 class="font-bold text-sm uppercase text-gray-600">New Products</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-purple-600"></span></h3>
                     </div>
                 </div>
             </div>
@@ -64,16 +64,15 @@
 
         <div class="w-full md:w-1/2 xl:w-1/4 px-6 pb-4 ">
             <div
-                class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
+                class="bg-gradient-to-b from-purple-200 to-purple-100 border-b-4 border-purple-600 rounded p-4 shadow-md hover:shadow-xl transition delay-75">
                 <div class="flex flex-row items-center">
                     <div class="flex-shrink pr-4">
-                        <div class="rounded-full p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i>
+                        <div class="rounded-full p-3 bg-purple-600"><i class="fas fa-user-plus fa-lg fa-inverse"></i>
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
-                                    class="fas fa-caret-up"></i></span></h3>
+                        <h5 class="font-bold text-sm uppercase text-gray-600">New Users</h5>
+                        <h3 class="font-bold text-2xl">2 <span class="text-purple-600"></span></h3>
                     </div>
                 </div>
             </div>

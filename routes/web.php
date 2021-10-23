@@ -57,16 +57,24 @@ Route::middleware(['auth:sanctum', 'verified', 'is_admin'])->group(function () {
     //Products Apis
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::delete('/products/{product_code}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::put('/products/update', [ProductController::class, 'update'])->name('products.update');
 
     //categories Apis
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::delete('/categories/{category_id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::put('/categories/update', [CategoryController::class, 'update'])->name('categories.update');
 
     //brands Apis
     Route::get('/brands', [BrandController::class, 'index'])->name('brands');
-
+    Route::post('/brands', [BrandController::class, 'store'])->name('brands.store');
+    Route::delete('/brands/{category_id}', [BrandController::class, 'destroy'])->name('brands.destroy');
+    Route::put('/brands/update', [BrandController::class, 'update'])->name('brands.update');
     //analysis Apis
     Route::get('/analysis', [AnalysisController::class, 'index'])->name('analysis');
 
     //users Apis
     Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::post('/users', [UserController::class, 'ban'])->name('user.ban');
 });
