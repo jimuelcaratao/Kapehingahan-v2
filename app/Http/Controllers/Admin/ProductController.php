@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -14,6 +16,8 @@ class ProductController extends Controller
     public function index()
     {
 
+        $brands = Brand::where('status', 'Available')->get();
+        $categories = Category::get();
         $tableProducts = Product::all();
 
         if ($tableProducts->isEmpty()) {
@@ -47,6 +51,8 @@ class ProductController extends Controller
         }
 
         return view('pages.admin.products', [
+            'categories' => $categories,
+            'brands' => $brands,
             'products' => $products,
         ]);
     }
@@ -119,7 +125,7 @@ class ProductController extends Controller
             'edit_brand' => 'required',
             'edit_product_name' => 'required',
             'edit_stock' => 'required|numeric|min:0',
-            'edit_stock_measurement' => 'required|numeric|min:0',
+            'edit_stock_measurement' => 'required',
             'edit_price' => 'required|numeric|min:0'
         ]);
 
@@ -162,6 +168,8 @@ class ProductController extends Controller
                     ]);
             }
         }
+
+        return Redirect::route('products')->withSuccess('Product: ' . $request->input('edit_product_name') . '). Updated Successfully!');
     }
 
     public function destroy($product_code)

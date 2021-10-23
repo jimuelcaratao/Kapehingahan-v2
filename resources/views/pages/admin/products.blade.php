@@ -41,7 +41,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
-                        Add product
+                        Add Product
                     </button>
                 </div>
 
@@ -158,11 +158,44 @@
                 </x-slot>
             </x-main-table>
 
-            <x-product.add-modal></x-product.add-modal>
-            <x-product.edit-modal></x-product.edit-modal>
+            <x-product.add-modal>
+                <x-slot name="categoryOptions">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </x-slot>
+
+                <x-slot name="brandOptions">
+                    @foreach ($brands as $brand)
+                        <option value="{{ $brand->brand_name }}">{{ $brand->brand_name }}</option>
+                    @endforeach
+                </x-slot>
+            </x-product.add-modal>
+            <x-product.edit-modal>
+                <x-slot name="categoryOptions">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </x-slot>
+
+                <x-slot name="brandOptions">
+                    @foreach ($brands as $brand)
+                        <option value="{{ $brand->brand_name }}">{{ $brand->brand_name }}</option>
+                    @endforeach
+                </x-slot>
+            </x-product.edit-modal>
 
 
 
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 d-flex justify-content-center">
+            {{-- pagination --}}
+            <div class="pagination">
+                {{ $products->render('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 

@@ -27,8 +27,7 @@
                                                         class="text-red-600">*</span></label>
                                                 <select id="edit_category_name" name="edit_category_name"
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                    <option selected disabled value="">Choose...</option>
-                                                    {{-- {{ $categoryOptions }} --}}
+                                                    {{ $categoryOptions }}
                                                 </select>
                                             </div>
 
@@ -39,8 +38,7 @@
                                                         class="text-red-600">*</span></label>
                                                 <select id="edit_brand" name="edit_brand"
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                    <option selected disabled value="">Choose...</option>
-                                                    {{-- {{ $brandOptions }} --}}
+                                                    {{ $brandOptions }}
                                                 </select>
                                             </div>
 
@@ -285,12 +283,6 @@
 
                 // image preview reset
                 $('#output').attr('src', '');
-
-                $("select#edit_discount_type option")
-                    .each(function() {
-                        this.selected = (this.text == null);
-                    });
-
             });
         });
     </script>
