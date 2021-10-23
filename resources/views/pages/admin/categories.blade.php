@@ -90,37 +90,35 @@
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">
-                                        Flora Wu
+                                        HT-421312
                                     </div>
-                                    <div class="text-sm text-gray-500">
-                                        flora.wu@example.com
-                                    </div>
+
                                 </div>
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">Software engineer</div>
-                            <div class="text-sm text-gray-500">IT</div>
+                            <div class="text-sm text-gray-900 font-bold">Cappucino</div>
+                            <div class="text-xs text-gray-500">Light brown with litte...</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <span
                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                Active
+                                Hot Coffee
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            Admin
+                            KapeHingahan
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            Admin
+                            5 Packs
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            Admin
+                            $ @convert('123')
                         </td>
                         <td class="pl-2 pr-6 py-4 whitespace-nowrap text-right text-base font-medium">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3 text-decoration-none">
                                 <i class="far fa-edit"></i>
                             </a>
                             <a href="#" class="text-red-600 hover:text-red-900">

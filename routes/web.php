@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Ecommerce\HomeController;
 use App\Http\Controllers\OAuthController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,7 @@ Route::middleware(['auth:sanctum', 'verified', 'is_admin'])->group(function () {
 
     //Products Apis
     Route::get('/products', [ProductController::class, 'index'])->name('products');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
     //categories Apis
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
@@ -64,4 +66,7 @@ Route::middleware(['auth:sanctum', 'verified', 'is_admin'])->group(function () {
 
     //analysis Apis
     Route::get('/analysis', [AnalysisController::class, 'index'])->name('analysis');
+
+    //users Apis
+    Route::get('/users', [UserController::class, 'index'])->name('users');
 });
