@@ -16,6 +16,8 @@
 
     @livewireStyles
 
+    @stack('styles')
+
     <!-- Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -46,6 +48,7 @@
 
     </div>
 
+    @stack('scripts')
     @stack('modals')
 
     @livewireScripts
