@@ -2,7 +2,7 @@
 
     <!-- Carousel component -->
 
-    <head>
+    @push('styles')
         <style>
             .carousel-open:checked+.carousel-item {
                 position: static;
@@ -40,10 +40,10 @@
             }
 
         </style>
+    @endpush
 
-    </head>
 
-    <body class="bg-white font-sans leading-normal tracking-normal">
+    <div class="bg-white font-sans leading-normal tracking-normal">
 
         <div class="carousel relative shadow-2xl bg-white">
             <div class="carousel-inner relative overflow-hidden w-full">

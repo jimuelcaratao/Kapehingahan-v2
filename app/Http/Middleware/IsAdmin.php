@@ -21,6 +21,8 @@ class IsAdmin
 
         if (Auth::check() && Auth::user()->is_admin == 1) {
             return $next($request);
+        } elseif (Auth::check() && Auth::user()->is_admin == 2) {
+            return $next($request);
         }
         return redirect('/');
     }

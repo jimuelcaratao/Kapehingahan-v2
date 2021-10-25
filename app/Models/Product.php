@@ -31,6 +31,10 @@ class Product extends Model
         return $this->hasOne(ProductPhoto::class, 'product_code', 'product_code');
     }
 
+    public function product_reviews()
+    {
+        return $this->hasMany(Review::class, 'product_code', 'product_code')->latest();
+    }
 
     public function product_custom()
     {
