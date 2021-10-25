@@ -48,10 +48,10 @@
 
     </div>
 
-    @stack('scripts')
     @stack('modals')
 
     @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>

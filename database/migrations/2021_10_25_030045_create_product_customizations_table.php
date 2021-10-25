@@ -15,6 +15,7 @@ class CreateProductCustomizationsTable extends Migration
     {
         Schema::create('product_customizations', function (Blueprint $table) {
             $table->id('product_customization_id');
+            $table->foreignId('order_item_id');
             $table->string('product_code', 20)->unique();
             $table->string('size');
             $table->string('milk');
@@ -23,6 +24,7 @@ class CreateProductCustomizationsTable extends Migration
             $table->string('add_in');
             // $table->timestamps();
 
+            $table->foreign('order_item_id')->references('order_item_id')->on('order_items');
             $table->foreign('product_code')->references('product_code')->on('products');
         });
     }
