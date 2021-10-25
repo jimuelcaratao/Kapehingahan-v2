@@ -42,28 +42,25 @@
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex-shrink-0 flex items-center">
 
-                    <img class="block lg:hidden h-10 w-auto"
-                        src={{ asset('img/icon.png') }} alt="Workflow">
-                    <img class="hidden lg:block h-10 w-auto"
-                        src={{ asset('img/main-logo.png') }}
-
-                        alt="Workflow">
+                    <img class="block lg:hidden h-10 w-auto" src={{ asset('img/icon.png') }} alt="Workflow">
+                    <img class="hidden lg:block h-10 w-auto" src={{ asset('img/main-logo.png') }} alt="Workflow">
                 </div>
 
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                        <a href="#"
+                            class="text-gray-300 hover:bg-yellow-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
 
-            <div class="hidden sm:block sm:ml-6">
-                <div class="flex space-x-4">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="text-gray-300 hover:bg-yellow-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#"
+                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
 
-                    <a href="#"
-                        class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                        <a href="#"
+                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
 
-                    <a href="#"
-                        class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-
-                    <a href="#"
-                        class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        <a href="#"
+                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
                 </div>
             </div>
 
@@ -73,14 +70,17 @@
                         class=" bg-yellow-900 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span class="sr-only">View notifications</span>
                         <!-- Heroicon name: outline/bell -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -5 26 30" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                          </svg>
-                          <span class="flex absolute -mt-5 ml-4">
-                            <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-pink-400 opacity-75"></span>
-                              <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500">
-                              </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -5 26 30"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="flex absolute -mt-5 ml-4">
+                            <span
+                                class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-pink-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500">
                             </span>
+                        </span>
                     </button>
                 @endauth
 
@@ -92,9 +92,8 @@
                         @guest
                             @if (Route::has('login'))
                                 <div class=" md:fixed top-0 right-0 px-6 py-4 sm:block">
-                                    <a href="{{ route('login') }}"
-
-                                        class="text-sm text-white dark:text-gray-500">Log in</a>
+                                    <a href="{{ route('login') }}" class="text-sm text-white dark:text-gray-500">Log
+                                        in</a>
 
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}"
@@ -148,9 +147,8 @@
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
 
-                                        <x-jet-dropdown-link href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                            this.closest('form').submit();">
+                                        <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
 
                                             {{ __('Log Out') }}
                                         </x-jet-dropdown-link>
@@ -169,7 +167,9 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
+            <a href="#"
+                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                aria-current="page">Home</a>
 
             <a href="#"
                 class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
