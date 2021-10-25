@@ -1,42 +1,46 @@
 <x-ecommerce-layout>
 
-    <!-- Carousel component -->
-        @push('styles')
-		<style>
-			.carousel-open:checked + .carousel-item {
-				position: static;
-				opacity: 100;
-			}
-			.carousel-item {
-				-webkit-transition: opacity 0.6s ease-out;
-				transition: opacity 0.6s ease-out;
-			}
-			#carousel-1:checked ~ .control-1,
-			#carousel-2:checked ~ .control-2,
-			#carousel-3:checked ~ .control-3 {
-				display: block;
-			}
-			.carousel-indicators {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				position: absolute;
-				bottom: 2%;
-				left: 0;
-				right: 0;
-				text-align: center;
-				z-index: 10;
-			}
-			#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-			#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-			#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
-				color: #A47246;  /*Set to match the Tailwind colour you want the active one to be */
-			}
+    @push('styles')
+        <style>
+            .carousel-open:checked+.carousel-item {
+                position: static;
+                opacity: 100;
+            }
+
+            .carousel-item {
+                -webkit-transition: opacity 0.6s ease-out;
+                transition: opacity 0.6s ease-out;
+            }
+
+            #carousel-1:checked~.control-1,
+            #carousel-2:checked~.control-2,
+            #carousel-3:checked~.control-3 {
+                display: block;
+            }
+
+            .carousel-indicators {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                bottom: 2%;
+                left: 0;
+                right: 0;
+                text-align: center;
+                z-index: 10;
+            }
+
+            #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
+            #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
+            #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
+                color: #A47246;
+                /*Set to match the Tailwind colour you want the active one to be */
+            }
+
+        </style>
     @endpush
 
-
     <div class="bg-white font-sans leading-normal tracking-normal">
-
         <div class="carousel relative shadow-2xl bg-white">
             <div class="carousel-inner relative overflow-hidden w-full">
                 <!--Slide 1-->
@@ -49,7 +53,6 @@
                     class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
                 <label for="carousel-2"
                     class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
-
                 <!--Slide 2-->
                 <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
                 <div class="carousel-item absolute opacity-0" style="height:60vh;">
@@ -59,7 +62,6 @@
                     class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
                 <label for="carousel-3"
                     class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
-
                 <!--Slide 3-->
                 <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
                 <div class="carousel-item absolute opacity-0" style="height:60vh;">
@@ -69,7 +71,6 @@
                     class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
                 <label for="carousel-1"
                     class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
-
                 <!-- Add additional indicators for each slide-->
                 <ol class="carousel-indicators">
                     <li class="inline-block mr-3">
@@ -85,17 +86,13 @@
                             class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-yellow-900">•</label>
                     </li>
                 </ol>
-
             </div>
         </div>
-
         <!-- Hot brew or cold brew section -->
-
         <div class="container p-16 mx-auto space-y-8">
             <div class="space-y-2 text-center">
                 <h1 class="text-3xl font-bold uppercase">how do you like your coffee?</h1>
             </div>
-
             <div class="flex flex-col justify-center">
                 <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
                     <article class="flex flex-col">
@@ -104,7 +101,6 @@
                                 src={{ asset('img/hot-brew.jpg') }}>
                         </a>
                     </article>
-
                     <article class="flex flex-col">
                         <a href="#" aria-label="cold-brew">
                             <img alt="" class="object-cover w-full h-60 rounded-3xl"
@@ -114,18 +110,14 @@
                 </div>
             </div>
         </div>
-
         <!-- Best sellers -->
-
         <div class="container p-4 mx-auto space-y-8">
             <div class="space-y-2 text-center">
                 <h1 class="text-3xl font-bold uppercase">best sellers</h1>
             </div>
         </div>
-
         <div class="flex flex-col justify-center">
             <div class="relative m-3 flex flex-wrap mx-auto justify-center">
-
                 <div
                     class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
                     <div class="overflow-x-hidden rounded-2xl relative">
@@ -174,7 +166,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div
                     class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
                     <div class="overflow-x-hidden rounded-2xl relative">
@@ -223,7 +214,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div
                     class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
                     <div class="overflow-x-hidden rounded-2xl relative">
@@ -272,7 +262,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div
                     class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
                     <div class="overflow-x-hidden rounded-2xl relative">
@@ -321,7 +310,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div
                     class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
                     <div class="overflow-x-hidden rounded-2xl relative">
@@ -370,68 +358,56 @@
                         </div>
                     </div>
                 </div>
-
-  <!-- First ads -->
-    <div class="container px-5 py-5 mx-auto flex flex-wrap items-center justify-center">
-      <img src={{ asset('img/4.png') }} alt="ads">
-    </div>
-
-   <!-- Menu -->
-   <div class="container p-4 mx-auto space-y-8">
-    <div class="space-y-2 text-center">
-        <h1 class="text-3xl font-bold uppercase">menu</h1>
-    </div>
-</div>
-
-<div class="flex justify-center items-center">
-	<!--actual component start-->
-	<div x-data="setup()">
-		<ul class="flex justify-center items-center my-8 gap-4">
-			<template x-for="(tab, index) in tabs" :key="index">
-				<li class="cursor-pointer py-3 px-4 rounded-lg font-bold transition"
-					:class="activeTab===index ? 'bg-yellow-900 text-white' : ' text-gray-500'" @click="activeTab = index"
-					x-text="tab"></li>
-			</template>
-		</ul>
-
-		<div class="w-80 bg-white p-16 text-center mx-auto border">
-			<div x-show="activeTab===0">Content 1</div>
-			<div x-show="activeTab===1">Content 2</div>
-			<div x-show="activeTab===2">Content 3</div>
-			<div x-show="activeTab===3">Content 4</div>
-		</div>
-
-
-
-		<div class="flex gap-4 justify-center border-t p-4">
-			<button
-				class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
-				@click="activeTab--" x-show="activeTab>0"
-				>Back</button>
-			<button
-				class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
-				@click="activeTab++" x-show="activeTab<tabs.length-1"
-				>Next</button>
-		</div>
-	</div>
-	<!--actual component end-->
-</div>
-
-@push('scripts')
-<script>
-	function setup() {
-    return {
-      activeTab: 0,
-      tabs: [
-          "FOODS",
-          "DRINKS",
-          "PASTRIES",
-          "BEANS",
-      ]
-    };
-  };
-</script>
-@endpush
-
-
+                <!-- First ads -->
+                <div class="container px-5 py-5 mx-auto flex flex-wrap items-center justify-center">
+                    <img src={{ asset('img/4.png') }} alt="ads">
+                </div>
+                <!-- Menu -->
+                <div class="container p-4 mx-auto space-y-8">
+                    <div class="space-y-2 text-center">
+                        <h1 class="text-3xl font-bold uppercase">menu</h1>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center">
+                    <!--actual component start-->
+                    <div x-data="setup()">
+                        <ul class="flex justify-center items-center my-8 gap-4">
+                            <template x-for="(tab, index) in tabs" :key="index">
+                                <li class="cursor-pointer py-3 px-4 rounded-lg font-bold transition"
+                                    :class="activeTab===index ? 'bg-yellow-900 text-white' : ' text-gray-500'"
+                                    @click="activeTab = index" x-text="tab"></li>
+                            </template>
+                        </ul>
+                        <div class="w-80 bg-white p-16 text-center mx-auto border">
+                            <div x-show="activeTab===0">Content 1</div>
+                            <div x-show="activeTab===1">Content 2</div>
+                            <div x-show="activeTab===2">Content 3</div>
+                            <div x-show="activeTab===3">Content 4</div>
+                        </div>
+                        <div class="flex gap-4 justify-center border-t p-4">
+                            <button
+                                class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
+                                @click="activeTab--" x-show="activeTab>0">Back</button>
+                            <button
+                                class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
+                                @click="activeTab++" x-show="activeTab<tabs.length-1">Next</button>
+                        </div>
+                    </div>
+                    <!--actual component end-->
+                </div>
+                @push('scripts')
+                    <script>
+                        function setup() {
+                            return {
+                                activeTab: 0,
+                                tabs: [
+                                    "FOODS",
+                                    "DRINKS",
+                                    "PASTRIES",
+                                    "BEANS",
+                                ]
+                            };
+                        };
+                    </script>
+                @endpush
 </x-ecommerce-layout>
