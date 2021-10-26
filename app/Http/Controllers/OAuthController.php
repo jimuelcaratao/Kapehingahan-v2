@@ -25,6 +25,7 @@ class OAuthController extends Controller
         $existingUser = User::where('external_id', $user->getId())->first();
 
         if ($existingUser) {
+
             Auth::login($existingUser);
             return redirect('/dashboard');
         }
@@ -68,6 +69,9 @@ class OAuthController extends Controller
 
         // already exist callback need 
 
+        if ($existingUser && $existingUser->is_banned != '') {
+            return redirect('/login')->withInfo('Your account is currently banned. :(');
+        }
         if ($existingUser) {
             Auth::login($existingUser);
             return Redirect::route('dashboard');

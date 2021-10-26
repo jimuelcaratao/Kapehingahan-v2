@@ -209,4 +209,7 @@
             </div>
         </div>
     </div>
+
+    <x-user.confirm-password-modal>
+    </x-user.confirm-password-modal>
 </x-app-layout>

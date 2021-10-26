@@ -81,21 +81,22 @@
             </div>
         </div>
 
-
-
     </div>
 
+
+    {{-- Charts --}}
     <div class="flex flex-row flex-wrap flex-grow">
 
+        {{-- most populart products --}}
         <div class="w-full  xl:w-1/3 p-4 lg:pl-10">
             <div class="bg-white h-96 rounded p-5 shadow-md hover:shadow-xl transition delay-75">
-
+                <h3 class="font-bold text-2xl">Most Popular Products</h3>
             </div>
         </div>
 
         <div class="w-full  xl:w-2/3 p-4 lg:pr-10">
             <div class="bg-white h-96 rounded p-5 shadow-md hover:shadow-xl transition delay-75">
-
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
             </div>
         </div>
     </div>
@@ -104,7 +105,7 @@
 
         <div class="w-full  xl:w-1/2 p-4 lg:pl-10">
             <div class="bg-white h-96 rounded p-5 shadow-md hover:shadow-xl transition delay-75">
-
+                <div id="chartContainerVisits" style="height: 300px; width: 100%;"></div>
             </div>
         </div>
 
@@ -114,4 +115,74 @@
             </div>
         </div>
     </div>
+
+
+    @push('scripts')
+
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+        <script type="text/javascript">
+            // collections
+            var revenue_per_month = {!! json_encode($revenue_per_month->toArray(), JSON_HEX_TAG) !!};
+            var page_visits = {!! json_encode($page_visits->toArray(), JSON_HEX_TAG) !!};
+            console.log(page_visits);
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const d = new Date();
+            window.onload = function() {
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    title: {
+                        text: "KapeHingahan Revenue by month of " + monthNames[d.getMonth()]
+                    },
+                    axisY: {
+                        title: "Revenue in PHP",
+                        valueFormatString: "#0,.",
+                        suffix: "k",
+                        prefix: "₱"
+                    },
+                    data: [{
+                        type: "splineArea",
+                        color: "rgba(54,158,173,.7)",
+                        markerSize: 5,
+                        xValueFormatString: "YYYY-MM-DD",
+                        yValueFormatString: "₱#,##0.##",
+                        dataPoints: [
+                            @foreach ($revenue_per_month as $revenue)
+                                { x: new Date("{{ $revenue->created_at }}"), y: {{ $revenue->price * $revenue->quantity }} },
+                            @endforeach
+                        ]
+                    }]
+                });
+
+                var chart2 = new CanvasJS.Chart("chartContainerVisits", {
+                    animationEnabled: true,
+                    title: {
+                        text: "KapeHingahan Web Visits Per Day"
+                    },
+                    axisY: {
+                        // title: "Revenue in PHP",
+                        valueFormatString: "#0.",
+                        // prefix: "₱"
+                    },
+                    data: [{
+                        type: "splineArea",
+                        color: "rgba(54,158,173,.7)",
+                        markerSize: 5,
+                        xValueFormatString: "YYYY-MM-DD",
+                        yValueFormatString: "#,##0.##",
+                        dataPoints: [
+                            @foreach ($page_visits as $page_visit)
+                                { x: new Date("{{ $page_visit->day }}"), y: {{ $page_visit->count }} },
+                            @endforeach
+                        ]
+                    }]
+                });
+                chart.render();
+                chart2.render();
+            }
+        </script>
+
+    @endpush
 </x-app-layout>
