@@ -425,8 +425,8 @@
                         class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden">
                         <span class="sr-only">Filters</span>
                         <!-- Heroicon name: solid/filter -->
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20" fill="currentColor">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
                                 clip-rule="evenodd" />
@@ -490,8 +490,8 @@
 
                     Heroicon name: solid/plus-sm
                   -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                                 clip-rule="evenodd" />
@@ -501,8 +501,8 @@
 
                     Heroicon name: solid/minus-sm
                   -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
                                                 clip-rule="evenodd" />
@@ -579,8 +579,8 @@
 
                     Heroicon name: solid/plus-sm
                   -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                                 clip-rule="evenodd" />
@@ -590,8 +590,8 @@
 
                     Heroicon name: solid/minus-sm
                   -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
                                                 clip-rule="evenodd" />
@@ -664,8 +664,8 @@
 
                     Heroicon name: solid/plus-sm
                   -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                                 clip-rule="evenodd" />
@@ -675,8 +675,8 @@
 
                     Heroicon name: solid/minus-sm
                   -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
                                                 clip-rule="evenodd" />
@@ -742,7 +742,7 @@
                     <!-- Product grid -->
                     <div class="lg:col-span-3">
                         <!-- Replace with your content -->
-                        <div class=" border-gray-200 rounded-lg h-96 lg:h-full">
+                        <div class=" border-gray-200 rounded-lg h-auto lg:h-full">
                             {{ $productGrid }}
                         </div>
                         <!-- /End replace -->

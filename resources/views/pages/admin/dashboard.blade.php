@@ -3,7 +3,8 @@
 
     <div class="flex flex-wrap  px-6 mx-0 md:mx-4 mb-4 md:mb-8 md:mb-6 md:mt-4">
         <div class="w-full px-6 py-8 bg-gradient-to-r from-blue-200 to-blue-300 rounded shadow-sm">
-            <h2 class="font-bold text-lg md:text-3xl">Hello, Good Morning 👋</h2>
+            <h2 class="font-bold text-lg md:text-3xl">{{ $dayTerm }}, <span
+                    class="uppercase">{{ Auth::user()->name }}</span> 👋</h2>
             <h5 class=" text-sm md:text-base">here is whats happening:</h5>
         </div>
     </div>
@@ -22,7 +23,8 @@
                     </div>
                     <div class="flex-1 text-right md:text-center">
                         <h5 class="font-bold text-sm uppercase text-gray-600">New Orders</h5>
-                        <h3 class="font-bold text-2xl">2 <span class="text-purple-600"></span></h3>
+                        <h3 class="font-bold text-2xl">{{ $orders_count_today }} <span class="text-purple-600"></span>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -55,8 +57,9 @@
                         </div>
                     </div>
                     <div class="flex-1 text-right md:text-center">
-                        <h5 class="font-bold text-sm uppercase text-gray-600">New Products</h5>
-                        <h3 class="font-bold text-2xl">2 <span class="text-purple-600"></span></h3>
+                        <h5 class="font-bold text-sm uppercase text-gray-600">Products</h5>
+                        <h3 class="font-bold text-2xl">{{ $products_count }} <span class="text-purple-600"></span>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +75,7 @@
                     </div>
                     <div class="flex-1 text-right md:text-center">
                         <h5 class="font-bold text-sm uppercase text-gray-600">New Users</h5>
-                        <h3 class="font-bold text-2xl">2 <span class="text-purple-600"></span></h3>
+                        <h3 class="font-bold text-2xl">{{ $new_users }} <span class="text-purple-600"></span></h3>
                     </div>
                 </div>
             </div>
