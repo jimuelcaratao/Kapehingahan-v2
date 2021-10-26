@@ -145,9 +145,9 @@
                                         </p>
 
                                         <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-indigo-500", Not Checked: "border-transparent"
-                    -->
+                                        Active: "border", Not Active: "border-2"
+                                        Checked: "border-indigo-500", Not Checked: "border-transparent"
+                                        -->
                                         <div class="absolute -inset-px rounded-md pointer-events-none"
                                             aria-hidden="true"></div>
                                     </label>
@@ -161,10 +161,7 @@
                                             M
                                         </p>
 
-                                        <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-indigo-500", Not Checked: "border-transparent"
-                    -->
+
                                         <div class="absolute -inset-px rounded-md pointer-events-none"
                                             aria-hidden="true"></div>
                                     </label>
@@ -177,57 +174,76 @@
                                         <p id="size-choice-4-label">
                                             L
                                         </p>
-
-                                        <!--
-                      Active: "border", Not Active: "border-2"
-                      Checked: "border-indigo-500", Not Checked: "border-transparent"
-                    -->
                                         <div class="absolute -inset-px rounded-md pointer-events-none"
                                             aria-hidden="true"></div>
-
-
+                                    </label>
                                 </div>
                             </fieldset>
                         </div>
 
                         <button type="submit"
-                            class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add
-                            to Cart</button>
-                    </form>
+                            class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Add to Cart
+                        </button>
+
                 </div>
 
                 <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+
                     <!-- Description and details -->
                     <div>
-                        <h3 class="sr-only">Description</h3>
+                        <h3 class="sr-only">Customization</h3>
 
                         <div class="space-y-6">
-                            <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your
-                                vibrant personality with three grayscale options. Feeling adventurous? Put on a heather
-                                gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need
-                                to add an extra pop of color to your outfit? Our white tee has you covered.</p>
+                            <div class="space-y-3">
+                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
+                                    Milk Type</label>
+                                <select id="brand_name" name="brand_name" required
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="wa">wala</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
+                                    Add-inFlavor
+                                </label>
+                                <select id="brand_name" name="brand_name" required
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="wa">wala</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
+                                    Toppings
+                                </label>
+                                <select id="brand_name" name="brand_name" required
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="wa">wala</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
+                                    Add-ins
+                                </label>
+                                <select id="brand_name" name="brand_name" required
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="wa">wala</option>
+                                </select>
+                            </div>
+
                         </div>
+
                     </div>
 
-                    <div class="mt-10">
-                        <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
+                    </form>
 
-                        <div class="mt-4">
-                            <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                                <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span>
-                                </li>
-
-                                <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary
-                                        colors</span></li>
-
-                                <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp;
-                                        pre-shrunk</span></li>
-
-                                <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
 
                     <div class="mt-10">
                         <h2 class="text-sm font-medium text-gray-900">Details</h2>

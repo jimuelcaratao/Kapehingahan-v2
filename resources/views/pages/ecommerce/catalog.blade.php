@@ -5,13 +5,33 @@
     @endpush
 
     <x-catalog.catalog-layout>
+        <x-slot name="head">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">
+                Products
+            </h1>
+        </x-slot>
+        <x-slot name="categoryList">
+            @forelse ($categories as $category)
+                <li>
+                    <a href="{{ route('catalog.category', [$category->category_name]) }}">
+                        {{ $category->category_name }}
+                    </a>
+                </li>
+            @empty
+                <li>
+                    <a href="#">
+                        No Category Available
+                    </a>
+                </li>
+            @endforelse
+        </x-slot>
         <x-slot name="productGrid">
             <div class="flex flex-col ">
                 <div class="relative m-3 flex flex-wrap mx-auto ">
 
                     @forelse ($products as $product)
                         <div
-                            class="relative max-w-sm min-w-[220px] md:min-w-[340px]  bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
+                            class="relative max-w-sm min-w-[300px] md:min-w-[340px]  bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
                             <div class="overflow-x-hidden rounded-2xl relative">
                                 <img class="mx-auto h-36 rounded-2xl w-36"
                                     src="{{ asset('storage/media/products/main_' . $product->product_code . '_' . $product->default_photo) }}"
@@ -62,7 +82,7 @@
                             </div>
                         </div>
                     @empty
-
+                        No {{ $category_found->category_name }} Available.. :(
                     @endforelse
 
 
