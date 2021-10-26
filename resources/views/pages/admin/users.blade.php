@@ -26,89 +26,187 @@
             {{-- Table --}}
             <x-main-table>
                 {{-- Col --}}
+
                 <x-slot name="tableColumn">
                     <tr>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Product Code
+                            TYPE
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Product Name
+                            Full name
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Category
+                            Email
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Brand
+                            Social Media
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Stocks
+                            Status
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Price
+                            Banned Date
                         </th>
-                        <th scope="col" class="relative px-6 py-3">
-                            <span class="sr-only">Edit</span>
+                        <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Date Created
+                        </th>
+                        <th scope="col-2"
+                            class="flex flex-row px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Action
+                            <svg id="info" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Please configure your password first. Ignore this if you're finish."
+                                xmlns="http://www.w3.org/2000/svg" class="cursor-pointer ml-3 h-4 w-4" fill="none"
+                                viewBox="0 0 24  24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </th>
                     </tr>
                 </x-slot>
-                {{-- Rows --}}
+
                 <x-slot name="tableRow">
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10">
-                                    <img class="h-10 w-10 rounded-full"
-                                        src="https://images.unsplash.com/photo-1619914775389-748e5e136c26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjIwMTk4MjAw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=100"
-                                        alt="">
-                                </div>
-                                <div class="ml-4">
-                                    <div class="text-sm font-medium text-gray-900">
-                                        HT-421312
+                    @forelse ($users as $user)
+                        <tr>
+                            <td class="px-6 py-2 whitespace-nowrap">
+                                @if ($user->is_admin == 1)
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Admin
+                                    </span>
+                                @elseif($user->is_admin == 2)
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                        Staff
+                                    </span>
+                                @else
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                        Normal
+                                    </span>
+                                @endif
+
+                            </td>
+                            <td class="px-6 py-2 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">{{ $user->name }}</div>
+                            </td>
+                            <td class="px-6 py-2 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">{{ $user->email }}</div>
+                            </td>
+                            <td class="px-6 py-2 whitespace-nowrap">
+                                @if ($user->external_provider == 'Facebook')
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                        {{ $user->external_provider }}
+                                    </span>
+                                @elseif ($user->external_provider == 'Google')
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                        {{ $user->external_provider }}
+                                    </span>
+                                @else
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                        None
+                                    </span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-2 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">Active</div>
+                            </td>
+
+
+
+                            @if (empty($user->is_banned))
+                                <td class="px-6 py-2 py-4 whitespace-nowrap">
+                                    <div
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                        Not Banned</div>
+                                </td>
+                            @else
+                                <td class="px-6 py-2 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $user->is_banned }}</div>
+                                </td>
+                            @endif
+
+
+                            <td class="px-6 py-2 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">
+                                    {{ \Carbon\Carbon::parse($user->created_at)->format('d / F / Y') }}</div>
+                            </td>
+
+                            <td class="px-6 py-2 whitespace-nowrap">
+                                <div class="flex items-center">
+
+                                    {{-- <div class="flex-shrink-0">
+                                        <a 
+                                        href="#"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#edit-modal-user"
+                                        data-community="{{ json_encode($user) }}"
+                                        data-item-id="{{ $user->id }}"
+                                        data-item-name="{{ $user->name }}"
+                                        data-item-email="{{ $user->email }}"
+                                        id="edit-item-user"
+                                        class="text-indigo-600 no-underline hover:text-indigo-900 mr-5">View</a>
+                                    </div> --}}
+
+                                    {{-- banned --}}
+                                    <div class="ml-4">
+                                        <div class="text-sm py-4 font-medium text-gray-900">
+
+                                            @if ($user->is_admin == false)
+                                                @if ($user->is_banned != null)
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#confirm-modal"
+                                                        data-item-id="{{ $user->id }}" id=""
+                                                        class="confirm-password text-red-600 no-underline hover:text-red-900 mr-5">Unbanned</a>
+                                                @endif
+
+                                                @empty($user->is_banned)
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#confirm-modal"
+                                                        data-item-id="{{ $user->id }}" id=""
+                                                        class="confirm-password text-red-600 no-underline hover:text-red-900 mr-5">Ban</a>
+                                                @endempty
+                                            @endif
+
+
+                                        </div>
                                     </div>
 
                                 </div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900 font-bold">Cappucino</div>
-                            <div class="text-xs text-gray-500">Light brown with litte...</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <span
-                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                Hot Coffee
-                            </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            KapeHingahan
-                        </td>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="8" class="pr-4 py-2 whitespace-nowrap text-sm font-medium text-center">
+                                <img class="mx-auto d-block text-center py-4" style="width: 275px"
+                                    src="{{ asset('images/components/no-products.svg') }}" alt="no products">
+                                Hmmm.. There is no users in here yet.
+                            </td>
+                        </tr>
+                    @endforelse
 
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            5 Packs
-                        </td>
 
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            $ @convert('123')
-                        </td>
-                        <td class="pl-2 pr-6 py-4 whitespace-nowrap text-right text-base font-medium">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3 text-decoration-none">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <a href="#" class="text-red-600 hover:text-red-900">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
                 </x-slot>
             </x-main-table>
 
 
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 d-flex justify-content-center">
+            {{-- pagination --}}
+            <div class="pagination">
+                {{ $users->render('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 </x-app-layout>
