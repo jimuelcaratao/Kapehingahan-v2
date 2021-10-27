@@ -91,7 +91,7 @@
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img class="h-10 w-10 rounded-full border"
                                             src="{{ asset('storage/media/products/main_' . $product->product_code . '_' . $product->default_photo) }}"
-                                            alt="">
+                                            alt="{{ $product->default_photo }}">
                                     </div>
                                     <div class="ml-4">
                                         <div class="text-sm font-medium text-gray-900">

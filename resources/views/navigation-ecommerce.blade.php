@@ -91,7 +91,7 @@
                     <div class="">
                         @guest
                             @if (Route::has('login'))
-                                <div class=" md:fixed top-0 right-0 px-6 py-4 sm:block">
+                                <div class=" px-6 py-4 sm:block">
                                     <a href="{{ route('login') }}" class="text-sm text-white dark:text-gray-500">Log
                                         in</a>
 
@@ -148,7 +148,7 @@
                                         @csrf
 
                                         <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
+                                                                this.closest('form').submit();">
 
                                             {{ __('Log Out') }}
                                         </x-jet-dropdown-link>

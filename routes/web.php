@@ -47,6 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 //home Apis
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('/catalog/{category_name}', [CatalogController::class, 'catalog_category'])->name('catalog.category');
 Route::get('/product', [CatalogController::class, 'single_product'])->name('product');
 
 
