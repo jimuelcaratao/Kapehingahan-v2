@@ -7,10 +7,12 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Visit;
 use App\Models\WishList;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -53,16 +55,16 @@ class DashboardController extends Controller
 
         $revenue_per_month = OrderItem::whereMonth('created_at', '=', Carbon::now()->subMonth()->month + 1)->get();
 
-        // $page_visits = Visit::select([
-        //     // This aggregates the data and makes available a 'count' attribute
-        //     DB::raw('count(visit_id) as `count`'), 
-        //     // This throws away the timestamp portion of the date
-        //     DB::raw('DATE(visit_date) as day')
-        //   // Group these records according to that day
-        //   ])->groupBy('day')
-        //   // And restrict these results to only those created in the last week
-        //   ->where('visit_date', '>=', Carbon::now()->subWeeks(1))
-        //   ->get();
+        $page_visits = Visit::select([
+            // This aggregates the data and makes available a 'count' attribute
+            DB::raw('count(visit_id) as `count`'),
+            // This throws away the timestamp portion of the date
+            DB::raw('DATE(visit_date) as day')
+            // Group these records according to that day
+        ])->groupBy('day')
+            // And restrict these results to only those created in the last week
+            ->where('visit_date', '>=', Carbon::now()->subWeeks(1))
+            ->get();
 
         return view('pages.admin.dashboard', [
             'users' => $users,
@@ -72,7 +74,7 @@ class DashboardController extends Controller
             'products_count_low' => $products_count_low,
             'orders_count_today' => $orders_count_today,
             'popular_items' => $popular_items,
-            // 'page_visits' => $page_visits,
+            'page_visits' => $page_visits,
             'revenue_per_month' => $revenue_per_month,
 
         ]);
