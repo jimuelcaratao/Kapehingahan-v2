@@ -7,7 +7,7 @@
 				</div>
 			</a>
             <div class="w-80">
-            <span class="self-center text-sm">KapeHingahan will start your day with a cup of coffee. Serving high-quality espresso-based drinks as well as delectable meals.</span>
+            <span class="self-center text-sm mx-auto">KapeHingahan will start your day with a cup of coffee. Serving high-quality espresso-based drinks as well as delectable meals.</span>
             </div>
         </div>
 		<div class="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/4 sm:grid-cols-3">
