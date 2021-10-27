@@ -1,4 +1,78 @@
 <x-ecommerce-layout>
+
+    @push('styles')
+        <style>
+            input[type="number"] {
+                -webkit-appearance: textfield;
+                -moz-appearance: textfield;
+                appearance: textfield;
+            }
+
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+            }
+
+            .number-input {
+                border: 2px solid #ddd;
+                display: inline-flex;
+            }
+
+            .number-input,
+            .number-input * {
+                box-sizing: border-box;
+            }
+
+            .number-input button {
+                outline: none;
+                -webkit-appearance: none;
+                background-color: #eeeeee;
+                border: none;
+                align-items: center;
+                justify-content: center;
+                width: 2.5rem;
+                cursor: pointer;
+                margin: 0;
+                position: relative;
+                padding: 0;
+            }
+
+            .number-input button:before,
+            .number-input button:after {
+                display: inline-block;
+                position: absolute;
+                content: "";
+                width: 0.5rem;
+                height: 2px;
+                background-color: #212121;
+                transform: translate(-50%, -50%);
+            }
+
+            .number-input button.plus:after {
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+
+            .number-input input[type="number"] {
+                font-family: sans-serif;
+                max-width: 4.5rem;
+                padding: 0.5rem;
+                border: 0;
+                text-align: center;
+                outline: none;
+            }
+
+            .number-input {
+                border: solid #c2c4c6;
+                border-width: 2px;
+            }
+
+            .text-star {
+                background-color: gold;
+            }
+
+        </style>
+    @endpush
+
     <div class="bg-white">
         <div class="pt-6">
 
@@ -19,7 +93,7 @@
                     <li>
                         <div class="flex items-center">
                             <a href="#" class="mr-2 text-sm font-medium text-gray-900">
-                                Hot Coffee
+                                {{ $product->category_name }}
                             </a>
                             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-5 text-gray-300">
@@ -30,7 +104,7 @@
 
                     <li class="text-sm">
                         <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">
-                            Capuccino
+                            {{ $product->product_name }}
                         </a>
                     </li>
                 </ol>
@@ -64,8 +138,8 @@
 
                     <h2 class="sr-only">Product information</h2>
                     <div class="flex flex-row justify-between">
-                        <p class="text-3xl text-gray-900 font-bold">CAPUCCINO</p>
-                        <p class="text-3xl text-gray-900"> $192</p>
+                        <p class="text-3xl text-gray-900 font-bold">{{ $product->product_name }}</p>
+                        <p class="text-3xl text-gray-900">₱ @convert($product->price)</p>
                     </div>
 
 
@@ -74,110 +148,71 @@
                         <h3 class="sr-only">Reviews</h3>
                         <div class="flex items-center">
                             <div class="flex items-center">
-                                <!--
-                  Heroicon name: solid/star
-  
-                  Active: "text-gray-900", Default: "text-gray-200"
-                -->
-                                <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                                {!! str_repeat(
+    '
+                                                                                                            <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
+                                                                                                                <path
+                                                                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                                                                            </svg>
+                                                                                                        ',
+    round($product_ave_reviews, 0),
+) !!}
 
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                                {!! str_repeat(
+    '
+                                                                                                           <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
+                                                                                                                <path
+                                                                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                                                                            </svg>
+                                                                                                        ',
+    5 - round($product_ave_reviews, 0),
+) !!}
 
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                                {{-- review counts --}}
+                                @if (count($product->product_reviews) <= 0)
+                                    <p class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"> No
+                                        reviews</p>
 
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                                @else
 
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-gray-200 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                                    <p class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                        {{ count($product->product_reviews) }} reviews</p>
+                                @endif
                             </div>
-                            <p class="sr-only">4 out of 5 stars</p>
-                            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117
-                                reviews</a>
                         </div>
                     </div>
 
-                    <form class="mt-10">
-
+                    <form class="mt-10" method="POST">
+                        @csrf
                         <!-- Sizes -->
                         <div class="mt-10">
                             <div class="flex items-center justify-between">
-                                <h3 class="text-sm text-gray-900 font-medium">Size</h3>
-                                <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size
-                                    guide</a>
+                                <h3 class="text-sm text-gray-900 font-medium">Quantity:</h3>
+                                {{-- <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size
+                                    guide</a> --}}
                             </div>
 
                             <fieldset class="mt-4">
-                                <legend class="sr-only">
-                                    Choose a size
-                                </legend>
-                                <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
+                                {{-- <input class="" type="number" name="quantity" min="1" max="5" value="1"> --}}
+                                <td>
+                                    <div class="justify-content-center">
+                                        <div class=" mb-0">
+                                            <div class=" mx-auto mb-0">
+                                                {{-- <label for="quantity">Quantity :</label> --}}
+                                                <div class="number-input">
 
-                                    <!-- Active: "ring-2 ring-indigo-500" -->
-                                    <label
-                                        class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
-                                        <input type="radio" name="size-choice" value="S" class="sr-only"
-                                            aria-labelledby="size-choice-2-label">
-                                        <p id="size-choice-2-label">
-                                            S
-                                        </p>
-
-                                        <!--
-                                        Active: "border", Not Active: "border-2"
-                                        Checked: "border-indigo-500", Not Checked: "border-transparent"
-                                        -->
-                                        <div class="absolute -inset-px rounded-md pointer-events-none"
-                                            aria-hidden="true"></div>
-                                    </label>
-
-                                    <!-- Active: "ring-2 ring-indigo-500" -->
-                                    <label
-                                        class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
-                                        <input type="radio" name="size-choice" value="M" class="sr-only"
-                                            aria-labelledby="size-choice-3-label">
-                                        <p id="size-choice-3-label">
-                                            M
-                                        </p>
-
-
-                                        <div class="absolute -inset-px rounded-md pointer-events-none"
-                                            aria-hidden="true"></div>
-                                    </label>
-
-                                    <!-- Active: "ring-2 ring-indigo-500" -->
-                                    <label
-                                        class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer">
-                                        <input type="radio" name="size-choice" value="L" class="sr-only"
-                                            aria-labelledby="size-choice-4-label">
-                                        <p id="size-choice-4-label">
-                                            L
-                                        </p>
-                                        <div class="absolute -inset-px rounded-md pointer-events-none"
-                                            aria-hidden="true"></div>
-                                    </label>
-                                </div>
+                                                    <button type="button"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                                    <input class="quantity " min="1" max="5" name="quantity"
+                                                        value="1" type="number">
+                                                    <button type="button"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                        class="plus"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </fieldset>
                         </div>
 
@@ -196,9 +231,19 @@
 
                         <div class="space-y-6">
                             <div class="space-y-3">
-                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
+                                <label for="size" class="block text-sm font-medium text-gray-700">
+                                    Size</label>
+                                <select id="size" name="size"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label for="milk" class="block text-sm font-medium text-gray-700">
                                     Milk Type</label>
-                                <select id="brand_name" name="brand_name" required
+                                <select id="milk" name="milk"
                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option selected disabled value="">Choose...</option>
                                     <option value="wa">wala</option>
@@ -206,10 +251,10 @@
                             </div>
 
                             <div class="space-y-3">
-                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
-                                    Add-inFlavor
+                                <label for="flavor" class="block text-sm font-medium text-gray-700">
+                                    Add-in Flavor
                                 </label>
-                                <select id="brand_name" name="brand_name" required
+                                <select id="flavor" name="flavor"
                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option selected disabled value="">Choose...</option>
                                     <option value="wa">wala</option>
@@ -217,10 +262,10 @@
                             </div>
 
                             <div class="space-y-3">
-                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
+                                <label for="topping" class="block text-sm font-medium text-gray-700">
                                     Toppings
                                 </label>
-                                <select id="brand_name" name="brand_name" required
+                                <select id="topping" name="topping"
                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option selected disabled value="">Choose...</option>
                                     <option value="wa">wala</option>
@@ -228,10 +273,10 @@
                             </div>
 
                             <div class="space-y-3">
-                                <label for="brand_name" class="block text-sm font-medium text-gray-700">
+                                <label for="add_in" class="block text-sm font-medium text-gray-700">
                                     Add-ins
                                 </label>
-                                <select id="brand_name" name="brand_name" required
+                                <select id="add_in" name="add_in"
                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option selected disabled value="">Choose...</option>
                                     <option value="wa">wala</option>
@@ -249,9 +294,7 @@
                         <h2 class="text-sm font-medium text-gray-900">Details</h2>
 
                         <div class="mt-4 space-y-6">
-                            <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather
-                                gray Basic Tees. Sign up for our subscription service and be the first to get new,
-                                exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
+                            <p class="text-sm text-gray-600"> {{ $product->description }}</p>
                         </div>
                     </div>
                 </div>

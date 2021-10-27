@@ -48,26 +48,38 @@
                                 <div>
                                     <p class="text-lg font-semibold mb-0">{{ $product->product_name }}</p>
                                     <div class="flex item-center mt-2">
+
+                                        @php
+                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product_code)->avg('stars');
+                                        @endphp
+
+                                        {!! str_repeat(
+    '
                                         <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
                                             <path
                                                 d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
                                         </svg>
-                                        <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
+                                    ',
+    round($product_ave_reviews, 0),
+) !!}
+
+                                        {!! str_repeat(
+    '
+                                       <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
                                             <path
                                                 d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
                                         </svg>
-                                        <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                        </svg>
-                                        <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                        </svg>
-                                        <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                        </svg>
+                                    ',
+    5 - round($product_ave_reviews, 0),
+) !!}
+
+                                        ( {{ round($product_ave_reviews, 0) }} )
+
+
+                                        <span class="ml-2">{{ count($product->product_reviews) }}
+                                            Reviews
+                                        </span>
+
                                     </div>
                                     <p class="text-md text-yellow-900 mt-4">₱ @convert($product->price)</p>
                                 </div>
