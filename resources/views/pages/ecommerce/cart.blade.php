@@ -92,7 +92,7 @@
                         <img class="h-1/2 w-1/2 md:h-1/4 md:w-1/4 block mx-auto"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}"
                             alt="{{ $cart->product->product_name }}">
-                        <div class="px-4 w-full flex flex-col justify-around items-start space-y-3">
+                        <div class="px-4 w-full flex flex-col justify-around items-start">
                             <h1 class="text-gray-700 font-bold">
                                 <a href="{{ route('product', [$cart->product->product_code]) }}">
                                     {{ $cart->product->product_name }}
@@ -104,7 +104,25 @@
                                 <p>Stock: Not Available</p>
                             @endif
 
-                            <p>Brand: {{ $cart->product->brand_name }}</p>
+                            @foreach ($cart->cart_product_customizations as $item)
+                                <p>size: {{ $item->size }}</p>
+                                @if ($item->milk == null)
+                                    <p>milk: {{ $item->milk }}</p>
+                                @endif
+
+                                @if ($item->flavor != null)
+                                    <p>Add-in flavor: {{ $item->flavor }}</p>
+                                @endif
+                                @if ($item->topping != null)
+                                    <p>toppings: {{ $item->topping }}</p>
+                                @endif
+                                @if ($item->add_in != null)
+                                    <p>Add-ins: {{ $item->add_in }}</p>
+                                @endif
+
+                            @endforeach
+
+                            {{-- <p>Brand: {{ $cart->product->brand_name }}</p> --}}
 
                             {{-- Buttons --}}
                             <div class="flex flex-row space-x-2">
@@ -122,7 +140,8 @@
                                 </form>
 
 
-                                <form action="{{ route('cart.move', [$cart->product->product_code]) }}" method="POST">
+                                <form action="{{ route('cart.move', [$cart->product->product_code]) }}"
+                                    method="POST">
                                     @csrf
                                     <button>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none"
@@ -205,8 +224,9 @@
                 @empty
                     <div class="flex flex-col md:flex-row ">
                         <div class="px-4 w-full flex flex-col justify-around items-start ">
-
-                            <p class="font-bold block mx-auto my-6">No item on carts</p>
+                            <img src="{{ asset('img/empty_cart.svg') }}" alt="No wish"
+                                class="block h-2/4 w-2/4  mx-auto">
+                            <p class="font-bold block mx-auto mb-6">No item on carts</p>
                         </div>
                     </div>
                 @endforelse
@@ -233,12 +253,12 @@
 
                 @if ($total > 0)
                     <x-jet-button>
-                        {{-- <a href="{{ route('checkout.index') }}">
-                            Go to checkout
-                        </a> --}}
-                        <a href="">
+                        <a href="{{ route('checkout.index') }}">
                             Go to checkout
                         </a>
+                        {{-- <a href="">
+                            Go to checkout
+                        </a> --}}
                     </x-jet-button>
                 @endif
 

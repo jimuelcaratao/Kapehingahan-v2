@@ -90,6 +90,14 @@ class ProductController extends Controller
             'price' => $request->input('price'),
         ]);
 
+
+        if ($request->has('is_customizable')) {
+            Product::where('product_code', $request->input('product_code'))
+                ->update([
+                    'is_customizable' => '1',
+                ]);
+        }
+
         // photos
         if ($request->hasFile('default_photo') != null) {
             if ($request->file('default_photo')->isValid()) {
@@ -146,6 +154,18 @@ class ProductController extends Controller
                 'stock_measurement' => $request->input('edit_stock_measurement'),
                 'price' => $request->input('edit_price'),
             ]);
+
+        if ($request->has('edit_is_customizable')) {
+            Product::where('product_code', $request->input('edit_product_code'))
+                ->update([
+                    'is_customizable' => '1',
+                ]);
+        } else {
+            Product::where('product_code', $request->input('edit_product_code'))
+                ->update([
+                    'is_customizable' => '0',
+                ]);
+        }
 
         if ($request->hasFile('default_photo') != null) {
             if ($request->file('default_photo')->isValid()) {

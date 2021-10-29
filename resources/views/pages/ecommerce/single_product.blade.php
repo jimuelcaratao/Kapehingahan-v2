@@ -120,9 +120,19 @@
             <div
                 class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                    <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-                        Customization
-                    </h1>
+
+                    @if ($product->is_customizable == 1)
+                        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+                            Customization
+                        </h1>
+                    @endif
+                    @if ($product->is_customizable == 0)
+
+                        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+                            {{ $product->product_name }}
+                        </h1>
+                    @endif
+
                 </div>
 
                 <!-- Options -->
@@ -131,10 +141,43 @@
 
                     <!-- Image gallery -->
                     <div
-                        class="aspect-w-3 aspect-h-4 h-96  sm:rounded-lg sm:overflow-hidden lg:aspect-w-2 lg:aspect-h-3 mb-4">
+                        class="aspect-w-3 aspect-h-4 h-auto  sm:rounded-lg sm:overflow-hidden lg:aspect-w-2 lg:aspect-h-3 mb-4">
+
+                        {{-- Wishlist --}}
+                        @if ($wishlist == null)
+                            <form action="{{ route('wishlist.add', [$product->product_code]) }}" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="float-right text-white bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        @else
+                            <form action="{{ route('wishlist.remove', [$product->product_code]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="float-right text-white bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </form>
+                        @endif
+
+                        {{-- Main Image --}}
                         <img src="{{ asset('img/prd-2.jpg') }}" alt="Model wearing plain white basic tee."
                             class="w-full h-full object-center object-cover">
                     </div>
+
+
 
                     <h2 class="sr-only">Product information</h2>
                     <div class="flex flex-row justify-between">
@@ -150,21 +193,21 @@
                             <div class="flex items-center">
                                 {!! str_repeat(
     '
-                                                                                                            <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                                                                                                <path
-                                                                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                                                                            </svg>
-                                                                                                        ',
+                            <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                            </svg>
+                        ',
     round($product_ave_reviews, 0),
 ) !!}
 
                                 {!! str_repeat(
     '
-                                                                                                           <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                                                                                                <path
-                                                                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                                                                            </svg>
-                                                                                                        ',
+                            <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                            </svg>
+                        ',
     5 - round($product_ave_reviews, 0),
 ) !!}
 
@@ -182,7 +225,8 @@
                         </div>
                     </div>
 
-                    <form class="mt-10" method="POST">
+                    <form class="mt-10" action="{{ route('cart.add', [$product->product_code]) }}"
+                        method="POST">
                         @csrf
                         <!-- Sizes -->
                         <div class="mt-10">
@@ -216,10 +260,27 @@
                             </fieldset>
                         </div>
 
-                        <button type="submit"
-                            class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Add to Cart
-                        </button>
+                        <div class="flex flex row gap-2 ">
+                            {{-- Add to Cart --}}
+                            <button type="submit"
+                                class="mt-10 w-full bg-yellow-600 border border-transparent rounded-md py-2 flex items-center justify-center text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                                Add to Cart
+                            </button>
+
+                            {{-- Wishlists --}}
+                            {{-- <a href=""
+                                class="mt-10 w-1/6 bg-indigo-600 border border-transparent rounded-md  flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            </a> --}}
+
+
+
+                        </div>
+
 
                 </div>
 
@@ -227,63 +288,66 @@
 
                     <!-- Description and details -->
                     <div>
-                        <h3 class="sr-only">Customization</h3>
 
-                        <div class="space-y-6">
-                            <div class="space-y-3">
-                                <label for="size" class="block text-sm font-medium text-gray-700">
-                                    Size</label>
-                                <select id="size" name="size"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="large">Large</option>
-                                </select>
+
+                        @if ($product->is_customizable == 1)
+                            <div class="space-y-6 customizable">
+                                <div class="space-y-3">
+                                    <label for="size" class="block text-sm font-medium text-gray-700">
+                                        Size</label>
+                                    <select id="size" name="size"
+                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <label for="milk" class="block text-sm font-medium text-gray-700">
+                                        Milk Type</label>
+                                    <select id="milk" name="milk"
+                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="wa">wala</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <label for="flavor" class="block text-sm font-medium text-gray-700">
+                                        Add-in Flavor
+                                    </label>
+                                    <select id="flavor" name="flavor"
+                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="wa">wala</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <label for="topping" class="block text-sm font-medium text-gray-700">
+                                        Toppings
+                                    </label>
+                                    <select id="topping" name="topping"
+                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="wa">wala</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <label for="add_in" class="block text-sm font-medium text-gray-700">
+                                        Add-ins
+                                    </label>
+                                    <select id="add_in" name="add_in"
+                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="wa">wala</option>
+                                    </select>
+                                </div>
+
                             </div>
+                        @endif
 
-                            <div class="space-y-3">
-                                <label for="milk" class="block text-sm font-medium text-gray-700">
-                                    Milk Type</label>
-                                <select id="milk" name="milk"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="wa">wala</option>
-                                </select>
-                            </div>
-
-                            <div class="space-y-3">
-                                <label for="flavor" class="block text-sm font-medium text-gray-700">
-                                    Add-in Flavor
-                                </label>
-                                <select id="flavor" name="flavor"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="wa">wala</option>
-                                </select>
-                            </div>
-
-                            <div class="space-y-3">
-                                <label for="topping" class="block text-sm font-medium text-gray-700">
-                                    Toppings
-                                </label>
-                                <select id="topping" name="topping"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="wa">wala</option>
-                                </select>
-                            </div>
-
-                            <div class="space-y-3">
-                                <label for="add_in" class="block text-sm font-medium text-gray-700">
-                                    Add-ins
-                                </label>
-                                <select id="add_in" name="add_in"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="wa">wala</option>
-                                </select>
-                            </div>
-
-                        </div>
 
                     </div>
 
@@ -301,5 +365,9 @@
             </div>
         </div>
     </div>
+
+
+
+
 
 </x-ecommerce-layout>

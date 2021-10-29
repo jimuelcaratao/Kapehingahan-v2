@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ecommerce;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\CartProductCustom;
 use App\Models\Product;
 use App\Models\WishList;
 use Illuminate\Http\Request;
@@ -26,6 +27,8 @@ class CartController extends Controller
 
     public function add_to_cart(Request $request, $product_code)
     {
+
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'quantity' => 'required|between:1,5',
         ]);
@@ -54,25 +57,22 @@ class CartController extends Controller
             return Redirect::route('product', [$product_code])->with('toast_error', 'Opps only ' . $product_info->stock . ' stock left.');
         }
 
-        if (!empty($get_cart_info)) {
 
-            // qty validation
-            $check_qty = $get_cart_info->quantity + $request->input('quantity');
+        $cart =  Cart::create([
+            'user_id' => Auth::user()->id,
+            'product_code' => $product_code,
+            'quantity' => $request->input('quantity'),
+        ]);
 
-            if ($check_qty > 5) {
-                return Redirect::route('product', [$product_code])->with('toast_error', 'Cant add from cart');
-            }
-
-            Cart::where('user_id', 'like', '%' . Auth::user()->id . '%')
-                ->where('product_code', $product_code)
-                ->update([
-                    'quantity' => $get_cart_info->quantity + $request->input('quantity'),
-                ]);
-        } else {
-            Cart::create([
-                'user_id' => Auth::user()->id,
+        if (!empty($request->input('size'))) {
+            CartProductCustom::create([
+                'cart_id' => $cart->cart_id,
                 'product_code' => $product_code,
-                'quantity' => $request->input('quantity'),
+                'size' => $request->input('size'),
+                'milk' => $request->input('milk'),
+                'flavor' => $request->input('flavor'),
+                'toppping' => $request->input('toppping'),
+                'add_in' => $request->input('add_in'),
             ]);
         }
 

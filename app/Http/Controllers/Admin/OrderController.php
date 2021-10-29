@@ -49,9 +49,9 @@ class OrderController extends Controller
     {
         $order = Order::where('order_no', $request->input('order_no'))->first();
 
-        if (empty($order->confirmed)) {
-            return Redirect::route('orders')->withInfo('Order no.:' . $request->input('order_no') . '. Confirmation needed!');
-        }
+        // if (empty($order->confirmed)) {
+        //     return Redirect::route('orders')->withInfo('Order no.:' . $request->input('order_no') . '. Confirmation needed!');
+        // }
 
         if (!empty($order->canceled_at)) {
             return Redirect::route('orders')->withInfo('Order no.:' . $request->input('order_no') . '. Already Canceled!');
@@ -68,24 +68,24 @@ class OrderController extends Controller
                     ]);
 
 
-                // minus in the stock
-                $get_items = OrderItem::where('order_no', $request->input('order_no'))->get();
+                // // minus in the stock
+                // $get_items = OrderItem::where('order_no', $request->input('order_no'))->get();
 
-                foreach ($get_items as $item) {
-                    $get_products = Product::where('product_code', $item->product_code)->first();
+                // foreach ($get_items as $item) {
+                //     $get_products = Product::where('product_code', $item->product_code)->first();
 
-                    $updated_stock = $get_products->stock - $item->quantity;
+                //     $updated_stock = $get_products->stock - $item->quantity;
 
-                    if ($updated_stock >= 0) {
-                        return  Redirect::back()->with('toast_error', 'No more Stocks');
-                    }
+                //     if ($updated_stock >= 0) {
+                //         return  Redirect::back()->with('toast_error', 'No more Stocks');
+                //     }
 
-                    if ($updated_stock >= 0) {
-                        Product::where('product_code', $item->product_code)->update([
-                            'stock' => $updated_stock,
-                        ]);
-                    }
-                }
+                //     if ($updated_stock >= 0) {
+                //         Product::where('product_code', $item->product_code)->update([
+                //             'stock' => $updated_stock,
+                //         ]);
+                //     }
+                // }
             }
         }
 

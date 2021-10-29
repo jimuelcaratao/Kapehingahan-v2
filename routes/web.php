@@ -10,8 +10,11 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Ecommerce\CartController;
 use App\Http\Controllers\Ecommerce\CatalogController;
+use App\Http\Controllers\Ecommerce\CheckoutController;
 use App\Http\Controllers\Ecommerce\HomeController;
+use App\Http\Controllers\Ecommerce\PaymentController;
 use App\Http\Controllers\Ecommerce\SingleProductController;
+use App\Http\Controllers\Ecommerce\WishListController;
 use App\Http\Controllers\OAuthController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -44,13 +47,33 @@ Route::get('/callbackGoogle', [OAuthController::class, 'callbackGoogle']);
 
 
 // Ecommerce Users
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     // Cart
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::post('/cart/{product_code}', [CartController::class, 'add_to_cart'])->name('cart.add');
     Route::put('/cart/{cart_id}/{product_code}', [CartController::class, 'change_quantity'])->name('cart.quantity');
     Route::delete('/cart/{product_code}/delete', [CartController::class, 'remove_to_cart'])->name('cart.remove');
     Route::post('/cart/{product_code}/wishlist', [CartController::class, 'move_to_wishlist'])->name('cart.move');
+
+    // Wishlist
+    Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
+    Route::post('/wishlist/{product_code}', [WishListController::class, 'add_to_wishlist'])->name('wishlist.add');
+    Route::delete('/wishlist/{product_code}/delete', [WishListController::class, 'remove_to_wishlist'])->name('wishlist.remove');
+    Route::post('/wishlist/{product_code}/cart', [WishListController::class, 'move_to_cart'])->name('wishlist.move');
+});
+
+// Ecommerce Account with verification
+Route::middleware(['verified', 'auth:sanctum'])->group(function () {
+
+    // Checkout
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+    Route::post('/checkout/address', [CheckoutController::class, 'confirm_address_checkout'])->name('checkout.address');
+
+    // Payment
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+
+    Route::post('/payment/place-order', [PaymentController::class, 'place_order'])->name('payment.order');
 });
 
 //home Apis

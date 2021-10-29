@@ -133,6 +133,7 @@
                                     data-item-description="{{ $product->description }}"
                                     data-item-price="{{ $product->price }}"
                                     data-item-stock="{{ $product->stock }}"
+                                    data-item-is_customizable="{{ $product->is_customizable }}"
                                     data-item-stock_measurement="{{ $product->stock_measurement }}"
                                     data-item-default_photo="{{ $product->default_photo }}" id="edit-item"
                                     class="text-indigo-600 hover:text-indigo-900 mr-3 text-decoration-none">

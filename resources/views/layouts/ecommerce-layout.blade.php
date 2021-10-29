@@ -23,6 +23,7 @@
 </head>
 
 <body class="font-sans antialiased">
+    @include('sweetalert::alert')
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">

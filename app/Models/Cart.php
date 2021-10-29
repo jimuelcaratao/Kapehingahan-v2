@@ -29,6 +29,11 @@ class Cart extends Model
         return $this->hasOne(Product::class, 'product_code', 'product_code');
     }
 
+    public function cart_product_customizations()
+    {
+        return $this->hasMany(CartProductCustom::class, 'cart_id', 'cart_id');
+    }
+
     public function getTotalPrice()
     {
         return $this->quantity * $this->product->product_price->price;

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductCustomizationsTable extends Migration
+class CreateCartProductCustomizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateProductCustomizationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_customizations', function (Blueprint $table) {
-            $table->id('product_customization_id');
-            $table->foreignId('order_item_id');
+        Schema::create('cart_product_customizations', function (Blueprint $table) {
+            $table->id('cart_product_customization_id');
+            $table->foreignId('cart_id');
             $table->string('product_code', 20);
             $table->string('size')->nullable();
             $table->string('milk')->nullable();
@@ -24,7 +24,7 @@ class CreateProductCustomizationsTable extends Migration
             $table->string('add_in')->nullable();
             $table->timestamps();
 
-            $table->foreign('order_item_id')->references('order_item_id')->on('order_items');
+            $table->foreign('cart_id')->references('cart_id')->on('carts');
             $table->foreign('product_code')->references('product_code')->on('products');
         });
     }
@@ -36,6 +36,6 @@ class CreateProductCustomizationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_customizations');
+        Schema::dropIfExists('cart_product_customizations');
     }
 }
