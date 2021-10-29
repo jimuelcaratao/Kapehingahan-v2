@@ -12,6 +12,7 @@ use App\Http\Controllers\Ecommerce\CartController;
 use App\Http\Controllers\Ecommerce\CatalogController;
 use App\Http\Controllers\Ecommerce\CheckoutController;
 use App\Http\Controllers\Ecommerce\HomeController;
+use App\Http\Controllers\Ecommerce\MyOrderController;
 use App\Http\Controllers\Ecommerce\PaymentController;
 use App\Http\Controllers\Ecommerce\SingleProductController;
 use App\Http\Controllers\Ecommerce\WishListController;
@@ -48,6 +49,20 @@ Route::get('/callbackGoogle', [OAuthController::class, 'callbackGoogle']);
 
 // Ecommerce Users
 Route::middleware(['auth:sanctum'])->group(function () {
+
+    // My Orders
+    Route::get('/my_orders', [MyOrderController::class, 'index'])->name('my_orders');
+
+    Route::get('/my_orders/status/{order_no}', [MyOrderController::class, 'my_order_status'])->name('my_orders.status');
+
+    // My Orders
+    Route::post('/my_orders/send/{order_no}', [MyOrderController::class, 'send_confirm_order'])->name('my_orders.send');
+
+    Route::get('/my_orders/confirm/{order_no}', [MyOrderController::class, 'confirm_order'])->name('my_orders.confirm');
+
+    Route::post('/my_orders/cancel/{order_no}', [MyOrderController::class, 'cancel_order'])->name('my_orders.cancel');
+
+
     // Cart
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::post('/cart/{product_code}', [CartController::class, 'add_to_cart'])->name('cart.add');

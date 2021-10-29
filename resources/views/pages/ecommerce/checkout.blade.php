@@ -28,10 +28,10 @@
                 @if (Auth::user()->user_address)
                     <!-- card with no image -->
                     <div class="bg-white p-6 rounded-lg border shadow-lg">
+                        <p class="text-gray-700 text-sm">This Address:</p>
                         <h2 class="text-xl font-bold mb-2 text-gray-800">{{ Auth::user()->user_address->house }},
                             Barangay {{ Auth::user()->user_address->barangay }},
                             {{ Auth::user()->user_address->province }}, {{ Auth::user()->user_address->city }}</h2>
-                        <p class="text-gray-700">This Address</p>
                     </div>
                 @endif
                 @empty(Auth::user()->user_address)
