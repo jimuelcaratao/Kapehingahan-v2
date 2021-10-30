@@ -49,16 +49,16 @@
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#"
+                        <a href="{{ route('home') }}"
                             class="text-gray-300 hover:bg-yellow-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
 
-                        <a href="#"
+                        <a href="{{ route('catalog') }}"
                             class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
 
-                        <a href="#"
+                        <a href="{{ route('about') }}"
                             class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
 
-                        <a href="#"
+                        <a href="{{ route('contact') }}"
                             class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     </div>
                 </div>
@@ -66,22 +66,71 @@
 
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 @auth
-                    <button type="button"
-                        class=" bg-yellow-900 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                        <span class="sr-only">View notifications</span>
-                        <!-- Heroicon name: outline/bell -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -5 26 30"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                        <span class="flex absolute -mt-5 ml-4">
-                            <span
-                                class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-pink-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500">
-                            </span>
-                        </span>
-                    </button>
+
+                    {{-- cart item per user --}}
+                    @auth
+                        @php
+                            $wishlist_count = App\Models\wishlist::where('user_id', 'like', '%' . Auth::user()->id . '%')->get();
+                        @endphp
+                    @endauth
+
+                    {{-- wishlist --}}
+                    <a href="{{ route('wishlist') }}">
+                        <button type="button"
+                            class=" bg-yellow-900 p-1 mr-2 md:mr-3 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                            <span class="sr-only">View notifications</span>
+                            <!-- Heroicon name: outline/bell -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+
+                            @if (count($wishlist_count) > 0)
+                                <span class="flex absolute -mt-5 ml-4">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-pink-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500">
+                                    </span>
+                                </span>
+                            @endif
+                        </button>
+
+                    </a>
+
+                    {{-- cart item per user --}}
+                    @auth
+                        @php
+                            $cart_count = App\Models\Cart::where('user_id', 'like', '%' . Auth::user()->id . '%')->get();
+                        @endphp
+                    @endauth
+
+                    {{-- carts --}}
+                    <a href="{{ route('cart') }}">
+                        <button type="button"
+                            class=" bg-yellow-900 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                            <span class="sr-only">View notifications</span>
+                            <!-- Heroicon name: outline/bell -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -5 26 30"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+
+                            @if (count($cart_count) > 0)
+                                <span class="flex absolute -mt-5 ml-4">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-pink-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500">
+                                    </span>
+                                </span>
+                            @endif
+
+                        </button>
+                    </a>
+
+
+
                 @endauth
 
 
@@ -141,14 +190,19 @@
                                         {{ __('Profile') }}
                                     </x-jet-dropdown-link>
 
+                                    <x-jet-dropdown-link href="{{ route('my_orders') }}">
+                                        {{ __('My Orders') }}
+                                    </x-jet-dropdown-link>
+
                                     <div class="border-t border-gray-100"></div>
 
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
 
-                                        <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
+                                        <x-jet-dropdown-link href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                                                                                                                                                            this.closest('form').submit();">
 
                                             {{ __('Log Out') }}
                                         </x-jet-dropdown-link>
@@ -167,17 +221,17 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#"
+            <a href="{{ route('home') }}"
                 class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">Home</a>
 
-            <a href="#"
+            <a href="{{ route('catalog') }}"
                 class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
 
-            <a href="#"
+            <a href="{{ route('about') }}"
                 class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
 
-            <a href="#"
+            <a href="{{ route('contact') }}"
                 class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
 
         </div>

@@ -28,7 +28,7 @@ class WishListController extends Controller
             'product_code' => $product_code,
         ]);
 
-        return Redirect::route('product', [$product_code])->with('toast_success', 'Added from wishlist');
+        return Redirect::back()->with('toast_success', 'Added from wishlist');
     }
 
 

@@ -98,6 +98,13 @@ Route::put('/cart/{cart_id}/{product_code}', [CartController::class, 'change_qua
 Route::get('/catalog/{category_name}', [CatalogController::class, 'catalog_category'])->name('catalog.category');
 Route::get('/product/{product_code}', [SingleProductController::class, 'index'])->name('product');
 
+Route::get('/about-us', function () {
+    return view('pages.ecommerce.about');
+})->name('about');
+
+Route::get('/contact-us', function () {
+    return view('pages.ecommerce.contact');
+})->name('contact');
 
 // Admin Users
 Route::middleware(['auth:sanctum', 'verified', 'is_admin'])->group(function () {
