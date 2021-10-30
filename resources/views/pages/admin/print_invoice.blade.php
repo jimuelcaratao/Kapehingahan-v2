@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WeShop</title>
+    <title>KapeHingahan</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -84,10 +84,44 @@
                             <tbody>
                                 @foreach ($order_items as $order_item)
                                     <tr>
-                                        <td class="text-left">{{ $order_item->product->product_name }}</td>
+                                        <td class="text-left fw-bold">{{ $order_item->product->product_name }}</td>
                                         <td class="text-center">{{ $order_item->quantity }}</td>
-                                        <td class="text-right">${{ $order_item->price }}</td>
+                                        <td class="text-right">₱ {{ $order_item->price }}</td>
                                     </tr>
+
+                                    @foreach ($order_item->product_customizations as $item)
+                                        <tr>
+                                            <td class="text-left">
+                                                <span class=" fw-bold"
+                                                    style="margin-left:20px; margin-right: 5px; font-size:12px;">with:</span>
+                                                <span class="fs-6 bg-light px-2 py-1 rounded mx-2">
+                                                    Size: {{ $item->size }}
+                                                </span>
+                                                @if ($item->milk != null)
+                                                    <span class="fs-6 bg-light px-2 py-1 rounded  mx-2">
+                                                        Milk Type: {{ $item->milk }}
+                                                    </span>
+                                                @endif
+                                                @if ($item->flavor != null)
+                                                    <span class="fs-6 bg-light px-2 py-1 rounded mx-2">
+                                                        Add-in Flavor: {{ $item->flavor }}
+                                                    </span>
+                                                @endif
+                                                @if ($item->topping != null)
+                                                    <span class="fs-6 bg-light px-2 py-1 rounded mx-2">
+                                                        Toppings: {{ $item->topping }}
+                                                    </span>
+                                                @endif
+                                                @if ($item->add_in != null)
+                                                    <span class="fs-6 bg-light px-2 py-1 rounded mx-2">
+                                                        Add-ins: {{ $item->add_in }}
+                                                    </span>
+                                                @endif
+                                            </td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                        </tr>
+                                    @endforeach
                                 @endforeach
                             </tbody>
                         </table>

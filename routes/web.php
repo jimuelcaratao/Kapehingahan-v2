@@ -16,6 +16,7 @@ use App\Http\Controllers\Ecommerce\MyOrderController;
 use App\Http\Controllers\Ecommerce\PaymentController;
 use App\Http\Controllers\Ecommerce\SingleProductController;
 use App\Http\Controllers\Ecommerce\WishListController;
+use App\Http\Controllers\Ecommerce\WriteReviewController;
 use App\Http\Controllers\OAuthController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -82,13 +83,15 @@ Route::middleware(['verified', 'auth:sanctum'])->group(function () {
 
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-
     Route::post('/checkout/address', [CheckoutController::class, 'confirm_address_checkout'])->name('checkout.address');
 
     // Payment
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-
     Route::post('/payment/place-order', [PaymentController::class, 'place_order'])->name('payment.order');
+
+    // Reviews
+    Route::get('/review/{product_code}/{order_no}', [WriteReviewController::class, 'index'])->name('write_review');
+    Route::post('/review/{product_code}/{order_no}', [WriteReviewController::class, 'write_review'])->name('write_review.write');
 });
 
 //home Apis

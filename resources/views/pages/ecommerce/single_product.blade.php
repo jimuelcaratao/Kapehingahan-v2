@@ -298,7 +298,9 @@
                                     <select id="size" name="size"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled value="">Choose...</option>
+                                        <option value="regular">Regular</option>
                                         <option value="large">Large</option>
+                                        <option value="extra_large">Extra Large</option>
                                     </select>
                                 </div>
 
@@ -308,7 +310,12 @@
                                     <select id="milk" name="milk"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled value="">Choose...</option>
-                                        <option value="wa">wala</option>
+                                        <option value="non-fat">Non Fat</option>
+                                        <option value="milk_2_percent">2% Milk</option>
+                                        <option value="whole_milk">Whole Milk</option>
+                                        <option value="almond">Almond</option>
+                                        <option value="coconut">Coconut</option>
+                                        <option value="soy">Soy</option>
                                     </select>
                                 </div>
 
@@ -319,7 +326,12 @@
                                     <select id="flavor" name="flavor"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled value="">Choose...</option>
-                                        <option value="wa">wala</option>
+                                        <option value="hazelnut_syrup">Hazelnut Syrup</option>
+                                        <option value="peppermint_syrup">Peppermint Syrup</option>
+                                        <option value="raspberry_syrup">Raspberry Syrup</option>
+                                        <option value="vanilla_syrup">Vanilla Syrup</option>
+                                        <option value="sugar_free_syrup">Sugar Free Vanilla Syrup</option>
+                                        <option value="caramel_syrup">Caramel Syrup</option>
                                     </select>
                                 </div>
 
@@ -330,7 +342,13 @@
                                     <select id="topping" name="topping"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled value="">Choose...</option>
-                                        <option value="wa">wala</option>
+                                        <option value="barista_cocoa_powder">Barista Cocoa Powder</option>
+                                        <option value="cinnamon_dolce_sprinkles">Cinnamon Dolce Sprinkles</option>
+                                        <option value="powdered_sugar_topping">Powdered Sugar Funnel Cake Topping
+                                        </option>
+                                        <option value="caramel_drizzle">Caramel Drizzle</option>
+                                        <option value="mocha_drizzle">Mocha Drizzle</option>
+                                        <option value="spiced_drizzle">Spiced Drizzle</option>
                                     </select>
                                 </div>
 
@@ -341,7 +359,11 @@
                                     <select id="add_in" name="add_in"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled value="">Choose...</option>
-                                        <option value="wa">wala</option>
+                                        <option value="sugar_pack">Sugar Pack</option>
+                                        <option value="honey">Honey</option>
+                                        <option value="splenda">Splenda</option>
+                                        <option value="classic-sy">Classic Syrup</option>
+                                        <option value="honney-blend">Honey Blend</option>
                                     </select>
                                 </div>
 

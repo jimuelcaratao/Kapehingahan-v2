@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderDelivered;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -124,7 +126,7 @@ class OrderController extends Controller
                 $order = Order::findOrFail($request->input('order_no'));
 
                 // Ship the order...
-                // Mail::to( $order->user->email)->send(new OrderDelivered($order));
+                Mail::to($order->user->email)->send(new OrderDelivered($order));
             }
         }
         if ($request->input('delivered_switch') == null) {
