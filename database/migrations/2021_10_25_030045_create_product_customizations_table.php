@@ -16,13 +16,13 @@ class CreateProductCustomizationsTable extends Migration
         Schema::create('product_customizations', function (Blueprint $table) {
             $table->id('product_customization_id');
             $table->foreignId('order_item_id');
-            $table->string('product_code', 20)->unique();
-            $table->string('size');
-            $table->string('milk');
-            $table->string('flavor');
-            $table->string('topping');
-            $table->string('add_in');
-            // $table->timestamps();
+            $table->string('product_code', 20);
+            $table->string('size')->nullable();
+            $table->string('milk')->nullable();
+            $table->string('flavor')->nullable();
+            $table->string('topping')->nullable();
+            $table->string('add_in')->nullable();
+            $table->timestamps();
 
             $table->foreign('order_item_id')->references('order_item_id')->on('order_items');
             $table->foreign('product_code')->references('product_code')->on('products');

@@ -36,6 +36,13 @@
                                                     {{ $categoryOptions }}
                                                 </select>
                                             </div>
+                                            <div class="form-basic col-span-6 sm:col-span-2">
+                                                <div class="form-check form-switch pt-4">
+                                                    <input class="switches form-check-input" type="checkbox"
+                                                        name="is_customizable" id="is_customizable">
+                                                    <label class="form-check-label" for="is_customizable">Drinks</label>
+                                                </div>
+                                            </div>
 
 
                                             <div class="form-basic col-span-6 sm:col-span-4">

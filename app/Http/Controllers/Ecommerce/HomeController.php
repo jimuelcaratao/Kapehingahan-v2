@@ -23,6 +23,9 @@ class HomeController extends Controller
 
         $latest_products = Product::latest()->take(10)->get();
 
-        return view('pages.ecommerce.home');
+        return view('pages.ecommerce.home', [
+            'products' => $products,
+            'latest_products' => $latest_products,
+        ]);
     }
 }

@@ -21,7 +21,7 @@
                                     <div class="px-4 py-5 bg-white sm:p-6">
                                         <div class="grid grid-cols-6 gap-6">
 
-                                            <div class="col-span-6 sm:col-span-3">
+                                            <div class="col-span-6 sm:col-span-4">
                                                 <label for="edit_category_name"
                                                     class="block text-sm font-medium text-gray-700">Category <span
                                                         class="text-red-600">*</span></label>
@@ -30,7 +30,14 @@
                                                     {{ $categoryOptions }}
                                                 </select>
                                             </div>
-
+                                            <div class=" col-span-6 sm:col-span-2">
+                                                <div class="form-check form-switch pt-4">
+                                                    <input class="switches form-check-input" type="checkbox"
+                                                        name="edit_is_customizable" id="edit_is_customizable">
+                                                    <label class="form-check-label"
+                                                        for="edit_is_customizable">Drinks</label>
+                                                </div>
+                                            </div>
 
                                             <div class="col-span-6 sm:col-span-4">
                                                 <label for="edit_brand"
@@ -240,6 +247,8 @@
                 var stock = el.data("item-stock");
                 var stock_measurement = el.data("item-stock_measurement");
                 var default_photo = el.data("item-default_photo");
+                var is_customizable = el.data("item-is_customizable");
+
 
 
                 // var description = row.children("item-email").text();
@@ -247,6 +256,10 @@
                 $("#edit_sku").val(sku);
                 $("#edit_product_name").val(product_name);
                 $("#edit_product_code").val(product_code);
+
+                if (is_customizable != '') {
+                    $('#edit_is_customizable').attr('checked', 'checked');
+                }
 
                 // image preview
                 $("img#output").attr('src', $("img#output").attr('src') +

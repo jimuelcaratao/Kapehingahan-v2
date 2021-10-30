@@ -91,6 +91,14 @@
         <div class="w-full  xl:w-1/3 p-4 lg:pl-10">
             <div class="bg-white h-96 rounded p-5 shadow-md hover:shadow-xl transition delay-75">
                 <h3 class="font-bold text-2xl">Most Popular Products</h3>
+                @forelse ($popular_items as $popular_item)
+                    <li>
+                        {{ $popular_item->product->product_name }} - {{ $popular_item->product->product_code }}
+                    </li>
+
+                @empty
+
+                @endforelse
             </div>
         </div>
 

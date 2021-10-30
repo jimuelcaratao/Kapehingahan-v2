@@ -14,7 +14,7 @@ class ProductCustom extends Model
 
 
     protected $fillable = [
-        'order_items',
+        'order_item_id',
         'product_code',
         'size',
         'milk',

@@ -56,10 +56,10 @@ class CatalogController extends Controller
             // 'brands_search' => $brands_search ?? null,
         ]);
     }
-    public function single_product()
-    {
-        return view('pages.ecommerce.single_product', [
-            // 'brands_search' => $brands_search ?? null,
-        ]);
-    }
+    // public function single_product()
+    // {
+    //     return view('pages.ecommerce.single_product', [
+    //         // 'brands_search' => $brands_search ?? null,
+    //     ]);
+    // }
 }
