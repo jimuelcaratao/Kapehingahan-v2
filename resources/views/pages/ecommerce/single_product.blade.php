@@ -80,7 +80,7 @@
                 <ol role="list" class="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
                     <li>
                         <div class="flex items-center">
-                            <a href="#" class="mr-2 text-sm font-medium text-gray-900">
+                            <a href="{{ route('catalog') }}" class="mr-2 text-sm font-medium text-gray-900">
                                 Product
                             </a>
                             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor"
@@ -92,7 +92,8 @@
 
                     <li>
                         <div class="flex items-center">
-                            <a href="#" class="mr-2 text-sm font-medium text-gray-900">
+                            <a href="{{ route('catalog.category', [$product->category_name]) }}"
+                                class="mr-2 text-sm font-medium text-gray-900">
                                 {{ $product->category_name }}
                             </a>
                             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor"
@@ -173,8 +174,8 @@
                         @endif
 
                         {{-- Main Image --}}
-                        <img src="{{ asset('img/prd-2.jpg') }}" alt="Model wearing plain white basic tee."
-                            class="w-full h-full object-center object-cover">
+                        <img src="{{ asset('storage/media/products/main_' . $product->product_code . '_' . $product->default_photo) }}"
+                            alt="{{ $product->default_photo }}" class="w-full h-full object-center object-cover">
                     </div>
 
 
