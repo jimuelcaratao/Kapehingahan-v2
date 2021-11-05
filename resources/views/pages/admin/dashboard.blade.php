@@ -132,17 +132,22 @@
         <script type="text/javascript">
             // collections
             var revenue_per_month = {!! json_encode($revenue_per_month->toArray(), JSON_HEX_TAG) !!};
+
             var page_visits = {!! json_encode($page_visits->toArray(), JSON_HEX_TAG) !!};
+
             console.log(page_visits);
+
             const monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
             ];
+
             const d = new Date();
+
             window.onload = function() {
                 var chart = new CanvasJS.Chart("chartContainer", {
                     animationEnabled: true,
                     title: {
-                        text: "KapeHingahan Revenue by month of " + monthNames[d.getMonth()]
+                        text: "WeShop Revenue by month of " + monthNames[d.getMonth()]
                     },
                     axisY: {
                         title: "Revenue in PHP",
@@ -157,17 +162,22 @@
                         xValueFormatString: "YYYY-MM-DD",
                         yValueFormatString: "₱#,##0.##",
                         dataPoints: [
+
                             @foreach ($revenue_per_month as $revenue)
                                 { x: new Date("{{ $revenue->created_at }}"), y: {{ $revenue->price * $revenue->quantity }} },
                             @endforeach
+
                         ]
                     }]
                 });
 
+
+
+
                 var chart2 = new CanvasJS.Chart("chartContainerVisits", {
                     animationEnabled: true,
                     title: {
-                        text: "KapeHingahan Web Visits Per Day"
+                        text: "WeShop Web Visits Per Day"
                     },
                     axisY: {
                         // title: "Revenue in PHP",
@@ -187,8 +197,10 @@
                         ]
                     }]
                 });
+
                 chart.render();
                 chart2.render();
+
             }
         </script>
 

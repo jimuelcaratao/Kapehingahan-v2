@@ -83,8 +83,10 @@ class CartController extends Controller
     {
         $remove_cart =  Cart::Where('product_code', $product_code)
             ->Where('user_id', 'like', '%' . Auth::user()->id . '%')
-            ->delete();
+            ->first();
 
+        CartProductCustom::where('cart_id', $remove_cart->cart_id)->delete();
+        $remove_cart->delete();
         return Redirect::route('cart')->with('toast_success', 'Removed from cart');
     }
 

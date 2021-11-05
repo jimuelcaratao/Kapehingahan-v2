@@ -110,7 +110,7 @@ Route::get('/contact-us', function () {
 })->name('contact');
 
 // Admin Users
-Route::middleware(['auth:sanctum', 'verified', 'is_admin'])->group(function () {
+Route::middleware(['auth:sanctum',  'is_admin'])->group(function () {
     //Dashboard Apis
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

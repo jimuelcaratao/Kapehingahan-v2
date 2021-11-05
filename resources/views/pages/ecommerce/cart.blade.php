@@ -106,7 +106,8 @@
 
                             @foreach ($cart->cart_product_customizations as $item)
                                 <p>size: {{ $item->size }}</p>
-                                @if ($item->milk == null)
+
+                                @if ($item->milk != null)
                                     <p>milk: {{ $item->milk }}</p>
                                 @endif
 
