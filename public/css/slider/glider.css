@@ -33,20 +33,3 @@
       display: none;
     }
   }
-
-  .glider-contain-4 .glider-4{
-    margin-right: 0.5rem;
-    background: #ffffff;
-    border: none;
-    outline: none;
-  }
-  .glider-contain-4 .glider-4 {
-    display: block;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
