@@ -4,7 +4,6 @@
 @endpush
 
 
-
 <!-- Modal -->
 <div class="modal fade" id="add-modal" data-bs-backdrop="static" data-bs-keyboard="false"
     aria-labelledby="add-modalLabel" aria-hidden="true">
@@ -17,7 +16,8 @@
             <div class="modal-body">
 
                 <div>
-                    <form action="" method="POST" id="add-form" enctype="multipart/form-data">
+                    <form action="{{ route('products.store') }}" method="POST" id="add-form"
+                        enctype="multipart/form-data">
                         @csrf
                         <h4> Basic information </h4>
                         <div class="mt-10 sm:mt-0">
@@ -33,8 +33,15 @@
                                                 <select id="category_name" name="category_name" required
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option selected disabled value="">Choose...</option>
-                                                    <option value="1">asd</option>
+                                                    {{ $categoryOptions }}
                                                 </select>
+                                            </div>
+                                            <div class="form-basic col-span-6 sm:col-span-2">
+                                                <div class="form-check form-switch pt-4">
+                                                    <input class="switches form-check-input" type="checkbox"
+                                                        name="is_customizable" id="is_customizable">
+                                                    <label class="form-check-label" for="is_customizable">Drinks</label>
+                                                </div>
                                             </div>
 
 
@@ -45,7 +52,7 @@
                                                 <select id="brand_name" name="brand_name" required
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option selected disabled value="">Choose...</option>
-                                                    {{-- {{ $brandOptions }} --}}
+                                                    {{ $brandOptions }}
                                                 </select>
                                             </div>
 
@@ -124,6 +131,21 @@
                                                 <span class="text-red-600">*</span></label>
                                             <input type="number" min="0" name="stock" id="stock" required
                                                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                                            <label for="stock_measurement"
+                                                class="block text-sm font-medium text-gray-700">Measurement <span
+                                                    class="text-red-600">*</span></label>
+                                            <select id="stock_measurement" name="stock_measurement" required
+                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                <option selected disabled value="">Choose...</option>
+                                                <option value="pcs">Pieces</option>
+                                                <option value="Oz">Ounce</option>
+                                                <option value="g">Gram</option>
+                                                <option value="kg">Kilogram</option>
+
+                                            </select>
                                         </div>
 
                                     </div>

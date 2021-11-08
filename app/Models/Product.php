@@ -21,6 +21,7 @@ class Product extends Model
         'brand_name',
         'description',
         'stock',
+        'stock_measurement',
         'default_photo',
         'price',
     ];
@@ -30,6 +31,10 @@ class Product extends Model
         return $this->hasOne(ProductPhoto::class, 'product_code', 'product_code');
     }
 
+    public function product_reviews()
+    {
+        return $this->hasMany(Review::class, 'product_code', 'product_code')->latest();
+    }
 
     public function product_custom()
     {
