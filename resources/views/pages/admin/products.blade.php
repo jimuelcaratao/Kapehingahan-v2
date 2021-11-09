@@ -91,7 +91,7 @@
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img class="h-10 w-10 rounded-full border"
                                             src="{{ asset('storage/media/products/main_' . $product->product_code . '_' . $product->default_photo) }}"
-                                            alt="">
+                                            alt="{{ $product->default_photo }}">
                                     </div>
                                     <div class="ml-4">
                                         <div class="text-sm font-medium text-gray-900">
@@ -103,7 +103,8 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900 font-bold">{{ $product->product_name }}</div>
-                                <div class="text-xs text-gray-500">{{ $product->description }}</div>
+                                <div class="text-xs text-gray-500">
+                                    {{ \Illuminate\Support\Str::limit($product->description, 20) }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <span
@@ -132,6 +133,7 @@
                                     data-item-description="{{ $product->description }}"
                                     data-item-price="{{ $product->price }}"
                                     data-item-stock="{{ $product->stock }}"
+                                    data-item-is_customizable="{{ $product->is_customizable }}"
                                     data-item-stock_measurement="{{ $product->stock_measurement }}"
                                     data-item-default_photo="{{ $product->default_photo }}" id="edit-item"
                                     class="text-indigo-600 hover:text-indigo-900 mr-3 text-decoration-none">

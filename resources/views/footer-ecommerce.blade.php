@@ -7,7 +7,7 @@
 				</div>
 			</a>
             <div class="w-80">
-            <span class="self-center text-sm">KapeHingahan will start your day with a cup of coffee. Serving high-quality espresso-based drinks as well as delectable meals.</span>
+            <span class="self-center text-sm mx-auto">KapeHingahan will start your day with a cup of coffee. Serving high-quality espresso-based drinks as well as delectable meals.</span>
             </div>
         </div>
 		<div class="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/4 sm:grid-cols-3">
@@ -36,10 +36,7 @@
 					</li>
 					<li>
 						<a class = "hover:text-yellow-900" href="#">Privacy Policy</a>
-					</li>
-                    <li>
-						<a class = "hover:text-yellow-900" href="#">Terms of Service</a>
-					</li>
+                    </li>
                     <li>
 						<a class = "hover:text-yellow-900" href="#">FAQs</a>
 					</li>

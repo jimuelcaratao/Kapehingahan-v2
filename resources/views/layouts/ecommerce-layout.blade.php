@@ -17,14 +17,13 @@
     @livewireStyles
     @stack('styles')
 
-    @stack('styles')
-
     <!-- Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
 <body class="font-sans antialiased">
+    @include('sweetalert::alert')
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">

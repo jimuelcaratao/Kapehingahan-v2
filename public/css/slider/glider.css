@@ -1,0 +1,35 @@
+  .container {
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    max-width: 75rem;
+    width: 90%;
+  }
+
+  .glider-contain .glider{
+    margin-right: 0.5rem;
+    background: #ffffff;
+    border: none;
+    outline: none;
+  }
+  .glider-contain .glider {
+    display: block;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .main .glider-contain .glider-prev,
+  .main .glider-contain .glider-next {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 769px) {
+    .main .glider-contain .dots {
+      display: none;
+    }
+  }
