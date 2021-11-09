@@ -269,7 +269,7 @@
 
                     </div>
                 @empty
-                    No {{ $category_found->category_name }} Available.. :(
+                    {{-- No {{ $category_found->category_name }} Available.. :( --}}
                 @endforelse
 
 
@@ -295,9 +295,10 @@
                             </template>
                         </ul>
                         <div class="mx-auto">
+                            {{-- Tab 0 --}}
                             <div x-show="activeTab===0">
                                 <div class="container flex justify-center">
-                                    <div class="glider-contain grid md:grid-cols-1 lg:grid-cols-1">
+                                    <div id="glider-1" class="glider-contain grid md:grid-cols-1 lg:grid-cols-1">
                                         <div class="glider">
 
                                             <div
@@ -810,9 +811,1556 @@
                                     </div>
                                 </div>
                             </div>
-                            <div x-show="activeTab===1">Content 2</div>
-                            <div x-show="activeTab===2">Content 3</div>
-                            <div x-show="activeTab===3">Content 4</div>
+
+                            {{-- Tab 1 --}}
+
+                            <div x-show="activeTab===1">
+                                <div class="container flex justify-center">
+                                    <div id="glider-2" class="glider-contain grid md:grid-cols-1 lg:grid-cols-1">
+                                        <div class="glider">
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <span role="button" aria-label="Previous" class="glider-prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                        <span role="button" aria-label="Next" class="glider-next">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Tab 2 --}}
+                            <div x-show="activeTab===2">
+                                <div class="container flex justify-center">
+                                    <div id="glider-3" class="glider-contain grid md:grid-cols-1 lg:grid-cols-1">
+                                        <div class="glider">
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <span role="button" aria-label="Previous" class="glider-prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                        <span role="button" aria-label="Next" class="glider-next">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Tab 3 --}}
+                            <div x-show="activeTab===3">
+                                <div class="container flex justify-center">
+                                    <div id="glider-4" class="glider-contain grid md:grid-cols-1 lg:grid-cols-1">
+                                        <div class="glider">
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                                <div class="overflow-x-hidden rounded-2xl relative">
+                                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                                        src={{ asset('img/prd-2.jpg') }}>
+                                                    <p
+                                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                                            viewBox="0 0 24 24" stroke="white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </p>
+                                                </div>
+                                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                                    <div>
+                                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                                            Pumpkin Spice Latte</p>
+                                                        <div class="flex item-center mt-2">
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-black"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                                    </div>
+                                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <span role="button" aria-label="Previous" class="glider-prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                        <span role="button" aria-label="Next" class="glider-next">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!--actual component end-->
@@ -843,6 +2391,521 @@
                 <div class="container p-4 mx-auto my-10 space-y-8">
                     <div class="space-y-2 text-center">
                         <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">what's new?</h1>
+                    </div>
+                </div>
+
+                {{-- What's new products --}}
+                <div class="container flex justify-center">
+                    <div id="glider-5" class="glider-contain grid md:grid-cols-1 lg:grid-cols-1">
+                        <div class="glider">
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2  mx-4 my-4 cursor-pointer">
+                                <div class="overflow-x-hidden rounded-2xl relative">
+                                    <img class="mx-auto h-36 rounded-2xl w-36"
+                                        src={{ asset('img/prd-2.jpg') }}>
+                                    <p
+                                        class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-70" fill="none"
+                                            viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="mt-10 pl-2 mb-2 flex justify-between ">
+                                    <div>
+                                        <p class="text-lg font-semibold mb-0">Iced Butterball <br />
+                                            Pumpkin Spice Latte</p>
+                                        <div class="flex item-center mt-2">
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-black"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                            <svg class="w-5 h-5 fill-current text-gray-500"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-md text-yellow-900 mt-4">₱205.00</p>
+                                    </div>
+                                    <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 group-hover:opacity-50 opacity-70"
+                                            fill="none" viewBox="0 0 24 24" stroke="black">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <span role="button" aria-label="Previous" class="glider-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span role="button" aria-label="Next" class="glider-next">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10 text-yellow-900 hover:text-yellow-700"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
                     </div>
                 </div>
 

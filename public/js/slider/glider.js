@@ -1,5 +1,12 @@
-// Glider Configuration
-new Glider(document.querySelector(".glider"), {
+//foreach
+const gliders = document.querySelectorAll("[id^=glider]");
+
+gliders.forEach((glide) => {
+    const glider = document.querySelector(`#${glide.id} .glider`);
+    const gliderPrev = document.querySelector(`#${glide.id} .glider-prev`);
+    const gliderNext = document.querySelector(`#${glide.id} .glider-next`);
+
+new Glider(glider, {
     slidesToShow: 1.5,
     slidesToScroll: 1,
     draggable: true,
@@ -13,8 +20,8 @@ new Glider(document.querySelector(".glider"), {
               slidesToScroll: 0.5,
               duration: 0.5,
               arrows: {
-                prev: ".glider-prev",
-                next: ".glider-next"
+                prev: gliderPrev,
+                next: gliderNext
               }
             }
           },
@@ -26,8 +33,8 @@ new Glider(document.querySelector(".glider"), {
               slidesToScroll: 0.5,
               duration: 0.5,
               arrows: {
-                prev: ".glider-prev",
-                next: ".glider-next"
+                prev: gliderPrev,
+                next: gliderNext
               }
             }
           },
@@ -39,8 +46,8 @@ new Glider(document.querySelector(".glider"), {
           slidesToScroll: 1,
           duration: 0.5,
           arrows: {
-            prev: ".glider-prev",
-            next: ".glider-next"
+            prev: gliderPrev,
+            next: gliderNext
           }
         }
       },
@@ -52,10 +59,11 @@ new Glider(document.querySelector(".glider"), {
           slidesToScroll: 1,
           duration: 0.5,
           arrows: {
-            prev: ".glider-prev",
-            next: ".glider-next"
+            prev: gliderPrev,
+            next: gliderNext
           }
         }
       }
     ]
   });
+});

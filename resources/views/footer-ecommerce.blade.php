@@ -36,10 +36,7 @@
 					</li>
 					<li>
 						<a class = "hover:text-yellow-900" href="#">Privacy Policy</a>
-					</li>
-                    <li>
-						<a class = "hover:text-yellow-900" href="#">Terms of Service</a>
-					</li>
+                    </li>
                     <li>
 						<a class = "hover:text-yellow-900" href="#">FAQs</a>
 					</li>
