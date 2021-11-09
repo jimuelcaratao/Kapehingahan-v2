@@ -1,51 +1,50 @@
 <x-ecommerce-layout>
 
     <!-- Contact Form -->
-
-<div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-    <div class="container mx-auto">
-        <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
-            <div class="text-center">
-                <h1 class="font-bold my-3 text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
-                    Contact Us
-                </h1>
-                <p class="text-gray-400 dark:text-gray-400">Fill up the form below to send us a message.</p>
+    <div class="grid grid-cols-1 gap-8 px-8 py-24 mx-auto md:grid-cols-2 md:px-12 lg:px-16 xl:px-32">
+        <div class="flex flex-col justify-between">
+            <div class="space-y-2">
+                    <img src={{ asset('img/logo.png') }} alt="ads">
             </div>
-            <div class="m-7">
-                <form action="https://api.web3forms.com/submit" method="POST" id="form">
+        </div>
 
-                    <input type="hidden" name="apikey" value="YOUR_ACCESS_KEY_HERE">
-                    <input type="hidden" name="subject" value="New Submission from Web3Forms">
-                    <input type="checkbox" name="botcheck" id="" style="display: none;">
+        <div class="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
+            <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">
+                Get in touch
+            </h1>
+            <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">
+                Fill in the form to start a conversation
+            </p>
 
+            <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                    Acme Inc, Street, State,
+                    Postal Code
+                </div>
+            </div>
 
-                    <div class="mb-6">
-                        <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Name</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-yellow-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-yellow-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                    </div>
-                    <div class="mb-6">
+            <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                    +44 1234567890
+                </div>
+            </div>
 
-                        <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
-                        <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-yellow-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
-
-                        <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-yellow-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
-                    </div>
-                    <div class="mb-6">
-                        <button type="submit" class="w-full px-3 py-4 text-white bg-yellow-900 hover:bg-yellow-700 rounded-md focus:bg-yellow-900 focus:outline-none">Submit</button>
-                    </div>
-                    <p class="text-base text-center text-gray-400" id="result">
-                    </p>
-                </form>
+            <div class="flex items-center mt-2 text-gray-600 dark:text-gray-400">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                    info@acme.org
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </x-ecommerce-layout>
