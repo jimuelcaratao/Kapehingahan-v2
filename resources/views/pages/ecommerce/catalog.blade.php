@@ -11,6 +11,11 @@
             </h1>
         </x-slot>
         <x-slot name="categoryList">
+            <li>
+                <a href="{{ route('catalog') }}">
+                    All
+                </a>
+            </li>
             @forelse ($categories as $category)
                 <li>
                     <a href="{{ route('catalog.category', [$category->category_name]) }}">
