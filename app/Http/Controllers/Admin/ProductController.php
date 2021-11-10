@@ -46,7 +46,7 @@ class ProductController extends Controller
                 $products = Product::Where('product_code', 'like', '%' . request()->search . '%')
                     ->OrWhere('product_name', 'like', '%' . request()->search . '%')
                     ->latest()
-                    ->paginate(5);
+                    ->paginate(10);
             }
         }
 

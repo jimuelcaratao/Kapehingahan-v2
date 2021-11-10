@@ -109,6 +109,14 @@ Route::get('/contact-us', function () {
     return view('pages.ecommerce.contact');
 })->name('contact');
 
+Route::get('/faqs', function () {
+    return view('faqs');
+})->name('faqs');
+
+Route::get('/covid-policy', function () {
+    return view('covid-policy');
+})->name('covid.policy');
+
 // Admin Users
 Route::middleware(['auth:sanctum',  'is_admin'])->group(function () {
     //Dashboard Apis

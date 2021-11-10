@@ -112,7 +112,7 @@
                                                     <div
                                                         class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                                         <span class="text-gray-500 sm:text-sm">
-                                                            $
+                                                            ₱
                                                         </span>
                                                     </div>
                                                     <input type="number" min="0" step="0.01" name="edit_price"

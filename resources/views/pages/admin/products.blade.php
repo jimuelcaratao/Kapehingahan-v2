@@ -121,7 +121,7 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                $ @convert( $product->price )
+                                ₱ @convert( $product->price )
                             </td>
                             <td class="pl-2 pr-6 py-4 whitespace-nowrap flex text-right text-base font-medium">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#edit-modal" data-tooltip="tooltip"

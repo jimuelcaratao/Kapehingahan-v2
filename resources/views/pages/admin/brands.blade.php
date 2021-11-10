@@ -10,24 +10,24 @@
             {{-- Header --}}
             <div class="flex flex-row pb-4 md:pb-6 justify-between ">
                 <div>
-                    {{-- <h2 class="text-2xl md:text-4xl font-bold">Products 💼</h2> --}}
+                    <form>
+                        <input
+                            class="focus:ring-indigo-500 focus:border-indigo-500  sm:text-sm border-gray-300 rounded-md"
+                            type="search" name="search" placeholder="Brand name" aria-label="Search"
+                            value="{{ request()->search }}">
 
-                    <input class="focus:ring-indigo-500 focus:border-indigo-500  sm:text-sm border-gray-300 rounded-md"
-                        type="search" name="search" placeholder="Search.." aria-label="Search"
-                        value="{{ request()->search }}">
+                        <button type="submit" class="text-gray-600 hover:text-gray-800 mx-2 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class=" h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </form>
                 </div>
 
                 <div>
-                    {{-- <button data-bs-toggle="modal" data-bs-target="#add-modal" type="button"
-                        class="inline-flex items-center px-4 py-1 mr-1 border border-transparent rounded-md shadow text-base font-medium text-white bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">
-                        <!-- Heroicon name: solid/plus -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-black h-5 w-5" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button> --}}
 
                     <button data-bs-toggle="modal" data-bs-target="#add-modal" type="button"
                         class="inline-flex items-center px-4 py-1 border border-transparent rounded-md shadow text-base font-medium text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600">

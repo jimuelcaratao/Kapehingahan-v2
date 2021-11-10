@@ -10,9 +10,25 @@
             {{-- Header --}}
             <div class="flex flex-row pb-4 md:pb-6 justify-between ">
                 <div>
-                    <input class="focus:ring-indigo-500 focus:border-indigo-500  sm:text-sm border-gray-300 rounded-md"
-                        type="search" name="search" placeholder="Search.." aria-label="Search"
-                        value="{{ request()->search }}">
+                    {{-- search --}}
+                    <form class="flex">
+                        <div>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 w-full sm:text-sm border-gray-300 rounded-md"
+                                    type="search" name="search" placeholder="Order no." aria-label="Search"
+                                    value="{{ request()->search }}">
+                            </div>
+                        </div>
+                        <button type="submit" class="text-gray-600 hover:text-gray-800 mx-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </form>
                 </div>
 
                 <div>
