@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Ecommerce;
 
 use App\Http\Controllers\Controller;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\Visit;
 use Illuminate\Http\Request;
@@ -19,7 +20,13 @@ class HomeController extends Controller
             'visit_date' => Carbon::now(),
         ]);
 
-        $products = Product::inRandomOrder()->take(5)->get();
+        $products = OrderItem::select('product_code')
+            ->groupBy('product_code')
+            ->orderByRaw('COUNT(*) DESC')
+            ->take(5)
+            ->get();
+
+        // $products = Product::inRandomOrder()->take(5)->get();
         $latest_products = Product::latest()->take(6)->get();
 
 

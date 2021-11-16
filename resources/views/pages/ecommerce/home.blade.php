@@ -155,10 +155,10 @@
                         <div class="overflow-x-hidden rounded-2xl relative">
 
                             {{-- Main Images --}}
-                            <a href="{{ route('product', [$product->product_code]) }}">
+                            <a href="{{ route('product', [$product->product->product_code]) }}">
                                 <img class="mx-auto h-36 rounded-2xl w-36"
-                                    src="{{ asset('storage/media/products/main_' . $product->product_code . '_' . $product->default_photo) }}"
-                                    alt="{{ $product->default_photo }}">
+                                    src="{{ asset('storage/media/products/main_' . $product->product->product_code . '_' . $product->product->default_photo) }}"
+                                    alt="{{ $product->product->default_photo }}">
                             </a>
 
 
@@ -166,14 +166,15 @@
                             @auth
                                 @php
                                     $wishlist = App\Models\WishList::Where('user_id', 'like', '%' . Auth::user()->id . '%')
-                                        ->Where('product_code', $product->product_code)
+                                        ->Where('product_code', $product->product->product_code)
                                         ->first();
                                 @endphp
                             @endauth
 
                             @auth
                                 @if ($wishlist == null)
-                                    <form action="{{ route('wishlist.add', [$product->product_code]) }}" method="POST">
+                                    <form action="{{ route('wishlist.add', [$product->product->product_code]) }}"
+                                        method="POST">
                                         @csrf
                                         <button type="submit"
                                             class="absolute right-2 top-2 bg-yellow-900 rounded-full p-2 cursor-pointer group">
@@ -185,7 +186,7 @@
                                         </button>
                                     </form>
                                 @else
-                                    <form action="{{ route('wishlist.remove', [$product->product_code]) }}"
+                                    <form action="{{ route('wishlist.remove', [$product->product->product_code]) }}"
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -217,14 +218,14 @@
 
 
                         </div>
-                        <a href="{{ route('product', [$product->product_code]) }}">
+                        <a href="{{ route('product', [$product->product->product_code]) }}">
                             <div class="mt-10 pl-2 mb-2 flex justify-between ">
                                 <div>
-                                    <p class="text-lg font-semibold mb-0">{{ $product->product_name }}</p>
+                                    <p class="text-lg font-semibold mb-0">{{ $product->product->product_name }}</p>
                                     <div class="flex item-center mt-2">
 
                                         @php
-                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product_code)->avg('stars');
+                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product->product_code)->avg('stars');
                                         @endphp
 
                                         {!! str_repeat(
@@ -250,12 +251,12 @@
                                         ( {{ round($product_ave_reviews, 0) }} )
 
 
-                                        <span class="ml-2">{{ count($product->product_reviews) }}
+                                        <span class="ml-2">{{ count($product->product->product_reviews) }}
                                             Reviews
                                         </span>
 
                                     </div>
-                                    <p class="text-md text-yellow-900 mt-4">₱ @convert($product->price)</p>
+                                    <p class="text-md text-yellow-900 mt-4">₱ @convert($product->product->price)</p>
                                 </div>
                                 <div class="flex flex-col-reverse mb-1 mr-4 group cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg"
