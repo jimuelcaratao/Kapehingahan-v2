@@ -1,4 +1,4 @@
-# WeShop
+# KapeHingahan
 
 ---
 
@@ -12,9 +12,11 @@
 -   kapehingahan_db_v2 (dbname)
 -   npm install
 -   npm run dev
--   php artisan storage:link
 -   php artisan migrate
 -   php artisan storage:link
+-   php artisan route:cache
+-   php artisan config:cache
+-   php artisan serve
 
 ## Packages
 

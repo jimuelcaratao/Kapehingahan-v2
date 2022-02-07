@@ -1,8 +1,6 @@
 <x-admin-layout>
-    @slot('header')
-        Dashboard
-    @endslot
     <div class="container-fluid py-4">
+
         <div class="row">
             <div class="col-12  mb-4">
                 <div class="card">
@@ -10,7 +8,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <h2 class="font-bold text-lg md:text-4xl">{{ $dayTerm }},
+                                    <h2 class="font-bold text-lg md:text-4xl">Good aftie,
                                         <span class="uppercase"></span>{{ Auth::user()->name }}
                                         👋
                                     </h2>
@@ -30,9 +28,9 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Orders</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ $orders_count_today }}
+                                        $53,000
                                     </h5>
                                     <p class="mb-0">
                                         <span class="text-success text-sm font-weight-bolder">+55%</span>
@@ -58,7 +56,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ $new_users }}
+                                        2,300
                                     </h5>
                                     <p class="mb-0">
                                         <span class="text-success text-sm font-weight-bolder">+3%</span>
@@ -150,27 +148,29 @@
                 <div class="card card-carousel overflow-hidden h-100 p-0">
                     <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
                         <div class="carousel-inner border-radius-lg h-100">
-                            <div class="carousel-item h-100 active" style="background-image: url('{{ asset('img/admin/carousel-2.jpg') }}');
+                            <div class="carousel-item h-100 active" style="background-image: url('{{ asset('img/admin/carousel-1.jpg') }}');
       background-size: cover;">
                                 <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                     <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                         <i class="ni ni-camera-compact text-dark opacity-10"></i>
                                     </div>
-                                    <h5 class="text-white mb-1">Get started with good Coffee</h5>
-                                    <p>Everyone should believe in something. I believe I will have another coffee.</p>
+                                    <h5 class="text-white mb-1">Get started with Argon</h5>
+                                    <p>There’s nothing I really wanted to do in life that I wasn’t able to get good
+                                        at.</p>
                                 </div>
                             </div>
-                            <div class="carousel-item h-100" style="background-image: url('{{ asset('img/admin/carousel-3.jpg') }}');
+                            <div class="carousel-item h-100" style="background-image: url('{{ asset('img/admin/carousel-2.jpg') }}');
       background-size: cover;">
                                 <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                     <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                         <i class="ni ni-bulb-61 text-dark opacity-10"></i>
                                     </div>
-                                    <h5 class="text-white mb-1">KapeHingahan</h5>
-                                    <p>But even a bad cup of coffee is better than no coffee at all.</p>
+                                    <h5 class="text-white mb-1">Faster way to create web pages</h5>
+                                    <p>That’s my skill. I’m not really specifically talented at anything except for
+                                        the ability to learn.</p>
                                 </div>
                             </div>
-                            {{-- <div class="carousel-item h-100" style="background-image: url('{{ asset('img/admin/carousel-3.jpg') }}');
+                            <div class="carousel-item h-100" style="background-image: url('{{ asset('img/admin/carousel-3.jpg') }}');
       background-size: cover;">
                                 <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                     <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
@@ -180,7 +180,7 @@
                                     <p>Don’t be afraid to be wrong because you can’t learn anything from a
                                         compliment.</p>
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                         <button class="carousel-control-prev w-5 me-3" type="button"
                             data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -238,7 +238,99 @@
                                         </div>
                                     </td>
                                 </tr>
-
+                                <tr>
+                                    <td class="w-30">
+                                        <div class="d-flex px-2 py-1 align-items-center">
+                                            <div>
+                                                <img src="../assets/img/icons/flags/DE.png" alt="Country flag">
+                                            </div>
+                                            <div class="ms-4">
+                                                <p class="text-xs font-weight-bold mb-0">Country:</p>
+                                                <h6 class="text-sm mb-0">Germany</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Sales:</p>
+                                            <h6 class="text-sm mb-0">3.900</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Value:</p>
+                                            <h6 class="text-sm mb-0">$440,000</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-sm">
+                                        <div class="col text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Bounce:</p>
+                                            <h6 class="text-sm mb-0">40.22%</h6>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-30">
+                                        <div class="d-flex px-2 py-1 align-items-center">
+                                            <div>
+                                                <img src="../assets/img/icons/flags/GB.png" alt="Country flag">
+                                            </div>
+                                            <div class="ms-4">
+                                                <p class="text-xs font-weight-bold mb-0">Country:</p>
+                                                <h6 class="text-sm mb-0">Great Britain</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Sales:</p>
+                                            <h6 class="text-sm mb-0">1.400</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Value:</p>
+                                            <h6 class="text-sm mb-0">$190,700</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-sm">
+                                        <div class="col text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Bounce:</p>
+                                            <h6 class="text-sm mb-0">23.44%</h6>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-30">
+                                        <div class="d-flex px-2 py-1 align-items-center">
+                                            <div>
+                                                <img src="../assets/img/icons/flags/BR.png" alt="Country flag">
+                                            </div>
+                                            <div class="ms-4">
+                                                <p class="text-xs font-weight-bold mb-0">Country:</p>
+                                                <h6 class="text-sm mb-0">Brasil</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Sales:</p>
+                                            <h6 class="text-sm mb-0">562</h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Value:</p>
+                                            <h6 class="text-sm mb-0">$143,960</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-sm">
+                                        <div class="col text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Bounce:</p>
+                                            <h6 class="text-sm mb-0">32.14%</h6>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -14,9 +14,9 @@
                         <div class=" sm:mt-0">
                             <div class=" md:mt-0 md:col-span-2">
                                 <div class="overflow-hidden ">
-                                    <div class="px-4 py-5 bg-white sm:p-6">
+                                    <div class="px-4  bg-white sm:p-6">
 
-                                        <div class="grid grid-cols-6 gap-6">
+                                        <div class="grid grid-cols-6 ">
                                             <div class=" col-span-6 sm:col-span-4">
                                                 <label for="update_order_no"
                                                     class="block text-sm font-medium text-gray-700">Order No. <span
@@ -29,7 +29,7 @@
                                         <hr class="mt-5 text-gray-500">
 
                                         <h4 class="py-3">Status</h4>
-                                        <div class="grid grid-cols-6 gap-6">
+                                        <div class="grid grid-cols-6 gap-3">
                                             <div class=" col-span-6 sm:col-span-4">
                                                 <div class="form-check form-switch">
                                                     <input class="switches form-check-input" type="checkbox"

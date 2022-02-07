@@ -32,6 +32,10 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
+Route::get('/sad', function () {
+    return view('pages.admin.v2.dashboard');
+});
+
 // Facebook Auth
 Route::get('/signin-facebook', function () {
     return Socialite::driver('facebook')->redirect();
