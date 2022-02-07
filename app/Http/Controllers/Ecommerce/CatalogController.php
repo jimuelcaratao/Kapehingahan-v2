@@ -28,6 +28,7 @@ class CatalogController extends Controller
         return view('pages.ecommerce.catalog', [
             'products' => $products,
             'categories' => $categories,
+            'category_found' => $category_found = null,
             // 'brands_search' => $brands_search ?? null,
         ]);
     }

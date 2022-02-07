@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 
-<nav x-data="{ open: false }" class="bg-black">
+<nav x-data="{ open: false }" class="bg-black sticky top-0 z-50">
 
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
@@ -108,7 +108,7 @@
                     {{-- carts --}}
                     <a href="{{ route('cart') }}">
                         <button type="button"
-                            class=" bg-yellow-900 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                            class="mr-1 bg-yellow-900 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                             <span class="sr-only">View notifications</span>
                             <!-- Heroicon name: outline/bell -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -5 26 30"
@@ -140,7 +140,7 @@
                     <div class="">
                         @guest
                             @if (Route::has('login'))
-                                <div class=" px-6 py-4 sm:block">
+                                <div class="md:px-6 py-4 sm:block">
                                     <a href="{{ route('login') }}" class="text-sm text-white dark:text-gray-500">Log
                                         in</a>
 
@@ -202,7 +202,7 @@
 
                                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                            this.closest('form').submit();">
+                                                                                                                                                                                                                            this.closest('form').submit();">
 
                                             {{ __('Log Out') }}
                                         </x-jet-dropdown-link>
