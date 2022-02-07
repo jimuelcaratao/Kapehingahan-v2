@@ -57,8 +57,8 @@
 
     @endpush
 
-    <div class="bg-white font-sans leading-normal tracking-normal">
-        <div class="carousel relative container mx-auto" style="max-width:1600px;">
+    <div class="bg-white leading-normal tracking-normal">
+        <div class="carousel relative mx-auto">
             <div class="carousel-inner relative overflow-hidden w-full">
                 <!--Slide 1-->
                 <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
@@ -116,7 +116,106 @@
         </div>
 
         <!-- Hot brew or cold brew section -->
-        <div class="container p-16 mx-auto space-y-8">
+            <div class="container mx-auto lg:px-20" >
+                <div class="text-center mb-16">
+                    <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">how do you like your coffee?</h1>
+                </div>
+
+                <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
+                    <div class="w-full relative flex items-center justify-center">
+                    <button aria-label="slide backward" class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
+                        <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+                        <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://images.unsplash.com/photo-1561766926-a7c863179e15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Hot Brew</h3>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://images.unsplash.com/photo-1620360289812-0abdae69d6d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Cold Brew</h3>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Espresso</h3>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://images.unsplash.com/photo-1593231269103-6667d6905882?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80 alt="coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Americano</h3>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://images.unsplash.com/photo-1624528201496-121b78e2db93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Cappucino</h3>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://images.unsplash.com/photo-1574914629385-46448b767aec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Latte</h3>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Mocha</h3>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <button aria-label="slide forward" class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" id="next">
+                        <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    </div>
+                </div>
+                <script>
+                    let defaultTransform = 0;
+                function goNext() {
+                    defaultTransform = defaultTransform - 398;
+                    var slider = document.getElementById("slider");
+                    if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7)
+                    defaultTransform = 0;
+                    slider.style.transform = "translateX(" + defaultTransform + "px)";
+                }
+                next.addEventListener("click", goNext);
+                function goPrev() {
+                    var slider = document.getElementById("slider");
+                    if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+                    else defaultTransform = defaultTransform + 398;
+                    slider.style.transform = "translateX(" + defaultTransform + "px)";
+                }
+                prev.addEventListener("click", goPrev);
+                </script>
+
+
+        {{-- <div class="container p-16 mx-auto space-y-8">
             <div class="space-y-2 text-center">
                 <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">how do you like your coffee?</h1>
             </div>
@@ -148,7 +247,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+
         <!-- Best sellers -->
         <div class="container p-4 mx-auto space-y-8">
             <div class="space-y-2 text-center">
@@ -277,6 +378,8 @@
                         </a>
 
                     </div>
+                </div>
+            </div>
                 @empty
                     {{-- No {{ $category_found->category_name }} Available.. :( --}}
                 @endforelse
@@ -2955,7 +3058,6 @@
                       </div>
                       <div class="w-full sm:w-1/3 h-32 md:h-48 px-2">
                         <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl" href="#" title="Link" style="background-image: url(img/gallery-6.jpg);">
-
                         </a>
                       </div>
                     </div>
