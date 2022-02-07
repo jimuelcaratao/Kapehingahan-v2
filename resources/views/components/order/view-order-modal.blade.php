@@ -14,14 +14,14 @@
                         <div class=" sm:mt-0">
                             <div class=" md:mt-0 md:col-span-2">
                                 <div class="overflow-hidden ">
-                                    <div class="px-4 pt-3 pb-5 bg-white sm:p-6">
+                                    <div class="px-4  bg-white ">
 
-                                        <div class="grid grid-cols-6 gap-6">
+                                        <div class="grid grid-cols-6 gap-3">
                                             <div class=" col-span-6 sm:col-span-4">
                                                 <label for="view_order_no"
                                                     class="block text-sm font-medium text-gray-700">Order No.</label>
                                                 <input type="text" name="order_no" id="view_order_no" required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
                                             <div class=" col-span-6 sm:col-span-4">
@@ -30,26 +30,26 @@
                                                     Status.</label>
                                                 <input type="text" name="view_order_status" id="view_order_status"
                                                     required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
                                         </div>
 
                                         <hr class="mt-5 text-gray-500">
                                         <h4 class="py-3">Customer Details</h4>
 
-                                        <div class="grid grid-cols-6 gap-6">
+                                        <div class="grid grid-cols-6 gap-3">
                                             <div class=" col-span-8 sm:col-span-6">
                                                 <label for="view_name"
                                                     class="block text-sm font-medium text-gray-700">Name</label>
                                                 <input type="text" name="order_no" id="view_name" readonly required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
                                             <div class=" col-span-8 sm:col-span-6">
                                                 <label for="view_email"
                                                     class="block text-sm font-medium text-gray-700">Email</label>
                                                 <input type="text" name="view_email" id="view_email" readonly required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
                                             <div class=" col-span-8 sm:col-span-6">
@@ -57,7 +57,7 @@
                                                     class="block text-sm font-medium text-gray-700">Mobile No.</label>
                                                 <input type="text" name="view_mobile_no" id="view_mobile_no" readonly
                                                     required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
                                             <div class="col-span-8 sm:col-span-6">
@@ -67,7 +67,7 @@
                                                 </label>
                                                 <div class="mt-1">
                                                     <textarea id="view_address" name="view_address" rows="3" readonly
-                                                        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                                                        class="shadow focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                         <hr class="mt-5 text-gray-500">
                                         <h4 class="py-3">Ordered Items</h4>
 
-                                        <div class="grid grid-cols-6 gap-6">
+                                        <div class="grid grid-cols-6 gap-3">
                                             <div class=" col-span-8 sm:col-span-6">
 
                                                 <div class="flex flex-col">
@@ -149,7 +149,8 @@
         $(document).ready(function() {
             $(document).on("click", "#view-order", function() {
                 $(this).addClass(
-                "edit-item-trigger-clicked"); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+                    "edit-item-trigger-clicked"
+                ); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
                 var options = {
                     backdrop: "static"
                 };

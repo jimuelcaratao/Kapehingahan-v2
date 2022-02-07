@@ -13,9 +13,34 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::oldest()->paginate(5);
+        $tableCategories = Category::all();
 
-        return view('Pages.Admin.categories', [
+        if ($tableCategories->isEmpty()) {
+            $categories = Category::paginate();
+        }
+
+        if ($tableCategories->isNotEmpty()) {
+            // $products = Product::paginate(5);
+
+            // search validation
+            $search = Category::where('category_name', 'like', '%' . request()->search . '%')
+                ->first();
+
+
+            if ($search === null) {
+                return redirect('categories')->with('info', 'No "' . request()->search . '" found in the database.');
+            }
+
+
+            if ($search != null) {
+                // default returning
+                $categories = Category::Where('category_name', 'like', '%' . request()->search . '%')
+                    ->latest()
+                    ->paginate(10);
+            }
+        }
+
+        return view('pages.admin.categories', [
             'categories' => $categories,
         ]);
     }

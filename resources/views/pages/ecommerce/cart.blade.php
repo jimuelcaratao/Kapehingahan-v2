@@ -89,7 +89,7 @@
 
 
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-500 hover:shadow-lg">
-                        <img class="h-1/2 w-1/2 md:h-1/4 md:w-1/4 block mx-auto"
+                        <img class="h-full w-full md:h-1/4 md:w-1/4 block mx-auto rounded"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}"
                             alt="{{ $cart->product->product_name }}">
                         <div class="px-4 w-full flex flex-col justify-around items-start">
