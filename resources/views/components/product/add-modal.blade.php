@@ -20,18 +20,18 @@
                         enctype="multipart/form-data">
                         @csrf
                         <h4> Basic information </h4>
-                        <div class="mt-10 sm:mt-0">
+                        <div class=" sm:mt-0">
                             <div class="mt-3 md:mt-0 md:col-span-2">
                                 <div class="overflow-hidden ">
-                                    <div class="px-4 py-5 bg-white sm:p-6">
-                                        <div class="grid grid-cols-6 gap-6">
+                                    <div class="px-4  bg-white sm:p-6">
+                                        <div class="grid grid-cols-6 gap-3">
 
                                             <div class="col-span-6 sm:col-span-4">
                                                 <label for="category_name"
                                                     class="block text-sm font-medium text-gray-700">Category <span
                                                         class="text-red-600">*</span></label>
                                                 <select id="category_name" name="category_name" required
-                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option selected disabled value="">Choose...</option>
                                                     {{ $categoryOptions }}
                                                 </select>
@@ -50,7 +50,7 @@
                                                     class="block text-sm font-medium text-gray-700">Brand <span
                                                         class="text-red-600">*</span></label>
                                                 <select id="brand_name" name="brand_name" required
-                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option selected disabled value="">Choose...</option>
                                                     {{ $brandOptions }}
                                                 </select>
@@ -61,7 +61,7 @@
                                                     class="block text-sm font-medium text-gray-700">Product code <span
                                                         class="text-red-600">*</span></label>
                                                 <input type="text" name="product_code" id="product_code" required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
                                             <div class="form-basic  col-span-6 sm:col-span-4">
@@ -69,7 +69,7 @@
                                                     class="block text-sm font-medium text-gray-700">Product Name <span
                                                         class="text-red-600">*</span></label>
                                                 <input type="text" name="product_name" id="product_name" required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
                                             <div class="form-basic  col-span-8 sm:col-span-6">
@@ -79,7 +79,7 @@
                                                 </label>
                                                 <div class="mt-1">
                                                     <textarea id="description" name="description" rows="3"
-                                                        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                        class="shadow focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                                                         placeholder="you@example.com"></textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="form-basic  hidden sm:block" aria-hidden="true">
-                            <div class="py-5">
+                            <div class="">
                                 <div class="border-t border-gray-200"></div>
                             </div>
                         </div>
@@ -104,17 +104,17 @@
                         <div class="form-basic  mt-3 md:mt-0 md:col-span-2">
                             <div class=" sm:overflow-hidden">
                                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                                    <div class="grid grid-cols-6 gap-6">
+                                    <div class="grid grid-cols-6 gap-3">
 
                                         <div class=" col-span-6 sm:col-span-6 lg:col-span-2">
                                             <div>
                                                 <label for="price" class="block text-sm font-medium text-gray-700">Price
                                                     <span class="text-red-600">*</span></label>
-                                                <div class="mt-1 relative rounded-md shadow-sm">
+                                                <div class="mt-1 relative rounded-md shadow">
                                                     <div
                                                         class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                                         <span class="text-gray-500 sm:text-sm">
-                                                            $
+                                                            ₱
                                                         </span>
                                                     </div>
                                                     <input type="number" min="0" step="0.01" name="price" id="price"
@@ -130,7 +130,7 @@
                                             <label for="stock" class="block text-sm font-medium text-gray-700">Stock
                                                 <span class="text-red-600">*</span></label>
                                             <input type="number" min="0" name="stock" id="stock" required
-                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                         </div>
 
                                         <div class="col-span-6 sm:col-span-3 lg:col-span-2">
@@ -138,7 +138,7 @@
                                                 class="block text-sm font-medium text-gray-700">Measurement <span
                                                     class="text-red-600">*</span></label>
                                             <select id="stock_measurement" name="stock_measurement" required
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                 <option selected disabled value="">Choose...</option>
                                                 <option value="pcs">Pieces</option>
                                                 <option value="Oz">Ounce</option>
@@ -156,7 +156,7 @@
 
 
                         <div class="form-basic  hidden sm:block" aria-hidden="true">
-                            <div class="py-5">
+                            <div class="">
                                 <div class="border-t border-gray-200"></div>
                             </div>
                         </div>
@@ -164,11 +164,11 @@
                         <h4 class="form-basic ">Media Management</h4>
                         <div class="form-basic  mt-3 md:mt-0 md:col-span-2">
                             <div class=" sm:overflow-hidden">
-                                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                                    <div class="grid grid-cols-6 gap-6">
+                                <div class="px-4  bg-white space-y-6 sm:p-6">
+                                    <div class="grid grid-cols-8 gap-3">
 
 
-                                        <div class="col-span-6 sm:col-span-6 lg:col-span-3">
+                                        {{-- <div class="col-span-6 sm:col-span-6 lg:col-span-3">
                                             <div>
                                                 <label class="block text-sm font-medium text-gray-700">
                                                     Cover photo <span class="text-red-600">*</span>
@@ -183,6 +183,35 @@
 
                                                     </div>
 
+                                                </div>
+                                            </div>
+                                        </div> --}}
+
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700">
+                                                Cover photo
+                                            </label>
+                                            <div
+                                                class="mt-1 flex justify-center px-6 py-3 border-2 border-gray-300 border-dashed rounded-md">
+                                                <div class="space-y-1 text-center">
+
+                                                    <img id="output_default_photo" class="cursor-pointer mb-4"
+                                                        src="{{ asset('img/cover-img.svg') }}"
+                                                        style="width:400px;height:200px;">
+
+                                                    <div class="flex text-sm text-gray-600 ">
+                                                        <label for="default_photo"
+                                                            class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                            <span class="align-middle text-center">Upload a file</span>
+                                                            <input id="default_photo" name="default_photo" type="file"
+                                                                required class="sr-only"
+                                                                accept=".jpg,.gif,.png,.jpeg">
+                                                        </label>
+                                                        {{-- <p class="pl-1">or drag and drop</p> --}}
+                                                    </div>
+                                                    <p class="text-xs text-gray-500">
+                                                        PNG, JPG, GIF up to 5MB
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,6 +242,10 @@
     <script>
         // autosize($('#description'));
         // autosize($('#specs'));
+
+        $('#output_default_photo').click(function() {
+            $('#default_photo').trigger('click');
+        });
 
         // display shop form
         $('#category_name').change(function() {

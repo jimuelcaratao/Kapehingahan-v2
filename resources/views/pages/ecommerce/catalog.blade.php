@@ -8,6 +8,11 @@
         <x-slot name="head">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">
                 Products
+                @if ($category_found == null)
+                    / All
+                @else
+                    / {{ $category_found->category_name }}
+                @endif
             </h1>
         </x-slot>
         <x-slot name="categoryList">

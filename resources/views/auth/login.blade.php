@@ -9,12 +9,12 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <div class="flex flex-row text-gray-400 text-base content-center">
+        <div class="flex flex-row text-gray-400 text-base content-center  hide-small">
             <div class="mx-auto d-block mb-4">Enter your credentials to continue</div>
         </div>
 
         <div class="flex ">
-            <a class="flex-grow oauth-container btn darken-4 bg-red-500 hover:bg-red-400 white-text"
+            <a class="flex-grow oauth-container btn darken-4 bg-red-500 hover:bg-red-400 white-text hide-small"
                 href="/signin-google" style="text-transform:none">
                 <div class="left">
                     {{ __('Sign in with Google') }}
@@ -26,8 +26,7 @@
                 </div>
             </a>
         </div>
-
-        <div class="flex my-4">
+        {{-- <div class="flex my-4">
             <a class="flex-grow oauth-container btn darken-4 bg-blue-500 hover:bg-blue-400 white-text"
                 href="/signin-facebook" style="text-transform:none">
                 <div class="left">
@@ -38,9 +37,9 @@
                         src="{{ asset('img/fb-logo.png') }}" />
                 </div>
             </a>
-        </div>
+        </div> --}}
 
-        <p class="text-seperator"><span>OR</span></p>
+        <p class="text-seperator  hide-small"><span>OR</span></p>
 
 
 
