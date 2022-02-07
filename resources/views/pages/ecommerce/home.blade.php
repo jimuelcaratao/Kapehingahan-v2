@@ -14,11 +14,10 @@
         <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
         <script src="{{ asset('js/slider/glider.js') }}" defer></script>
 
-        <style>
-            html {
-                scroll-behavior: smooth;
-            }
+        {{-- smooth-scroll script --}}
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
+        <style>
             .carousel-open:checked+.carousel-item {
                 position: static;
                 opacity: 100;
@@ -59,53 +58,63 @@
     @endpush
 
     <div class="bg-white font-sans leading-normal tracking-normal">
-        <div class="carousel relative shadow-2xl bg-white">
+        <div class="carousel relative container mx-auto" style="max-width:1600px;">
             <div class="carousel-inner relative overflow-hidden w-full">
                 <!--Slide 1-->
-                <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden=""
-                    checked="checked">
-                <div class="carousel-item absolute opacity-0" style="height:60vh;">
-                    <img class="block h-full w-full md:bg-fixed" src={{ asset('img/3.png') }}>
+                <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+                <div class="carousel-item absolute opacity-0" style="height:50vh;">
+                    <div class="h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('img/3.png');">
+                    </div>
                 </div>
-                <label for="carousel-3"
-                    class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-2"
-                    class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+                <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-yellow-900 hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+                <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-yellow-900 hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
                 <!--Slide 2-->
                 <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-                <div class="carousel-item absolute opacity-0" style="height:60vh;">
-                    <img class="block h-full w-full" src={{ asset('img/2.png') }}>
+                <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:50vh;">
+                    <div class="h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('img/4.png');">
+
+                        <div class="container mx-auto">
+                            <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <label for="carousel-1"
-                    class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-3"
-                    class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+                <label for="carousel-1" class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-yellow-900 hover:text-white rounded-full bg-white hover:bg-yellow-900  leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+                <label for="carousel-3" class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-yellow-900 hover:text-white rounded-full bg-white hover:bg-yellow-900  leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
                 <!--Slide 3-->
                 <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-                <div class="carousel-item absolute opacity-0" style="height:60vh;">
-                    <img class="block h-full w-full" src={{ asset('img/1.png') }}>
+                <div class="carousel-item absolute opacity-0" style="height:50vh;">
+                    <div class="h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-bottom" style="background-image: url('img/2.png');">
+
+                        <div class="container mx-auto">
+                            <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <label for="carousel-2"
-                    class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-1"
-                    class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-yellow-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+                <label for="carousel-2" class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-yellow-900 hover:text-white rounded-full bg-white hover:bg-yellow-900  leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+                <label for="carousel-1" class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-yellow-900 hover:text-white rounded-full bg-white hover:bg-yellow-900  leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
                 <!-- Add additional indicators for each slide-->
                 <ol class="carousel-indicators">
                     <li class="inline-block mr-3">
-                        <label for="carousel-1"
-                            class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-yellow-900">•</label>
+                        <label for="carousel-1" class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-yellow-900">•</label>
                     </li>
                     <li class="inline-block mr-3">
-                        <label for="carousel-2"
-                            class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-yellow-900">•</label>
+                        <label for="carousel-2" class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-yellow-900">•</label>
                     </li>
                     <li class="inline-block mr-3">
-                        <label for="carousel-3"
-                            class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-yellow-900">•</label>
+                        <label for="carousel-3" class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-yellow-900">•</label>
                     </li>
                 </ol>
+
             </div>
         </div>
+
         <!-- Hot brew or cold brew section -->
         <div class="container p-16 mx-auto space-y-8">
             <div class="space-y-2 text-center">
@@ -147,7 +156,7 @@
             </div>
         </div>
         <div class="flex flex-col justify-center">
-            <div class="relative my-3 mx-6 flex flex-wrap mx-auto justify-center">
+            <div class="relative my-3 mx-6 flex flex-wrap justify-center">
                 @forelse ($products as $product)
                     <div
                         class="relative max-w-sm min-w-[300px] md:min-w-[340px]  bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
@@ -2916,51 +2925,47 @@
                         <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">our gallery</h1>
                     </div>
                 </div>
-                <div class="overflow-hidden">
-                    <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
-                        <div class="flex flex-wrap -m-1 md:-m-2">
-                            <div class="flex flex-wrap w-1/2">
-                                <div class="w-1/2 p-1 md:p-2">
-                                    <img alt="gallery"
-                                        class="block object-cover object-center w-full h-full rounded-lg"
-                                        src={{ asset('img/gallery-3.jpg') }}>
-                                </div>
-                                <div class="w-1/2 p-1 md:p-2">
-                                    <img alt="gallery"
-                                        class="block object-cover object-center w-full h-full rounded-lg"
-                                        src={{ asset('img/gallery-6.jpg') }}>
-                                </div>
-                                <div class="w-full p-1 md:p-2">
-                                    <img alt="gallery"
-                                        class="block object-cover object-center w-full h-full rounded-lg"
-                                        src={{ asset('img/gallery-1.jpg') }}>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap w-1/2">
-                                <div class="w-full p-1 md:p-2">
-                                    <img alt="gallery"
-                                        class="block object-cover object-center w-full h-full rounded-lg"
-                                        src={{ asset('img/gallery-2.jpg') }}>
-                                </div>
-                                <div class="w-1/2 p-1 md:p-2">
-                                    <img alt="gallery"
-                                        class="block object-cover object-center w-full h-full rounded-lg"
-                                        src={{ asset('img/gallery-4.jpg') }}>
-                                </div>
-                                <div class="w-1/2 p-1 md:p-2">
-                                    <img alt="gallery"
-                                        class="block object-cover object-center w-full h-full rounded-lg"
-                                        src={{ asset('img/gallery-5.jpg') }}>
-                                </div>
-                            </div>
+                <div class="container mx-auto p-8">
+                    <div class="flex flex-row flex-wrap -mx-2">
+                      <div class="w-full md:w-1/2 h-64 md:h-auto mb-4 px-2">
+                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl" href="#" title="Link" style="background-image: url(img/gallery-4.jpg);">
+                        </a>
+                      </div>
+                      <div class="w-full md:w-1/2 mb-4 px-2">
+                        <div class="flex flex-col sm:flex-row md:flex-col -mx-2">
+                          <div class="w-full sm:w-1/2 md:w-full h-48 xl:h-64 mb-4 sm:mb-0 md:mb-4 px-2">
+                            <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl" href="#" title="Link" style="background-image: url(img/gallery-1.jpg);">
+                            </a>
+                          </div>
+                          <div class="w-full sm:w-1/2 md:w-full h-48 xl:h-64 px-2">
+                            <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl" href="#" title="Link" style="background-image: url(img/gallery-2.jpg);">
+                            </a>
+                          </div>
                         </div>
+                      </div>
+                      <div class="w-full sm:w-1/3 h-32 md:h-48 mb-4 sm:mb-0 px-2">
+                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl" href="#" title="Link" style="background-image: url(img/gallery-3.jpg);">
+
+                        </a>
+                      </div>
+                      <div class="w-full sm:w-1/3 h-32 md:h-48 mb-4 sm:mb-0 px-2">
+                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl" href="#" title="Link" style="background-image: url(img/gallery-5.jpg);">
+
+                        </a>
+                      </div>
+                      <div class="w-full sm:w-1/3 h-32 md:h-48 px-2">
+                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl" href="#" title="Link" style="background-image: url(img/gallery-6.jpg);">
+
+                        </a>
+                      </div>
                     </div>
+                  </div>
 
                     {{-- Scroll to top --}}
 
                     <div x-data="topBtn">
                         <button @click="scrolltoTop" id="topButton"
-                            class="fixed z-10 hidden p-3 text-white bg-yellow-900 rounded-full shadow-md bottom-10 right-10 animate-bounce">
+                            class="fixed z-10 hidden p-3 text-white bg-yellow-900 rounded-full shadow-md bottom-10 right-10">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -2974,8 +2979,7 @@
                         document.addEventListener('alpine:init', () => {
                             Alpine.data('topBtn', () => ({
                                 scrolltoTop() {
-                                    document.body.scrollTop = 0;
-                                    document.documentElement.scrollTop = 0;
+                                    $('html, body').animate({scrollTop:0}, 'slow');
                                 }
                             }));
                         });
@@ -2986,6 +2990,7 @@
                             topBtn.classList.remove("hidden"): topBtn.classList.add("hidden");
 
                         }
+
                     </script>
 
 </x-ecommerce-layout>

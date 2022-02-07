@@ -6,7 +6,7 @@
 					<img class="lg:block h-20 w-auto" src={{ asset('img/main-logo.png') }} alt="Workflow">
 				</div>
 			</a>
-            <div class="w-80">
+            <div class="w-full md:w-80">
             <span class="self-center text-sm mx-auto">KapeHingahan will start your day with a cup of coffee. Serving high-quality espresso-based drinks as well as delectable meals.</span>
             </div>
         </div>
