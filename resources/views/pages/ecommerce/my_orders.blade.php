@@ -4,7 +4,7 @@
         <div class="mt-12 flex flex-col justify-center items-center space-y-5 md:space-x-3">
             <div class="p-4 bg-white shadow-md w-11/12 md:w-4/5">
                 <h1 class="text-left text-xl font-bold">
-                    My Orders ({{ count($orders) }} item/s)
+                    My Orders ({{ count($orders) }} order/s)
                 </h1>
                 <hr class="my-2 border-b border-gray-500">
                 <div class="container my-12 mx-auto px-4 md:px-12">
