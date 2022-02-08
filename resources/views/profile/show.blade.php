@@ -65,7 +65,7 @@
                 @endif
 
                 @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                    <div class="sm:mt-0">
+                    <div class="sm:mt-0 profile-m-t">
                         @livewire('profile.update-password-form')
                     </div>
 
@@ -73,14 +73,14 @@
                 @endif
 
                 @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                    <div class="sm:mt-0">
+                    <div class="sm:mt-0 profile-m-t">
                         @livewire('profile.two-factor-authentication-form')
                     </div>
 
                     <x-jet-section-border />
                 @endif
 
-                <div class=" sm:mt-0 mb-6">
+                <div class=" sm:mt-0 mb-6 profile-m-t">
                     @livewire('profile.logout-other-browser-sessions-form')
                 </div>
 

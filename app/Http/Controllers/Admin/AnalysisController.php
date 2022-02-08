@@ -15,7 +15,7 @@ class AnalysisController extends Controller
 
     public function index()
     {
-        $revenue_per_month = OrderItem::whereMonth('created_at', '=', Carbon::now()->subMonth()->month + 1)->get();
+        $revenue_per_month = OrderItem::whereYear('created_at', '=', Carbon::now()->subYear()->year + 1)->get();
 
 
         // revenue
@@ -54,6 +54,8 @@ class AnalysisController extends Controller
             'order_items' => $order_items,
             'order_counts' => $order_counts,
             'user_per_week' => $user_per_week,
+            'revenue_per_month' => $revenue_per_month,
+
         ]);
     }
 }
