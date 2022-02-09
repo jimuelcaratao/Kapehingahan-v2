@@ -1,215 +1,212 @@
-<x-app-layout>
+<x-admin-layout>
+    @slot('header')
+        Users
+    @endslot
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
 
-    <div class="pt-8 pb-12 px-4 md:px-0">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
-            <div>
-                <h2 class="text-2xl md:text-4xl font-bold mb-12">Users 🔥</h2>
-            </div>
-
-            {{-- Header --}}
-            <div class="flex flex-row pb-4 md:pb-6 justify-between ">
-                <div>
-                    {{-- <h2 class="text-2xl md:text-4xl font-bold">Products 💼</h2> --}}
-
-                    <input class="focus:ring-indigo-500 focus:border-indigo-500  sm:text-sm border-gray-300 rounded-md"
-                        type="search" name="search" placeholder="Search.." aria-label="Search"
-                        value="{{ request()->search }}">
-                </div>
-
-                <div>
-                </div>
-
-            </div>
-
-
-            {{-- Table --}}
-            <x-main-table>
-                {{-- Col --}}
-
-                <x-slot name="tableColumn">
-                    <tr>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            TYPE
-                        </th>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Full name
-                        </th>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Email
-                        </th>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Social Media
-                        </th>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Status
-                        </th>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Banned Date
-                        </th>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Date Created
-                        </th>
-                        <th scope="col-2"
-                            class="flex flex-row px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Action
-                            <svg id="info" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Please configure your password first. Ignore this if you're finish."
-                                xmlns="http://www.w3.org/2000/svg" class="cursor-pointer ml-3 h-4 w-4" fill="none"
-                                viewBox="0 0 24  24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </th>
-                    </tr>
-                </x-slot>
-
-                <x-slot name="tableRow">
-                    @forelse ($users as $user)
-                        <tr>
-                            <td class="px-6 py-2 whitespace-nowrap">
-                                @if ($user->is_admin == 1)
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Admin
-                                    </span>
-                                @elseif($user->is_admin == 2)
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                        Staff
-                                    </span>
-                                @else
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                        Normal
-                                    </span>
-                                @endif
-
-                            </td>
-                            <td class="px-6 py-2 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $user->name }}</div>
-                            </td>
-                            <td class="px-6 py-2 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $user->email }}</div>
-                            </td>
-                            <td class="px-6 py-2 whitespace-nowrap">
-                                @if ($user->external_provider == 'Facebook')
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                        {{ $user->external_provider }}
-                                    </span>
-                                @elseif ($user->external_provider == 'Google')
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                        {{ $user->external_provider }}
-                                    </span>
-                                @else
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                        None
-                                    </span>
-                                @endif
-                            </td>
-                            <td class="px-6 py-2 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">Active</div>
-                            </td>
-
-
-
-                            @if (empty($user->is_banned))
-                                <td class="px-6 py-2 py-4 whitespace-nowrap">
-                                    <div
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                        Not Banned</div>
-                                </td>
-                            @else
-                                <td class="px-6 py-2 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{ $user->is_banned }}</div>
-                                </td>
-                            @endif
-
-
-                            <td class="px-6 py-2 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">
-                                    {{ \Carbon\Carbon::parse($user->created_at)->format('d / F / Y') }}</div>
-                            </td>
-
-                            <td class="px-6 py-2 whitespace-nowrap">
-                                <div class="flex items-center">
-
-                                    {{-- <div class="flex-shrink-0">
-                                        <a 
-                                        href="#"
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#edit-modal-user"
-                                        data-community="{{ json_encode($user) }}"
-                                        data-item-id="{{ $user->id }}"
-                                        data-item-name="{{ $user->name }}"
-                                        data-item-email="{{ $user->email }}"
-                                        id="edit-item-user"
-                                        class="text-indigo-600 no-underline hover:text-indigo-900 mr-5">View</a>
-                                    </div> --}}
-
-                                    {{-- banned --}}
-                                    <div class="ml-4">
-                                        <div class="text-sm py-4 font-medium text-gray-900">
-
-                                            @if ($user->is_admin == false)
-                                                @if ($user->is_banned != null)
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#confirm-modal"
-                                                        data-item-id="{{ $user->id }}" id=""
-                                                        class="confirm-password text-red-600 no-underline hover:text-red-900 mr-5">Unbanned</a>
-                                                @endif
-
-                                                @empty($user->is_banned)
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#confirm-modal"
-                                                        data-item-id="{{ $user->id }}" id=""
-                                                        class="confirm-password text-red-600 no-underline hover:text-red-900 mr-5">Ban</a>
-                                                @endempty
+                {{-- Header --}}
+                <div class="flex flex-row pb-4 md:pb-6 justify-between ">
+                    <div>
+                        {{-- search --}}
+                        <form class="flex">
+                            <div>
+                                <div class="mt-1 relative rounded-md shadow-sm">
+                                    <input
+                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-20  sm:text-sm border-gray-300 rounded-md"
+                                        type="search" name="search" placeholder="Search.." aria-label="Search"
+                                        value="{{ request()->search }}">
+                                    <div class="absolute inset-y-0 left-0 flex items-center">
+                                        <label for="search_col" class="sr-only">Currency</label>
+                                        <select id="search_col" name="search_col"
+                                            class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                            @if (!empty(request()->search_col))
+                                                <option class="bg-gray-200" disabled
+                                                    selected="{{ request()->search_col }}">
+                                                    {{ request()->search_col }}
+                                                </option>
                                             @endif
-
-
-                                        </div>
+                                            <option value="Name">Name</option>
+                                            <option value="Email">Email</option>
+                                            {{-- <option>Type</option> --}}
+                                        </select>
                                     </div>
-
                                 </div>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="8" class="pr-4 py-2 whitespace-nowrap text-sm font-medium text-center">
-                                <img class="mx-auto d-block text-center py-4" style="width: 275px"
-                                    src="{{ asset('images/components/no-products.svg') }}" alt="no products">
-                                Hmmm.. There is no users in here yet.
-                            </td>
-                        </tr>
-                    @endforelse
+                            </div>
+                            <button type="submit" class="text-secondary mx-2">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    {{-- <div>
+                        <button data-bs-toggle="modal" data-bs-target="#add-modal" type="button"
+                            class="inline-flex items-center px-4 py-1 border border-transparent rounded-md shadow text-sm font-medium text-white">
+                            Add Users
+                        </button>
+                    </div> --}}
+
+                </div>
+            </div>
+        </div>
 
 
-                </x-slot>
-            </x-main-table>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            TYPE</th>
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Full name </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Email</th>
+
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Social Media</th>
+
+                                        {{-- <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status</th> --}}
+
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Banned Date</th>
+
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Date Created</th>
+                                        <th class="text-secondary opacity-7"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @forelse ($users as $user)
+                                        <tr>
+
+                                            <td>
+                                                <div class="align-middle text-center d-flex px-2 ">
+                                                    @if ($user->is_admin == 1)
+                                                        <span class="badge badge-sm bg-gradient-success">
+                                                            Admin
+                                                        </span>
+                                                    @elseif($user->is_admin == 2)
+                                                        <span class="badge badge-sm bg-gradient-info">
+                                                            Staff
+                                                        </span>
+                                                    @else
+                                                        <span class="badge badge-sm bg-gradient-secondary">
+                                                            Customer
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class=" d-flex px-2 ">
+                                                    <h6 class="mb-0 text-sm pl-2">{{ $user->name }}</h6>
+                                                </div>
+                                            </td>
+
+
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $user->email }}</p>
+                                            </td>
+
+
+                                            <td class="align-middle text-center text-sm">
+                                                @if ($user->external_provider == 'Facebook')
+                                                    <span class="badge badge-sm bg-gradient-info">
+                                                        {{ $user->external_provider }}
+                                                    </span>
+                                                @elseif ($user->external_provider == 'Google')
+                                                    <span class="badge badge-sm bg-gradient-danger">
+                                                        {{ $user->external_provider }}
+                                                    </span>
+                                                @else
+                                                    <span class="badge badge-sm bg-gradient-secondary">
+                                                        None
+                                                    </span>
+                                                @endif
+                                            </td>
+
+                                            {{-- <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">Active</span>
+                                            </td> --}}
+
+                                            <td class="align-middle text-center">
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">{{ $user->is_banned }}</span>
+                                            </td>
+
+
+                                            <td class="align-middle text-center">
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">{{ \Carbon\Carbon::parse($user->created_at)->format('d / F / Y') }}</span>
+                                            </td>
+
+
+
+                                            <td
+                                                class="align-middle  whitespace-nowrap  text-right text-xxs font-medium">
+                                                @if ($user->is_admin == false)
+                                                    @if ($user->is_banned != null)
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#confirm-modal"
+                                                            data-item-id="{{ $user->id }}" id=""
+                                                            class="confirm-password text-red-600 no-underline hover:text-red-900 mr-5">Unbanned</a>
+                                                    @endif
+
+                                                    @empty($user->is_banned)
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#confirm-modal"
+                                                            data-item-id="{{ $user->id }}" id=""
+                                                            class="confirm-password text-red-600 no-underline hover:text-red-900 mr-5">Ban</a>
+                                                    @endempty
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="8"
+                                                class="pr-4 py-2 whitespace-nowrap text-sm font-medium text-center">
+                                                <img class="mx-auto d-block text-center py-4" style="width: 275px"
+                                                    src="{{ asset('images/components/no-products.svg') }}"
+                                                    alt="no products">
+                                                Hmmm.. There is no users in here yet.
+                                            </td>
+                                        </tr>
+                                    @endforelse
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-    </div>
 
-
-    <div class="row justify-content-center">
-        <div class="col-md-8 d-flex justify-content-center">
-            {{-- pagination --}}
-            <div class="pagination">
-                {{ $users->render('pagination::bootstrap-4') }}
+        <div class="row justify-content-center">
+            <div class="col-md-8 d-flex justify-content-center">
+                {{-- pagination --}}
+                <div class="pagination">
+                    {{ $users->render('pagination::bootstrap-4') }}
+                </div>
             </div>
         </div>
     </div>
 
     <x-user.confirm-password-modal>
     </x-user.confirm-password-modal>
-</x-app-layout>
+</x-admin-layout>

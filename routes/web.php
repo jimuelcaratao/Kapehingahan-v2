@@ -32,6 +32,10 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
+Route::get('/sad', function () {
+    return view('pages.admin.v2.dashboard');
+});
+
 // Facebook Auth
 Route::get('/signin-facebook', function () {
     return Socialite::driver('facebook')->redirect();
@@ -108,6 +112,14 @@ Route::get('/about-us', function () {
 Route::get('/contact-us', function () {
     return view('pages.ecommerce.contact');
 })->name('contact');
+
+Route::get('/faqs', function () {
+    return view('faqs');
+})->name('faqs');
+
+Route::get('/covid-policy', function () {
+    return view('covid-policy');
+})->name('covid.policy');
 
 // Admin Users
 Route::middleware(['auth:sanctum',  'is_admin'])->group(function () {

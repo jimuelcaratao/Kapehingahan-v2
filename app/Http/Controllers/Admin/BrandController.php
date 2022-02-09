@@ -13,9 +13,34 @@ class BrandController extends Controller
 {
     public function index()
     {
-        $brands = Brand::oldest()->paginate(5);
+        $tableBrands = Brand::all();
 
-        return view('Pages.Admin.brands', [
+        if ($tableBrands->isEmpty()) {
+            $brands = Brand::paginate();
+        }
+
+        if ($tableBrands->isNotEmpty()) {
+            // $products = Product::paginate(5);
+
+            // search validation
+            $search = Brand::where('brand_name', 'like', '%' . request()->search . '%')
+                ->first();
+
+
+            if ($search === null) {
+                return redirect('brands')->with('info', 'No "' . request()->search . '" found in the database.');
+            }
+
+
+            if ($search != null) {
+                // default returning
+                $brands = Brand::Where('brand_name', 'like', '%' . request()->search . '%')
+                    ->latest()
+                    ->paginate(10);
+            }
+        }
+
+        return view('pages.admin.brands', [
             'brands' =>   $brands,
         ]);
     }

@@ -149,7 +149,7 @@
                             <form action="{{ route('wishlist.add', [$product->product_code]) }}" method="POST">
                                 @csrf
                                 <button type="submit"
-                                    class="float-right text-white bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                    class="float-right text-white bg-yellow-900 rounded-full p-2 cursor-pointer group mb-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -162,7 +162,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="float-right text-white bg-yellow-900 rounded-full p-2 cursor-pointer group">
+                                    class="float-right text-white bg-yellow-900 rounded-full p-2 cursor-pointer group mb-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                         fill="currentColor">
                                         <path fill-rule="evenodd"
@@ -175,7 +175,8 @@
 
                         {{-- Main Image --}}
                         <img src="{{ asset('storage/media/products/main_' . $product->product_code . '_' . $product->default_photo) }}"
-                            alt="{{ $product->default_photo }}" class="w-full h-full object-center object-cover">
+                            alt="{{ $product->default_photo }}"
+                            class="w-full h-full object-center object-cover rounded">
                     </div>
 
 

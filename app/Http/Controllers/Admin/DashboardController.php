@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
@@ -39,6 +41,13 @@ class DashboardController extends Controller
             ->whereMonth('created_at', '=', Carbon::now()->month)
             ->count();
 
+        $customer_count = User::where('is_admin', '0')
+            ->count();
+
+        $category_count = Category::count();
+
+        $brand_count = Brand::where('status', 'Available')->count();
+
         $products_count = Product::count();
 
         $products_count_low = Product::where('stock', '<=', 10)
@@ -50,10 +59,14 @@ class DashboardController extends Controller
         $popular_items = WishList::select('product_code')
             ->groupBy('product_code')
             ->orderByRaw('COUNT(*) DESC')
-            ->limit(10)
+            ->limit(5)
             ->get();
 
-        $revenue_per_month = OrderItem::whereMonth('created_at', '=', Carbon::now()->subMonth()->month + 1)->get();
+        $categories = Category::latest()->limit(4)->get();
+
+        $revenue_today = OrderItem::whereDate('created_at', Carbon::today())->sum('price');
+
+        $revenue_per_month = OrderItem::whereMonth('created_at', '=', Carbon::now()->subMonth()->month + 1)->limit(15)->latest()->get();
 
         $page_visits = Visit::select([
             // This aggregates the data and makes available a 'count' attribute
@@ -74,8 +87,13 @@ class DashboardController extends Controller
             'products_count_low' => $products_count_low,
             'orders_count_today' => $orders_count_today,
             'popular_items' => $popular_items,
+            'category_count' => $category_count,
+            'categories' => $categories,
             'page_visits' => $page_visits,
             'revenue_per_month' => $revenue_per_month,
+            'revenue_today' => $revenue_today,
+            'customer_count' => $customer_count,
+            'brand_count' => $brand_count,
 
         ]);
     }
