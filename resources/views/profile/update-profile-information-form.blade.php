@@ -51,15 +51,15 @@
         @endif
 
         <!-- Name -->
-        <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 sm:col-span-4 profile-m-t">
             <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name"
                 autocomplete="name" />
-            <x-jet-input-error for="name" class="mt-1" />
+            <x-jet-input-error for="name" class="" />
         </div>
 
         <!-- Email -->
-        <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 sm:col-span-4 profile-m-t">
             <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-1" />
@@ -67,14 +67,14 @@
 
 
         @if (Auth::user()->email_verified_at != null)
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6 sm:col-span-4 profile-m-t">
                 <x-jet-button>
                     {{ __('Verified') }}
                 </x-jet-button>
             </div>
         @endif
         @empty(Auth::user()->email_verified_at)
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6 sm:col-span-4 profile-m-t">
                 <x-jet-button>
                     <a href="{{ route('verification.notice') }}">
                         {{ __('Verifiy') }}
@@ -85,7 +85,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved">
+        <x-jet-action-message class="mr-3 " on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
 

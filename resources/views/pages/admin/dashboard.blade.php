@@ -2,7 +2,7 @@
     @slot('header')
         Dashboard
     @endslot
-    <div class="container-fluid py-4">
+    <div class="container-fluid pb-4 pt-2">
         <div class="row">
             <div class="col-12  mb-4">
                 <div class="card">
@@ -82,13 +82,14 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Products</p>
                                     <h5 class="font-weight-bolder">
-                                        +3,462
+                                        {{ $products_count }}
                                     </h5>
                                     <p class="mb-0">
-                                        <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                                        since last week
+                                        <span
+                                            class="text-secondary text-sm font-weight-bolder">{{ $products_count_low }}</span>
+                                        are low in stocks
                                     </p>
                                 </div>
                             </div>
@@ -108,14 +109,14 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
-                                    <h5 class="font-weight-bolder">
-                                        $103,430
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Sales</p>
+                                    <h5 class="font-weight-bolder py-2">
+                                        {{ $revenue_today }}
                                     </h5>
-                                    <p class="mb-0">
+                                    {{-- <p class="mb-0">
                                         <span class="text-success text-sm font-weight-bolder">+5%</span> than last
                                         month
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -133,11 +134,11 @@
             <div class="col-lg-7 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100">
                     <div class="card-header pb-0 pt-3 bg-transparent">
-                        <h6 class="text-capitalize">Sales overview</h6>
-                        <p class="text-sm mb-0">
+                        <h6 class="text-capitalize">Monthly Sales overview</h6>
+                        {{-- <p class="text-sm mb-0">
                             <i class="fa fa-arrow-up text-success"></i>
                             <span class="font-weight-bold">4% more</span> in 2021
-                        </p>
+                        </p> --}}
                     </div>
                     <div class="card-body p-3">
                         <div class="chart">
@@ -201,43 +202,59 @@
                 <div class="card ">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
-                            <h6 class="mb-2">Sales by Country</h6>
+                            <h6 class="mb-2">Popular Items</h6>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center ">
                             <tbody>
-                                <tr>
-                                    <td class="w-30">
-                                        <div class="d-flex px-2 py-1 align-items-center">
-                                            <div>
-                                                <img src="../assets/img/icons/flags/US.png" alt="Country flag">
+
+                                @forelse ($popular_items as $popular_item)
+                                    <tr>
+                                        <td class="w-30">
+                                            <div class="d-flex px-2 py-1 align-items-center">
+                                                <div>
+                                                    <img src="{{ asset('storage/media/products/main_' . $popular_item->product->product_code . '_' . $popular_item->product->default_photo) }}"
+                                                        alt="{{ $popular_item->product->default_photo }}"
+                                                        style="width:50px;">
+                                                </div>
+                                                <div class="ms-4">
+                                                    <p class="text-xs font-weight-bold mb-0">Product Code:</p>
+                                                    <h6 class="text-sm mb-0">{{ $popular_item->product_code }}
+                                                    </h6>
+                                                </div>
                                             </div>
-                                            <div class="ms-4">
-                                                <p class="text-xs font-weight-bold mb-0">Country:</p>
-                                                <h6 class="text-sm mb-0">United States</h6>
+                                        </td>
+                                        <td>
+                                            <div class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">Product Name:</p>
+                                                <h6 class="text-sm mb-0">
+                                                    {{ $popular_item->product->product_name }}
+                                                </h6>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Sales:</p>
-                                            <h6 class="text-sm mb-0">2500</h6>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Value:</p>
-                                            <h6 class="text-sm mb-0">$230,900</h6>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-sm">
-                                        <div class="col text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                                            <h6 class="text-sm mb-0">29.9%</h6>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+
+                                        <td class="align-middle text-sm">
+                                            <div class="col text-center">
+                                                <p class="text-xs font-weight-bold mb-0">Category:</p>
+                                                <h6 class="text-sm mb-0">
+                                                    {{ $popular_item->product->category_name }}</h6>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="w-100">
+                                            <div class="d-flex px-2 py-1 align-items-center">
+                                                <div class="text-center">
+                                                    <p class="text-base font-weight-bold mb-0">No popular products as
+                                                        of now</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforelse
+
 
                             </tbody>
                         </table>
@@ -247,28 +264,37 @@
             <div class="col-lg-5">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
-                        <h6 class="mb-0">Categories</h6>
+                        <h6 class="mb-0">Overview</h6>
                     </div>
                     <div class="card-body p-3">
                         <ul class="list-group">
+
                             <li
                                 class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                 <div class="d-flex align-items-center">
+
+
                                     <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                                        <i class="ni ni-mobile-button text-white opacity-10"></i>
+                                        <i class="ni ni-box-2 text-white opacity-10"></i>
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark text-sm">Devices</h6>
-                                        <span class="text-xs">250 in stock, <span class="font-weight-bold">346+
-                                                sold</span></span>
+                                        <h6 class="mb-1 text-dark text-sm">Products</h6>
+                                        <span class="text-xs">{{ $products_count }} in stock,
+                                            {{-- <span class="font-weight-bold">346+
+                                                sold
+                                            </span> --}}
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="d-flex">
-                                    <button
-                                        class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                            class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    <a href="{{ route('products') }}">
+                                        <button
+                                            class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
+                                                class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    </a>
                                 </div>
                             </li>
+
                             <li
                                 class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                 <div class="d-flex align-items-center">
@@ -276,49 +302,57 @@
                                         <i class="ni ni-tag text-white opacity-10"></i>
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark text-sm">Tickets</h6>
-                                        <span class="text-xs">123 closed, <span class="font-weight-bold">15
-                                                open</span></span>
+                                        <h6 class="mb-1 text-dark text-sm">Categories</h6>
+                                        <span class="text-xs">{{ $category_count }} available category
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="d-flex">
-                                    <button
-                                        class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                            class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    <a href="{{ route('categories') }}">
+                                        <button
+                                            class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
+                                                class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    </a>
                                 </div>
                             </li>
+
                             <li
                                 class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                 <div class="d-flex align-items-center">
                                     <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                                        <i class="ni ni-box-2 text-white opacity-10"></i>
+                                        <i class="ni ni-mobile-button text-white opacity-10"></i>
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark text-sm">Error logs</h6>
-                                        <span class="text-xs">1 is active, <span class="font-weight-bold">40
-                                                closed</span></span>
+                                        <h6 class="mb-1 text-dark text-sm">Brands</h6>
+                                        <span class="text-xs">{{ $brand_count }} available brand/s</span>
                                     </div>
                                 </div>
                                 <div class="d-flex">
-                                    <button
-                                        class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                            class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    <a href="{{ route('brands') }}">
+                                        <button
+                                            class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
+                                                class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    </a>
                                 </div>
                             </li>
+
                             <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
                                 <div class="d-flex align-items-center">
                                     <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
                                         <i class="ni ni-satisfied text-white opacity-10"></i>
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark text-sm">Happy users</h6>
-                                        <span class="text-xs font-weight-bold">+ 430</span>
+                                        <h6 class="mb-1 text-dark text-sm">Customers</h6>
+                                        <span class="text-xs font-weight-bold">{{ $customer_count }} total
+                                            customer</span>
                                     </div>
                                 </div>
                                 <div class="d-flex">
-                                    <button
-                                        class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                            class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    <a href="{{ route('users') }}">
+                                        <button
+                                            class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
+                                                class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                    </a>
                                 </div>
                             </li>
                         </ul>
@@ -328,4 +362,101 @@
         </div>
 
     </div>
+
+    @push('scripts')
+        <script>
+            // collections
+            var revenue_per_month = {!! json_encode($revenue_per_month->toArray(), JSON_HEX_TAG) !!};
+
+            var ctx1 = document.getElementById("chart-line").getContext("2d");
+
+            var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+
+            gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
+            gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+            gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+            new Chart(ctx1, {
+                type: "line",
+                data: {
+                    labels: [
+                        @foreach ($revenue_per_month as $revenue)
+                            "{{ \Carbon\Carbon::parse($revenue->created_at)->format('d M') }}",
+                        @endforeach
+                    ],
+                    datasets: [{
+                        label: "Sale",
+                        tension: 0.4,
+                        borderWidth: 0,
+                        pointRadius: 0,
+                        borderColor: "#5e72e4",
+                        backgroundColor: gradientStroke1,
+                        borderWidth: 3,
+                        fill: true,
+                        data: [
+                            @foreach ($revenue_per_month as $revenue)
+                                {{ $revenue->price * $revenue->quantity }},
+                            @endforeach
+                        ],
+                        maxBarThickness: 6
+
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                    scales: {
+                        y: {
+                            grid: {
+                                drawBorder: false,
+                                display: true,
+                                drawOnChartArea: true,
+                                drawTicks: false,
+                                borderDash: [5, 5]
+                            },
+                            ticks: {
+                                display: true,
+                                padding: 10,
+                                color: '#fbfbfb',
+                                font: {
+                                    size: 11,
+                                    family: "Open Sans",
+                                    style: 'normal',
+                                    lineHeight: 2
+                                },
+                            }
+                        },
+                        x: {
+                            grid: {
+                                drawBorder: false,
+                                display: false,
+                                drawOnChartArea: false,
+                                drawTicks: false,
+                                borderDash: [5, 5]
+                            },
+                            ticks: {
+                                display: true,
+                                color: '#ccc',
+                                padding: 20,
+                                font: {
+                                    size: 11,
+                                    family: "Open Sans",
+                                    style: 'normal',
+                                    lineHeight: 2
+                                },
+                            }
+                        },
+                    },
+                },
+            });
+        </script>
+    @endpush
 </x-admin-layout>

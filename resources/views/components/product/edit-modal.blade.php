@@ -191,9 +191,7 @@
                                                 class="mt-1 flex justify-center px-6 py-3 border-2 border-gray-300 border-dashed rounded-md">
                                                 <div class="space-y-1 text-center">
 
-                                                    <img id="output" class="cursor-pointer mb-4"
-                                                        src="{{ asset('img/cover-img.svg') }}"
-                                                        style="width:400px;height:400px;">
+                                                    <img id="output" src="" style="width:400px;height:400px;">
 
                                                     <div class="flex text-sm text-gray-600 ">
                                                         <label for="default_photo"
