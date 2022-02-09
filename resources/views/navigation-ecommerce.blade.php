@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 
-<nav x-data="{ open: false }" class="bg-black sticky top-0 z-50">
+<nav x-data="{ open: false }" class="bg-[#4F3428] sticky top-0 z-50">
 
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
@@ -43,23 +43,23 @@
                 <div class="flex-shrink-0 flex items-center">
 
                     <img class="block lg:hidden h-10 w-auto" src={{ asset('img/icon.png') }} alt="Workflow">
-                    <img class="hidden lg:block h-10 w-auto" src={{ asset('img/main-logo.png') }} alt="Workflow">
+                    <img class="hidden lg:block h-10 w-auto" src={{ asset('img/main-logo-1.png') }} alt="Workflow">
                 </div>
 
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('home') }}"
-                            class="text-gray-300 hover:bg-yellow-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
 
                         <a href="{{ route('catalog') }}"
-                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A]  hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">Products</a>
 
                         <a href="{{ route('about') }}"
-                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A]  hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">About</a>
 
                         <a href="{{ route('contact') }}"
-                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A]  hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     </div>
                 </div>
             </div>
@@ -222,17 +222,17 @@
         <div class="px-2 pt-2 pb-3 space-y-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="{{ route('home') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">Home</a>
 
             <a href="{{ route('catalog') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium">Products</a>
 
             <a href="{{ route('about') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium">About</a>
 
             <a href="{{ route('contact') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
 
         </div>
     </div>
