@@ -129,7 +129,6 @@
         </div>
 
         <!-- Hot brew or cold brew section -->
-<<<<<<< HEAD
             <div class="container mx-auto lg:px-20" >
                 <div class="text-center mb-16">
                     <h1 class="text-2xl md:3xl font-bold uppercase">how do you like your coffee?</h1>
@@ -181,50 +180,6 @@
                             <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
                             <div class="flex h-full items-end pb-6">
                                 <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Cappucino</h3>
-=======
-        <div class="container mx-auto lg:px-20">
-            <div class="text-center mb-16">
-                <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">how do you like your coffee?</h1>
-            </div>
-
-            <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
-                <div class="w-full relative flex items-center justify-center">
-                    <button aria-label="slide backward"
-                        class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
-                        id="prev">
-                        <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
-                        <div id="slider"
-                            class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
-                            <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                <img src="https://images.unsplash.com/photo-1561766926-a7c863179e15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                    alt="coffee"
-                                    class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
-                                <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
-                                    <div class="flex h-full items-end pb-6">
-                                        <h3
-                                            class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
-                                            Hot Brew</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                <img src="https://images.unsplash.com/photo-1620360289812-0abdae69d6d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                    alt="coffee"
-                                    class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
-                                <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
-                                    <div class="flex h-full items-end pb-6">
-                                        <h3
-                                            class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
-                                            Cold Brew</h3>
-                                    </div>
-                                </div>
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
                             </div>
                             <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                 <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
@@ -238,25 +193,12 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
                         </div>
                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                             <img src="https://images.unsplash.com/photo-1574914629385-46448b767aec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="coffee" class="object-cover object-center w-96 h-96 md:w-64 md:h-96 rounded-3xl" />
                             <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
                             <div class="flex h-full items-end pb-6">
                                 <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Latte</h3>
-=======
-                            <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                <img src="https://images.unsplash.com/photo-1593231269103-6667d6905882?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80 alt="
-                                    coffee" class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
-                                <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
-                                    <div class="flex h-full items-end pb-6">
-                                        <h3
-                                            class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
-                                            Americano</h3>
-                                    </div>
-                                </div>
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
                             </div>
                             <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                 <img src="https://images.unsplash.com/photo-1624528201496-121b78e2db93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
@@ -270,26 +212,12 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
                         </div>
                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                             <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="coffee" class="object-cover object-center w-96 h-96 md:w-64 md:h-96 rounded-3xl" />
                             <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
                             <div class="flex h-full items-end pb-6">
                                 <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">Mocha</h3>
-=======
-                            <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                <img src="https://images.unsplash.com/photo-1574914629385-46448b767aec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                    alt="coffee"
-                                    class="object-cover object-center w-76 h-96 md:w-64 md:h-96 rounded-3xl" />
-                                <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6 rounded-3xl">
-                                    <div class="flex h-full items-end pb-6">
-                                        <h3
-                                            class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
-                                            Latte</h3>
-                                    </div>
-                                </div>
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
                             </div>
                             <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                 <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
@@ -373,18 +301,10 @@
         </div> --}}
 
 
-<<<<<<< HEAD
         <!-- Best sellers -->
         <div class="container p-4 mx-auto space-y-8">
             <div class="space-y-2 text-center">
                 <h1 class="text-2xl md:3xl font-bold uppercase">best sellers</h1>
-=======
-            <!-- Best sellers -->
-            <div class="container p-4 mx-auto space-y-8">
-                <div class="space-y-2 text-center">
-                    <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">best sellers</h1>
-                </div>
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
             </div>
             <div class="flex flex-col justify-center">
                 <div class="relative my-3 mx-6 flex flex-wrap justify-center">
@@ -470,7 +390,6 @@
                                                 $product_ave_reviews = App\Models\Review::where('product_code', $product->product->product_code)->avg('stars');
                                             @endphp
 
-<<<<<<< HEAD
                                                                                 {!! str_repeat(
                                             '
                                                                         <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
@@ -492,29 +411,6 @@
                                         ) !!}
 
                                                                                 ( {{ round($product_ave_reviews, 0) }} )
-=======
-                                            {!! str_repeat(
-    '
-                                    <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                    </svg>
-                                ',
-    round($product_ave_reviews, 0),
-) !!}
-
-                                            {!! str_repeat(
-    '
-                                   <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                    </svg>
-                                ',
-    5 - round($product_ave_reviews, 0),
-) !!}
-
-                                            ( {{ round($product_ave_reviews, 0) }} )
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
 
 
                                             <span
@@ -541,7 +437,6 @@
                         {{-- No {{ $category_found->category_name }} Available.. :( --}}
                     @endforelse
 
-<<<<<<< HEAD
                 <!-- First ads -->
                 <div class="container px-5 py-5 mx-auto hidden md:flex flex-wrap items-center justify-center ">
                     <img src={{ asset('img/4.png') }} alt="ads">
@@ -551,18 +446,6 @@
                 <div class="container p-4 mx-auto space-y-8">
                     <div class="space-y-2 text-center">
                         <h1 class="text-2xl md:3xl font-bold uppercase">menu</h1>
-=======
-                    <!-- First ads -->
-                    <div class="container px-5 py-5 mx-auto flex flex-wrap items-center justify-center">
-                        <img src={{ asset('img/4.png') }} alt="ads">
-                    </div>
-
-                    <!-- Menu -->
-                    <div class="container p-4 mx-auto space-y-8">
-                        <div class="space-y-2 text-center">
-                            <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">menu</h1>
-                        </div>
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
                     </div>
                     <div class="flex justify-center items-center">
                         <!--actual component start-->
@@ -658,7 +541,6 @@
                                                             @endguest
 
 
-<<<<<<< HEAD
                                                     </div>
                                                     <a href="{{ route('product', [$product->product_code]) }}">
                                                         <div class="mt-10 pl-2 mb-2 flex justify-between ">
@@ -690,39 +572,6 @@
                                                                                                                     ',
                                                                     5 - round($product_ave_reviews, 0),
                                                                 ) !!}
-=======
-                                                        </div>
-                                                        <a href="{{ route('product', [$product->product_code]) }}">
-                                                            <div class="mt-10 pl-2 mb-2 flex justify-between ">
-                                                                <div>
-                                                                    <p class="text-lg font-semibold mb-0">
-                                                                        {{ $product->product_name }}</p>
-                                                                    <div class="flex item-center mt-2">
-
-                                                                        @php
-                                                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product_code)->avg('stars');
-                                                                        @endphp
-
-                                                                        {!! str_repeat(
-    '
-                                                        <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                        </svg>
-                                                    ',
-    round($product_ave_reviews, 0),
-) !!}
-
-                                                                        {!! str_repeat(
-    '
-                                                       <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                        </svg>
-                                                    ',
-    5 - round($product_ave_reviews, 0),
-) !!}
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
 
                                                                         ( {{ round($product_ave_reviews, 0) }} )
 
@@ -860,7 +709,6 @@
                                                             @endguest
 
 
-<<<<<<< HEAD
                                                     </div>
                                                     <a href="{{ route('product', [$product->product_code]) }}">
                                                         <div class="mt-10 pl-2 mb-2 flex justify-between ">
@@ -892,39 +740,6 @@
                                                                                                                         ',
                                                                         5 - round($product_ave_reviews, 0),
                                                                     ) !!}
-=======
-                                                        </div>
-                                                        <a href="{{ route('product', [$product->product_code]) }}">
-                                                            <div class="mt-10 pl-2 mb-2 flex justify-between ">
-                                                                <div>
-                                                                    <p class="text-lg font-semibold mb-0">
-                                                                        {{ $product->product_name }}</p>
-                                                                    <div class="flex item-center mt-2">
-
-                                                                        @php
-                                                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product_code)->avg('stars');
-                                                                        @endphp
-
-                                                                        {!! str_repeat(
-    '
-                                                        <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                        </svg>
-                                                    ',
-    round($product_ave_reviews, 0),
-) !!}
-
-                                                                        {!! str_repeat(
-    '
-                                                       <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                        </svg>
-                                                    ',
-    5 - round($product_ave_reviews, 0),
-) !!}
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
 
                                                                         ( {{ round($product_ave_reviews, 0) }} )
 
@@ -1060,7 +875,6 @@
                                                             @endguest
 
 
-<<<<<<< HEAD
                                                     </div>
                                                     <a href="{{ route('product', [$product->product_code]) }}">
                                                         <div class="mt-10 pl-2 mb-2 flex justify-between ">
@@ -1092,39 +906,6 @@
                                                                                                                         ',
                                                                         5 - round($product_ave_reviews, 0),
                                                                     ) !!}
-=======
-                                                        </div>
-                                                        <a href="{{ route('product', [$product->product_code]) }}">
-                                                            <div class="mt-10 pl-2 mb-2 flex justify-between ">
-                                                                <div>
-                                                                    <p class="text-lg font-semibold mb-0">
-                                                                        {{ $product->product_name }}</p>
-                                                                    <div class="flex item-center mt-2">
-
-                                                                        @php
-                                                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product_code)->avg('stars');
-                                                                        @endphp
-
-                                                                        {!! str_repeat(
-    '
-                                                        <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                        </svg>
-                                                    ',
-    round($product_ave_reviews, 0),
-) !!}
-
-                                                                        {!! str_repeat(
-    '
-                                                       <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                        </svg>
-                                                    ',
-    5 - round($product_ave_reviews, 0),
-) !!}
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
 
                                                                         ( {{ round($product_ave_reviews, 0) }} )
 
@@ -1260,7 +1041,6 @@
                                                             @endguest
 
 
-<<<<<<< HEAD
                                                     </div>
                                                     <a href="{{ route('product', [$product->product_code]) }}">
                                                         <div class="mt-10 pl-2 mb-2 flex justify-between ">
@@ -1292,39 +1072,6 @@
                                                                                                                     ',
                                                                         5 - round($product_ave_reviews, 0),
                                                                     ) !!}
-=======
-                                                        </div>
-                                                        <a href="{{ route('product', [$product->product_code]) }}">
-                                                            <div class="mt-10 pl-2 mb-2 flex justify-between ">
-                                                                <div>
-                                                                    <p class="text-lg font-semibold mb-0">
-                                                                        {{ $product->product_name }}</p>
-                                                                    <div class="flex item-center mt-2">
-
-                                                                        @php
-                                                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product_code)->avg('stars');
-                                                                        @endphp
-
-                                                                        {!! str_repeat(
-    '
-                                                    <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                    </svg>
-                                                ',
-    round($product_ave_reviews, 0),
-) !!}
-
-                                                                        {!! str_repeat(
-    '
-                                                   <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                                    </svg>
-                                                ',
-    5 - round($product_ave_reviews, 0),
-) !!}
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
 
                                                                         ( {{ round($product_ave_reviews, 0) }} )
 
@@ -1396,7 +1143,6 @@
                                     ]
                                 };
                             };
-<<<<<<< HEAD
                         };
                     </script>
                 @endpush
@@ -1410,14 +1156,6 @@
                 <div class="container p-4 mx-auto mt-10 ">
                     <div class="space-y-2 text-center">
                         <h1 class="text-2xl md:3xl font-bold uppercase">what's new?</h1>
-=======
-                        </script>
-                    @endpush
-
-                    <!-- Second ads -->
-                    <div class="container px-10 py-5 mx-auto flex flex-wrap items-center justify-center">
-                        <img src={{ asset('img/5.png') }} alt="ads">
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
                     </div>
 
                     <!-- What's new Section -->
@@ -1505,7 +1243,6 @@
                                             @endguest
 
 
-<<<<<<< HEAD
                                     </div>
                                     <a href="{{ route('product', [$product->product_code]) }}">
                                         <div class="mt-10 pl-2 mb-2 flex justify-between ">
@@ -1537,40 +1274,6 @@
                                                                                         ',
                                                         5 - round($product_ave_reviews, 0),
                                                     ) !!}
-=======
-                                        </div>
-                                        <a href="{{ route('product', [$product->product_code]) }}">
-                                            <div class="mt-10 pl-2 mb-2 flex justify-between ">
-                                                <div>
-                                                    <p class="text-lg font-semibold mb-0">
-                                                        {{ $product->product_name }}
-                                                    </p>
-                                                    <div class="flex item-center mt-2">
-
-                                                        @php
-                                                            $product_ave_reviews = App\Models\Review::where('product_code', $product->product_code)->avg('stars');
-                                                        @endphp
-
-                                                        {!! str_repeat(
-    '
-                                        <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                        </svg>
-                                    ',
-    round($product_ave_reviews, 0),
-) !!}
-
-                                                        {!! str_repeat(
-    '
-                                       <svg class="w-5 h-5 fill-current text-gray-500" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                                        </svg>
-                                    ',
-    5 - round($product_ave_reviews, 0),
-) !!}
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
 
                                                         ( {{ round($product_ave_reviews, 0) }} )
 
@@ -1629,18 +1332,10 @@
                     </div>
 
 
-<<<<<<< HEAD
                 <!-- Gallery Section -->
                 <div class="container p-4 mx-auto  space-y-8">
                     <div class="space-y-2 text-center">
                         <h1 class="text-2xl md:3xl font-bold uppercase">our gallery</h1>
-=======
-                    <!-- Gallery Section -->
-                    <div class="container p-4 mx-auto  space-y-8">
-                        <div class="space-y-2 text-center">
-                            <h1 class="lg:text-3xl md:text-2xl font-bold uppercase">our gallery</h1>
-                        </div>
->>>>>>> f9e458e1b2c6c306dc935e6efa05ee7c8d947eba
                     </div>
 
                     <div class="container mx-auto p-8">
