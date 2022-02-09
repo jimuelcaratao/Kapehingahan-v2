@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 
-<nav x-data="{ open: false }" class="bg-black sticky top-0 z-50">
+<nav x-data="{ open: false }" class="bg-[#4F3428] sticky top-0 z-50">
 
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
@@ -43,7 +43,7 @@
                 <div class="flex-shrink-0 flex items-center">
 
                     <img class="block lg:hidden h-10 w-auto" src={{ asset('img/icon.png') }} alt="Workflow">
-                    <img class="hidden lg:block h-10 w-auto" src={{ asset('img/main-logo.png') }} alt="Workflow">
+                    <img class="hidden lg:block h-10 w-auto" src={{ asset('img/main-logo-1.png') }} alt="Workflow">
                 </div>
 
                 <div class="hidden sm:block sm:ml-6">

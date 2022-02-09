@@ -1,9 +1,9 @@
-<footer class="px-4 divide-y bg-black text-gray-300">
+<footer class="px-4 divide-y bg-[#4F3428] text-gray-300">
 	<div class="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 		<div class="lg:w-1/3">
 			<a href="#" class="flex justify-center space-x-3 lg:justify-start">
 				<div class="flex items-center justify-center rounded-full dark:bg-violet-400 mb-4">
-					<img class="lg:block h-20 w-auto" src={{ asset('img/main-logo.png') }} alt="Workflow">
+					<img class="lg:block h-20 w-auto" src={{ asset('img/main-logo-1.png') }} alt="Workflow">
 				</div>
 			</a>
             <div class="w-full md:w-80">
