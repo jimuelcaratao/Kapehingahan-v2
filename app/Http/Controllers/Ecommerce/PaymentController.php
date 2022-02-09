@@ -80,7 +80,7 @@ class PaymentController extends Controller
 
             //  Mail
 
-            //    return Redirect::route('my_orders')->with('toast_success', 'Order placed.');
+            return Redirect::route('my_orders')->with('toast_success', 'Order placed.');
         }
     }
 }
