@@ -41,6 +41,17 @@ class DashboardController extends Controller
             ->whereMonth('created_at', '=', Carbon::now()->month)
             ->count();
 
+        $prev_users = User::where('is_admin', '0')
+            ->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)
+            ->count();
+
+        $original = $prev_users;
+        $current  = $new_users;
+        $diff = $current - $original;
+        $more_less = $diff > 0 ? "1" : "0";
+        $diff = abs($diff);
+        $percentChange = ($diff / $original) * 100;
+
         $customer_count = User::where('is_admin', '0')
             ->count();
 
@@ -56,6 +67,17 @@ class DashboardController extends Controller
         $orders_count_today = Order::whereDate('created_at', Carbon::today())
             ->count();
 
+        $orders_count_yesterday = Order::whereDate('created_at', Carbon::now()->subDays(1))
+            ->count();
+
+        $original1 = $orders_count_yesterday;
+        $current1  = $orders_count_today;
+        $diff1 = $original1 - $current1;
+        $more_less1 = $diff1 > 0 ? "1" : "0";
+        $diff1 = abs($diff1);
+        $percentChangeOrder = ($diff1 / $original1) * 100;
+
+
         $popular_items = WishList::select('product_code')
             ->groupBy('product_code')
             ->orderByRaw('COUNT(*) DESC')
@@ -66,7 +88,7 @@ class DashboardController extends Controller
 
         $revenue_today = OrderItem::whereDate('created_at', Carbon::today())->sum('price');
 
-        $revenue_per_month = OrderItem::whereMonth('created_at', '=', Carbon::now()->subMonth()->month + 1)->limit(15)->latest()->get();
+        $revenue_per_month = OrderItem::whereMonth('created_at', '=', Carbon::now()->subMonth()->month + 1)->limit(15)->oldest()->get();
 
         $page_visits = Visit::select([
             // This aggregates the data and makes available a 'count' attribute
@@ -95,6 +117,11 @@ class DashboardController extends Controller
             'customer_count' => $customer_count,
             'brand_count' => $brand_count,
 
+            'percentChange' => $percentChange - 100,
+            'more_less' => $more_less,
+
+            'percentChangeOrder' => $percentChangeOrder - 100,
+            'more_less1' => $more_less1,
         ]);
     }
 }

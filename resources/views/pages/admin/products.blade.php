@@ -22,6 +22,11 @@
                             <button type="submit" class="text-secondary mx-2">
                                 <i class="fas fa-search"></i>
                             </button>
+                            @if (!empty(request()->search))
+                                <a href="{{ route('products') }}" class="mt-2 text-danger">
+                                    <i class="fas fa-times-circle"></i>
+                                </a>
+                            @endif
                         </form>
                     </div>
 
@@ -48,6 +53,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
+                    <div class="card-header pb-0 pt-3">
+                        <h6>Products <span class="text-secondary ml-2">{{ @count($tableProducts) }}</span></h6>
+                    </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">

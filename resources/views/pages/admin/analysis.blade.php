@@ -36,6 +36,51 @@
                         <table class="table align-items-center ">
                             <tbody>
 
+                                @forelse ($popular_items as $popular_item)
+                                    <tr>
+                                        <td class="w-30">
+                                            <div class="d-flex px-2 py-1 align-items-center">
+                                                <div>
+                                                    <img src="{{ asset('storage/media/products/main_' . $popular_item->product->product_code . '_' . $popular_item->product->default_photo) }}"
+                                                        alt="{{ $popular_item->product->default_photo }}"
+                                                        style="width:50px;">
+                                                </div>
+                                                <div class="ms-4">
+                                                    <p class="text-xs font-weight-bold mb-0">Product Code:</p>
+                                                    <h6 class="text-sm mb-0">{{ $popular_item->product_code }}
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">Product Name:</p>
+                                                <h6 class="text-sm mb-0">
+                                                    {{ $popular_item->product->product_name }}
+                                                </h6>
+                                            </div>
+                                        </td>
+
+                                        <td class="align-middle text-sm">
+                                            <div class="col text-center">
+                                                <p class="text-xs font-weight-bold mb-0">Category:</p>
+                                                <h6 class="text-sm mb-0">
+                                                    {{ $popular_item->product->category_name }}</h6>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="w-100">
+                                            <div class="d-flex px-2 py-1 align-items-center">
+                                                <div class="text-center">
+                                                    <p class="text-base font-weight-bold mb-0">No popular products as
+                                                        of now</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforelse
 
 
                             </tbody>
@@ -164,15 +209,15 @@
             gradientStroke2.addColorStop(0.2, 'rgba(222, 98, 197, 0.0)');
             gradientStroke2.addColorStop(0, 'rgba(222, 98, 197, 0)');
             new Chart(ctx2, {
-                type: "line",
+                type: "bar",
                 data: {
                     labels: [
                         @foreach ($user_per_week as $user)
-                            "{{ $user->day }}",
+                            "{{ \Carbon\Carbon::parse($user->day)->format('d M') }}",
                         @endforeach
                     ],
                     datasets: [{
-                        label: "Sale",
+                        label: "visits",
                         tension: 0.4,
                         borderWidth: 0,
                         pointRadius: 0,
