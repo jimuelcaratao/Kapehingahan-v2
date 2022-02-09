@@ -15,16 +15,16 @@
                 <h3 class="tracking-wide uppercase dark:text-coolGray-50">quick links</h3>
                 <ul class="space-y-1">
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ route('home') }}">Home</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ route('home') }}">Home</a>
                     </li>
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ route('catalog') }}">Products</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ route('catalog') }}">Products</a>
                     </li>
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ route('about') }}">About</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ route('about') }}">About</a>
                     </li>
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ route('contact') }}">Contact</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ route('contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -32,16 +32,16 @@
                 <h3 class="tracking-wide uppercase dark:text-coolGray-50">about us</h3>
                 <ul class="space-y-1">
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ route('covid.policy') }}">Covid 19 Policy</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ route('covid.policy') }}">Covid 19 Policy</a>
                     </li>
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ URL('/privacy-policy') }}">Privacy Policy</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ URL('/privacy-policy') }}">Privacy Policy</a>
                     </li>
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ URL('/terms-of-service') }}">Terms & Condition</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ URL('/terms-of-service') }}">Terms & Condition</a>
                     </li>
                     <li>
-                        <a class="hover:text-yellow-900" href="{{ route('faqs') }}">FAQs</a>
+                        <a class="hover:text-[#E7CC9A]" href="{{ route('faqs') }}">FAQs</a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
             <div class="space-y-3">
                 <div class="uppercase dark:text-coolGray-50">Social media</div>
                 <div class="flex justify-start space-x-3">
-                    <a class="hover:text-yellow-900" href="#" title="Facebook" class="flex items-center p-1">
+                    <a class="hover:text-[#E7CC9A]" href="#" title="Facebook" class="flex items-center p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32"
                             class="w-5 h-5 fill-current">
                             <path
@@ -57,14 +57,14 @@
                             </path>
                         </svg>
                     </a>
-                    <a class="hover:text-yellow-900" href="#" title="Twitter" class="flex items-center p-1">
+                    <a class="hover:text-[#E7CC9A]" href="#" title="Twitter" class="flex items-center p-1">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current">
                             <path
                                 d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z">
                             </path>
                         </svg>
                     </a>
-                    <a class="hover:text-yellow-900" href="#" title="Instagram" class="flex items-center p-1">
+                    <a class="hover:text-[#E7CC9A]" href="#" title="Instagram" class="flex items-center p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"
                             class="w-5 h-5 fill-current">
                             <path

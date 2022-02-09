@@ -2131,6 +2131,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
 }
+.bg-\[\#4F3428\] {
+	--tw-bg-opacity: 1;
+	background-color: rgba(79, 52, 40, var(--tw-bg-opacity));
+}
 .bg-gray-900 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
@@ -2169,26 +2173,6 @@ select {
 .bg-green-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
-}
-.bg-\[\#2B1509\] {
-	--tw-bg-opacity: 1;
-	background-color: rgba(43, 21, 9, var(--tw-bg-opacity));
-}
-.bg-\[\#4F3428\] {
-	--tw-bg-opacity: 1;
-	background-color: rgba(79, 52, 40, var(--tw-bg-opacity));
-}
-.bg-\[\#E7CC9A\] {
-	--tw-bg-opacity: 1;
-	background-color: rgba(231, 204, 154, var(--tw-bg-opacity));
-}
-.bg-\[\#421E22\] {
-	--tw-bg-opacity: 1;
-	background-color: rgba(66, 30, 34, var(--tw-bg-opacity));
-}
-.bg-\[\#7F4C1C\] {
-	--tw-bg-opacity: 1;
-	background-color: rgba(127, 76, 28, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -2875,6 +2859,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(120, 53, 15, var(--tw-bg-opacity));
 }
+.hover\:bg-\[\#E7CC9A\]:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(231, 204, 154, var(--tw-bg-opacity));
+}
 .hover\:bg-red-400:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
@@ -2946,6 +2934,10 @@ select {
 .hover\:text-indigo-500:hover {
 	--tw-text-opacity: 1;
 	color: rgba(99, 102, 241, var(--tw-text-opacity));
+}
+.hover\:text-\[\#E7CC9A\]:hover {
+	--tw-text-opacity: 1;
+	color: rgba(231, 204, 154, var(--tw-text-opacity));
 }
 .hover\:underline:hover {
 	text-decoration: underline;

@@ -50,16 +50,16 @@
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('home') }}"
-                            class="text-gray-300 hover:bg-yellow-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
 
                         <a href="{{ route('catalog') }}"
-                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A]  hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">Products</a>
 
                         <a href="{{ route('about') }}"
-                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A]  hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">About</a>
 
                         <a href="{{ route('contact') }}"
-                            class="text-gray-300 hover:bg-yellow-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                            class="text-gray-300 hover:bg-[#E7CC9A]  hover:text-yellow-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     </div>
                 </div>
             </div>
@@ -222,17 +222,17 @@
         <div class="px-2 pt-2 pb-3 space-y-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="{{ route('home') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">Home</a>
 
             <a href="{{ route('catalog') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium">Products</a>
 
             <a href="{{ route('about') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium">About</a>
 
             <a href="{{ route('contact') }}"
-                class="text-gray-300 hover:bg-yellow-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                class="text-gray-300 hover:bg-[#E7CC9A] hover:text-yellow-900 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
 
         </div>
     </div>
