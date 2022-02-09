@@ -25,7 +25,7 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="font-sans antialiased">
+<body class="antialiased" style="font-family: Nunito">
     @include('sweetalert::alert')
     <x-jet-banner />
 
@@ -42,7 +42,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="bg-white">
             {{ $slot }}
         </main>
 
