@@ -55,16 +55,20 @@ Route::get('/callbackGoogle', [OAuthController::class, 'callbackGoogle']);
 // Ecommerce Users
 Route::middleware(['auth:sanctum'])->group(function () {
 
+    // // My Orders
+    // Route::prefix('my_orders')->group(function () {
+    //     Route::get('/', [MyOrderController::class, 'index'])->name('my_orders');
+    //     Route::get('/status/{order_no}', [MyOrderController::class, 'my_order_status'])->name('my_orders.status');
+    //     Route::post('/send/{order_no}', [MyOrderController::class, 'send_confirm_order'])->name('my_orders.send');
+    //     Route::get('/confirm/{order_no}', [MyOrderController::class, 'confirm_order'])->name('my_orders.confirm');
+    //     Route::post('/cancel/{order_no}', [MyOrderController::class, 'cancel_order'])->name('my_orders.cancel');
+    // });
+
     // My Orders
     Route::get('/my_orders', [MyOrderController::class, 'index'])->name('my_orders');
-
     Route::get('/my_orders/status/{order_no}', [MyOrderController::class, 'my_order_status'])->name('my_orders.status');
-
-    // My Orders
     Route::post('/my_orders/send/{order_no}', [MyOrderController::class, 'send_confirm_order'])->name('my_orders.send');
-
     Route::get('/my_orders/confirm/{order_no}', [MyOrderController::class, 'confirm_order'])->name('my_orders.confirm');
-
     Route::post('/my_orders/cancel/{order_no}', [MyOrderController::class, 'cancel_order'])->name('my_orders.cancel');
 
 
