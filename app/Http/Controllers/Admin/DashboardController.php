@@ -117,10 +117,10 @@ class DashboardController extends Controller
             'customer_count' => $customer_count,
             'brand_count' => $brand_count,
 
-            'percentChange' => $percentChange - 100,
+            'percentChange' => $percentChange,
             'more_less' => $more_less,
 
-            'percentChangeOrder' => $percentChangeOrder - 100,
+            'percentChangeOrder' => $percentChangeOrder,
             'more_less1' => $more_less1,
         ]);
     }
