@@ -1,5 +1,9 @@
 <x-ecommerce-layout>
 
+    <x-slot name="title">
+        My Cart |
+    </x-slot>
+
     @push('styles')
         <style>
             input[type="number"] {
@@ -85,9 +89,6 @@
                 <hr class="my-2 border-b border-gray-500">
 
                 @forelse ($carts as $cart)
-
-
-
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-500 hover:shadow-lg">
                         <img class="h-full w-full md:h-1/4 md:w-1/4 block mx-auto rounded"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}"

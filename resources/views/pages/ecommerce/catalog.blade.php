@@ -1,5 +1,9 @@
 <x-ecommerce-layout>
 
+    <x-slot name="title">
+        Products |
+    </x-slot>
+
     @push('styles')
 
     @endpush
@@ -23,7 +27,8 @@
             </li>
             @forelse ($categories as $category)
                 <li>
-                    <a href="{{ route('catalog.category', [$category->category_name]) }}" class="hover:bg-[#E7CC9A] hover:text-yellow-900 px-3 py-2 rounded-md">
+                    <a href="{{ route('catalog.category', [$category->category_name]) }}"
+                        class="hover:bg-[#E7CC9A] hover:text-yellow-900 px-3 py-2 rounded-md">
                         {{ $category->category_name }}
                     </a>
                 </li>

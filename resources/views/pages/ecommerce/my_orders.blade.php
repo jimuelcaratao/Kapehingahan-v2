@@ -1,4 +1,9 @@
 <x-ecommerce-layout>
+
+    <x-slot name="title">
+        My Orders |
+    </x-slot>
+
     <div class="w-11/12 my-12 mx-auto">
         {{-- <h1 class="text-center text-3xl sm:text-4xl font-bold">My Wish list</h1> --}}
         <div class="mt-12 flex flex-col justify-center items-center space-y-5 md:space-x-3">

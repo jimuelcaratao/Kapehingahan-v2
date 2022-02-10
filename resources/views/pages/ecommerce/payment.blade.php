@@ -1,4 +1,7 @@
 <x-ecommerce-layout>
+    <x-slot name="title">
+        Payment |
+    </x-slot>
 
     @php
         $total = 0;
@@ -60,7 +63,6 @@
 
         <div class="w-11/12 md:w-1/2 mx-auto p-5 bg-white rounded-lg shadow-md" style="margin-top: 0;">
             @foreach ($carts as $cart)
-
                 @if ($cart->product->stock > 0)
 
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-300">

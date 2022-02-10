@@ -1,5 +1,9 @@
 <x-ecommerce-layout>
 
+    <x-slot name="title">
+        {{ $product->product_name }} |
+    </x-slot>
+
     @push('styles')
         <style>
             input[type="number"] {
@@ -128,7 +132,6 @@
                         </h1>
                     @endif
                     @if ($product->is_customizable == 0)
-
                         <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
                             {{ $product->product_name }}
                         </h1>
