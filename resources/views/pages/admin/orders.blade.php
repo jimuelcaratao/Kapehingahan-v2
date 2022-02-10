@@ -83,7 +83,6 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($orders as $order)
-
                                         <tr>
                                             <td class="align-middle text-center text-sm">
                                                 <h6 class="mb-0 text-sm">{{ $order->order_no }}</h6>
@@ -94,10 +93,58 @@
                                                 <p class="text-xs font-weight-bold mb-0 ">{{ $order->user->name }}</p>
                                             </td>
 
-                                            <td class="align-middle  text-sm">
-                                                <span
-                                                    class="badge badge-sm bg-gradient-secondary">{{ $order->status }}</span>
-                                            </td>
+
+                                            {{-- Order Status --}}
+                                            @if ($order->status == 'Delivered')
+                                                <td class="align-middle  text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-success">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+                                            @if ($order->status == 'Delivering')
+                                                <td class="align-middle  text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-primary">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+
+                                            @if ($order->status == 'Canceled')
+                                                <td class="align-middle  text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-danger">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+
+                                            @if ($order->status == 'Pending')
+                                                <td class="align-middle  text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-secondary">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+
+                                            @if ($order->status == 'Confirm Pending')
+                                                <td class="align-middle  text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-warning">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+
+                                            @if ($order->status == 'Packaging')
+                                                <td class="align-middle  text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-info">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+
+                                            @if ($order->status == 'Shipping')
+                                                <td class="align-middle  text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-info">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+
+                                            {{-- End Order Status --}}
+
 
                                             <td class="align-middle text-center">
                                                 <span

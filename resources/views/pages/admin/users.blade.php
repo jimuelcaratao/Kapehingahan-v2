@@ -37,6 +37,12 @@
                             <button type="submit" class="text-secondary mx-2">
                                 <i class="fas fa-search"></i>
                             </button>
+
+                            @if (!empty(request()->search))
+                                <a href="{{ route('users') }}" class="mt-2 text-danger">
+                                    <i class="fas fa-times-circle"></i>
+                                </a>
+                            @endif
                         </form>
                     </div>
 

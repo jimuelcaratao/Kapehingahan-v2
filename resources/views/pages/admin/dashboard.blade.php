@@ -35,8 +35,20 @@
                                         {{ $orders_count_today }}
                                     </h5>
                                     <p class="mb-0">
-                                        <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday
+                                        @if ($percentChangeOrder == 0)
+                                            <span class="text-secondary text-sm font-weight-bolder">No Changes since
+                                                Yesterday</span>
+                                        @else
+                                            @if ($more_less1 == 1)
+                                                <span
+                                                    class="text-success text-sm font-weight-bolder">+{{ round($percentChangeOrder, 1) }}%</span>
+                                            @else
+                                                <span
+                                                    class="text-danger text-sm font-weight-bolder">-{{ round($percentChangeOrder, 1) }}%</span>
+                                            @endif
+
+                                            since last month
+                                        @endif
                                     </p>
                                 </div>
                             </div>
@@ -56,13 +68,25 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Users</p>
                                     <h5 class="font-weight-bolder">
                                         {{ $new_users }}
                                     </h5>
                                     <p class="mb-0">
-                                        <span class="text-success text-sm font-weight-bolder">+3%</span>
-                                        since last week
+                                        @if ($percentChange == 0)
+                                            <span class="text-secondary text-sm font-weight-bolder">No Changes since
+                                                Yesterday</span>
+                                        @else
+                                            @if ($more_less == 1)
+                                                <span
+                                                    class="text-success text-sm font-weight-bolder">+{{ round($percentChange, 1) }}%</span>
+                                            @else
+                                                <span
+                                                    class="text-danger text-sm font-weight-bolder">-{{ round($percentChange, 1) }}%</span>
+                                            @endif
+
+                                            since last month
+                                        @endif
                                     </p>
                                 </div>
                             </div>
@@ -384,7 +408,7 @@
                         @endforeach
                     ],
                     datasets: [{
-                        label: "Sale",
+                        label: "Sale (₱)",
                         tension: 0.4,
                         borderWidth: 0,
                         pointRadius: 0,
