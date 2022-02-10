@@ -6,10 +6,10 @@
 
     <x-catalog.catalog-layout>
         <x-slot name="head">
-            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">
+            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">
                 Products
                 @if ($category_found == null)
-                    / All
+                    - All
                 @else
                     / {{ $category_found->category_name }}
                 @endif
@@ -17,13 +17,13 @@
         </x-slot>
         <x-slot name="categoryList">
             <li>
-                <a href="{{ route('catalog') }}">
+                <a href="{{ route('catalog') }}" class="hover:bg-[#E7CC9A] hover:text-yellow-900 px-3 py-2 rounded-md">
                     All
                 </a>
             </li>
             @forelse ($categories as $category)
                 <li>
-                    <a href="{{ route('catalog.category', [$category->category_name]) }}">
+                    <a href="{{ route('catalog.category', [$category->category_name]) }}" class="hover:bg-[#E7CC9A] hover:text-yellow-900 px-3 py-2 rounded-md">
                         {{ $category->category_name }}
                     </a>
                 </li>
@@ -35,13 +35,14 @@
                 </li>
             @endforelse
         </x-slot>
+
         <x-slot name="productGrid">
-            <div class="flex flex-col ">
-                <div class="relative m-3 flex flex-wrap mx-auto ">
+            <div class="flex flex-col">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     @forelse ($products as $product)
                         <div
-                            class="relative max-w-sm min-w-[300px] md:min-w-[340px]  bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
+                            class="relative max-w-sm min-w-[300px] md:min-w-[280px]  bg-white shadow-md rounded-3xl p-2 mx-4 my-4 cursor-pointer">
                             <div class="overflow-x-hidden rounded-2xl relative">
 
                                 {{-- Main Images --}}

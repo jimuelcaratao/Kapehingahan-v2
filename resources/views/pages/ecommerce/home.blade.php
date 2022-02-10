@@ -133,7 +133,7 @@
         <!-- Hot brew or cold brew section -->
         <div class="container mx-auto lg:px-20">
             <div class="text-center mb-16">
-                <h1 class="text-2xl md:3xl font-bold uppercase">how do you like your coffee?</h1>
+                <h1 class="text-2xl md:text-3xl font-bold uppercase">how do you like your coffee?</h1>
             </div>
 
             <div class="flex items-center justify-center w-full h-full py-2 sm:py-8 px-4">
@@ -306,7 +306,7 @@
             <!-- Best sellers -->
             <div class="container p-4 mx-auto space-y-8">
                 <div class="space-y-2 text-center">
-                    <h1 class="text-2xl md:3xl font-bold uppercase">best sellers</h1>
+                    <h1 class="text-2xl md:text-3xl font-bold uppercase">best sellers</h1>
                 </div>
             </div>
             <div class="flex flex-col justify-center">
@@ -448,7 +448,7 @@
                     <!-- Menu -->
                     <div class="container p-4 mx-auto space-y-8">
                         <div class="space-y-2 text-center">
-                            <h1 class="text-2xl md:3xl font-bold uppercase">menu</h1>
+                            <h1 class="text-2xl md:text-3xl font-bold uppercase">menu</h1>
                         </div>
                     </div>
 
@@ -1159,7 +1159,7 @@
                     <!-- What's new Section -->
                     <div class="container p-4 mx-auto mt-10 ">
                         <div class="space-y-2 text-center">
-                            <h1 class="text-2xl md:3xl font-bold uppercase">what's new?</h1>
+                            <h1 class="text-2xl md:text-3xl font-bold uppercase">what's new?</h1>
                         </div>
                     </div>
 
@@ -1334,50 +1334,74 @@
                     <!-- Gallery Section -->
                     <div class="container p-4 mx-auto space-y-8">
                         <div class="space-y-2 text-center">
-                            <h1 class="text-2xl md:3xl font-bold uppercase">our gallery</h1>
+                            <h1 class="text-2xl md:text-3xl font-bold uppercase">our gallery</h1>
                         </div>
                     </div>
 
                     <div class="container px-0 mx-auto">
                         <div class="flex flex-row flex-wrap -mx-10">
-                            <div class="w-full md:w-1/2 h-64 md:h-auto mb-4 px-2">
-                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl"
+                            <div class="w-full md:w-1/2 h-64 md:h-auto mb-4 px-2 overflow-hidden">
+                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl hover:scale-110 transition duration-200"
                                      style="background-image: url(img/gallery-4.jpg);">
                                 </a>
                             </div>
                             <div class="w-full md:w-1/2 mb-4 px-2">
                                 <div class="flex flex-col sm:flex-row md:flex-col -mx-2">
-                                    <div class="w-full sm:w-1/2 md:w-full h-48 xl:h-64 mb-4 sm:mb-0 md:mb-4 px-2">
-                                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl"
+                                    <div class="w-full sm:w-1/2 md:w-full h-48 xl:h-64 mb-4 sm:mb-0 md:mb-4 px-2 overflow-hidden">
+                                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl hover:scale-110 transition duration-200"
                                              style="background-image: url(img/gallery-1.jpg);">
                                         </a>
                                     </div>
-                                    <div class="w-full sm:w-1/2 md:w-full h-48 xl:h-64 px-2">
-                                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl"
+                                    <div class="w-full sm:w-1/2 md:w-full h-48 xl:h-64 px-2 overflow-hidden">
+                                        <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl hover:scale-110 transition duration-200"
                                              style="background-image: url(img/gallery-2.jpg);">
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-full sm:w-1/3 h-32 md:h-48 mb-4 sm:mb-0 px-2">
-                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl"
+                            <div class="w-full sm:w-1/3 h-32 md:h-48 mb-4 sm:mb-0 px-2 overflow-hidden">
+                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl hover:scale-110 transition duration-200"
                                      style="background-image: url(img/gallery-3.jpg);">
 
                                 </a>
                             </div>
-                            <div class="w-full sm:w-1/3 h-32 md:h-48 mb-4 sm:mb-0 px-2">
-                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl"
+                            <div class="w-full sm:w-1/3 h-32 md:h-48 mb-4 sm:mb-0 px-2 overflow-hidden">
+                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl hover:scale-110 transition duration-200"
                                      style="background-image: url(img/gallery-5.jpg);">
 
                                 </a>
                             </div>
-                            <div class="w-full sm:w-1/3 h-32 md:h-48 px-2">
-                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl"
+                            <div class="w-full sm:w-1/3 h-32 md:h-48 px-2 overflow-hidden">
+                                <a class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover rounded-3xl hover:scale-110 transition duration-200"
                                      style="background-image: url(img/gallery-6.jpg);">
                                 </a>
                             </div>
                         </div>
                     </div>
+
+                    {{-- feature section --}}
+                    <div class="py-8">
+                        <div class="container m-auto px-6">
+
+                        <div class="lg:flex justify-between items-center">
+                            <div class="lg:w-6/12 lg:p-0 p-7">
+                                <h1 class="text-2xl md:text-4xl font-bold leading-tight mb-5 capitalize">  Feel the aroma at KapeHingahan Website! </h1>
+                                <p class="text-xl">  KapeHingahan will start your day with a cup of coffee. Serving high-quality espresso-based drinks as well as delectable meals. </p>
+
+                                <div class="py-5">
+                                    <a href="#" class="text-white rounded-full py-2 px-5 text-lg font-semibold bg-[#4F3428] inline-block border mr-3">Order Now!</a>
+                                </div>
+
+                            </div>
+                            <div class="lg:w-5/12 order-2">
+                                <img src="img/spill-coffee.png"
+                                style="transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg);" alt="" class="rounded">
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+
 
                     {{-- Scroll to top --}}
 
