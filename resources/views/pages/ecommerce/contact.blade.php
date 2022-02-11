@@ -4,9 +4,8 @@
         Contact |
     </x-slot>
 
-    <!-- component -->
-<div class="py-2 bg-white text-white">
-    <div class="container mx-auto flex flex-col md:flex-row my-12 md:my-36">
+<div class="py-2 bg-white">
+    <div class="container mx-auto flex flex-col md:flex-row my-2 md:my-20">
   <div class="flex flex-col w-full lg:w-2/5 p-8">
     <p class="text-3xl md:text-5xl text-yellow-900 my-4 leading-relaxed md:leading-snug font-extrabold">Contact our team</p>
     <p class="font-sans text-sm md:text-lg my-2 md:my-4 text-gray-800"><svg class="inline-block fill-current mr-2"
