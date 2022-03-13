@@ -39,7 +39,6 @@
                     </div>
                 @endif
                 @empty(Auth::user()->user_address)
-
                     <!-- Mobile No. -->
                     <div class="mt-4">
                         <x-jet-label for="mobile_no" value="{{ __('Mobile No.') }}" />
@@ -120,7 +119,6 @@
                                 @if ($item->add_in != null)
                                     <p>Add-ins: {{ $item->add_in }}</p>
                                 @endif
-
                             @endforeach
                             <p>Qty: {{ $cart->quantity }}</p>
 
@@ -141,7 +139,6 @@
                     }
                     
                 @endphp
-
             @endforeach
 
 

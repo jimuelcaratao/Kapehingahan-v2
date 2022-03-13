@@ -17,7 +17,7 @@
                     <x-jet-input id="mobile_no" type="text" class="mt-1 block w-full" wire:model.defer="mobile_no"
                         autocomplete="mobile_no" placeholder="{{ optional($user)->mobile_no }}"
                         value="{{ optional($user)->mobile_no }}" />
-                    <x-jet-input-error for="mobile_no" class="mt-2" />
+                    <x-jet-input-error for="mobile_no" class="" />
                 </div>
 
                 <!-- House -->
@@ -25,7 +25,7 @@
                     <x-jet-label for="house" value="{{ __('House') }}" />
                     <x-jet-input id="house" type="text" class="mt-1 block w-full" wire:model.defer="house"
                         autocomplete="house" placeholder="{{ optional($user)->house }}" />
-                    <x-jet-input-error for="house" class="mt-2" />
+                    <x-jet-input-error for="house" class="" />
                 </div>
 
                 <!-- City -->
@@ -33,7 +33,7 @@
                     <x-jet-label for="city" value="{{ __('City') }}" />
                     <x-jet-input id="city" type="text" class="mt-1 block w-full" wire:model.defer="city"
                         autocomplete="city" placeholder="{{ optional($user)->city }}" />
-                    <x-jet-input-error for="city" class="mt-2" />
+                    <x-jet-input-error for="city" class="" />
                 </div>
 
                 <!-- Province -->
@@ -41,7 +41,7 @@
                     <x-jet-label for="province" value="{{ __('Province') }}" />
                     <x-jet-input id="province" type="text" class="mt-1 block w-full" wire:model.defer="province"
                         autocomplete="province" placeholder="{{ optional($user)->province }}" />
-                    <x-jet-input-error for="province" class="mt-2" />
+                    <x-jet-input-error for="province" class="" />
                 </div>
 
                 <!-- Barangay -->
@@ -49,7 +49,7 @@
                     <x-jet-label for="barangay" value="{{ __('Barangay') }}" />
                     <x-jet-input id="barangay" type="text" class="mt-1 block w-full" wire:model.defer="barangay"
                         autocomplete="barangay" placeholder="{{ optional($user)->barangay }}" />
-                    <x-jet-input-error for="barangay" class="mt-2" />
+                    <x-jet-input-error for="barangay" class="" />
                 </div>
             </x-slot>
 
@@ -81,7 +81,7 @@
                     <x-jet-input id="mobile_no" type="text" class="mt-1 block w-full" wire:model.defer="mobile_no"
                         autocomplete="mobile_no" placeholder="{{ optional($user)->mobile_no }}"
                         value="{{ optional($user)->mobile_no }}" />
-                    <x-jet-input-error for="mobile_no" class="mt-2" />
+                    <x-jet-input-error for="mobile_no" class="" />
                 </div>
 
                 <!-- House -->
@@ -89,7 +89,7 @@
                     <x-jet-label for="house" value="{{ __('House') }}" />
                     <x-jet-input id="house" type="text" class="mt-1 block w-full" wire:model.defer="house"
                         autocomplete="house" placeholder="{{ optional($user)->house }}" />
-                    <x-jet-input-error for="house" class="mt-2" />
+                    <x-jet-input-error for="house" class="" />
                 </div>
 
                 <!-- City -->
@@ -97,7 +97,7 @@
                     <x-jet-label for="city" value="{{ __('City') }}" />
                     <x-jet-input id="city" type="text" class="mt-1 block w-full" wire:model.defer="city"
                         autocomplete="city" placeholder="{{ optional($user)->city }}" />
-                    <x-jet-input-error for="city" class="mt-2" />
+                    <x-jet-input-error for="city" class="" />
                 </div>
 
                 <!-- Province -->
@@ -105,7 +105,7 @@
                     <x-jet-label for="province" value="{{ __('Province') }}" />
                     <x-jet-input id="province" type="text" class="mt-1 block w-full" wire:model.defer="province"
                         autocomplete="province" placeholder="{{ optional($user)->province }}" />
-                    <x-jet-input-error for="province" class="mt-2" />
+                    <x-jet-input-error for="province" class="" />
                 </div>
 
                 <!-- Barangay -->
@@ -113,7 +113,7 @@
                     <x-jet-label for="barangay" value="{{ __('Barangay') }}" />
                     <x-jet-input id="barangay" type="text" class="mt-1 block w-full" wire:model.defer="barangay"
                         autocomplete="barangay" placeholder="{{ optional($user)->barangay }}" />
-                    <x-jet-input-error for="barangay" class="mt-2" />
+                    <x-jet-input-error for="barangay" class="" />
                 </div>
             </x-slot>
 

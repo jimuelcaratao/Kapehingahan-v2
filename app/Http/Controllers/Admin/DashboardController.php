@@ -50,7 +50,8 @@ class DashboardController extends Controller
         $diff = $current - $original;
         $more_less = $diff > 0 ? "1" : "0";
         $diff = abs($diff);
-        $percentChange = ($diff / $original) * 100;
+        // $percentChange = 0 ? 0 : ($diff / $original) * 100;
+
 
         $customer_count = User::where('is_admin', '0')
             ->count();
@@ -75,8 +76,7 @@ class DashboardController extends Controller
         $diff1 = $original1 - $current1;
         $more_less1 = $diff1 > 0 ? "1" : "0";
         $diff1 = abs($diff1);
-        $percentChangeOrder = ($diff1 / $original1) * 100;
-
+        // $percentChangeOrder = ($diff1 / $original1) * 100;
 
         $popular_items = WishList::select('product_code')
             ->groupBy('product_code')
@@ -117,10 +117,10 @@ class DashboardController extends Controller
             'customer_count' => $customer_count,
             'brand_count' => $brand_count,
 
-            'percentChange' => $percentChange,
+            'percentChange' => $percentChange ?? 0,
             'more_less' => $more_less,
 
-            'percentChangeOrder' => $percentChangeOrder,
+            'percentChangeOrder' => $percentChangeOrder ?? 0,
             'more_less1' => $more_less1,
         ]);
     }
