@@ -56,8 +56,6 @@
         </style>
 
     @endpush
-
-    <div class="bg-white leading-normal tracking-normal">
         <div class="carousel relative mx-auto">
             <div class="carousel-inner relative overflow-hidden w-full">
                 <!--Slide 1-->
@@ -1435,5 +1433,7 @@
 
                         }
                     </script>
+
+
 
 </x-ecommerce-layout>
