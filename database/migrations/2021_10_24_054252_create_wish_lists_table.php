@@ -17,6 +17,8 @@ class CreateWishListsTable extends Migration
             $table->id('wish_list_id');
             $table->foreignId('user_id');
             $table->foreignId('product_code');
+            $table->boolean('viewed_by_user')->default(0)->nullable();
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
 

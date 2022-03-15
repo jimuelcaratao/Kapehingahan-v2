@@ -15,6 +15,7 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
+        'rider_id',
         'status',
         'payment_method',
         'packaged_at',
@@ -29,9 +30,15 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class, 'order_no', 'order_no');
     }
+
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function rider()
+    {
+        return $this->hasOne(User::class, 'id', 'rider_id');
     }
 
     public function getTotalPrice()

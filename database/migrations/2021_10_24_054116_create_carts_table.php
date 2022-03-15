@@ -18,6 +18,8 @@ class CreateCartsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('product_code');
             $table->string('quantity');
+            $table->boolean('viewed_by_user')->default(0)->nullable();
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
 

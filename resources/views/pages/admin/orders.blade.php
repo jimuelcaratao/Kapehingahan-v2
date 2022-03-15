@@ -53,6 +53,18 @@
                                         </th>
                                         <th scope="col"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Rider
+                                        </th>
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Payment Method
+                                        </th>
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Payment Date
+                                        </th>
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status
                                         </th>
                                         <th scope="col"
@@ -75,6 +87,10 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                             Delivered Date
                                         </th>
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
+                                            Returned Date
+                                        </th>
                                         <th scope="col-2"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -89,55 +105,72 @@
 
                                             </td>
 
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center text-sm">
                                                 <p class="text-xs font-weight-bold mb-0 ">{{ $order->user->name }}</p>
                                             </td>
 
+                                            <td class="align-middle text-center text-sm">
+                                                <p class="text-xs font-weight-bold mb-0 ">
+                                                    @if (!empty($order->rider->name))
+                                                        {{ $order->rider->name }}
+                                                    @endif
+                                                </p>
+                                            </td>
 
+
+                                            <td class="align-middle text-center text-sm">
+                                                <p class="text-xs font-weight-bold mb-0 ">{{ $order->payment_method }}
+                                                </p>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <p class="text-xs font-weight-bold mb-0 ">{{ $order->paid_at }}
+                                                </p>
+                                            </td>
                                             {{-- Order Status --}}
                                             @if ($order->status == 'Delivered')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-success">{{ $order->status }}</span>
                                                 </td>
                                             @endif
                                             @if ($order->status == 'Delivering')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-primary">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Canceled')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-danger">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Pending')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-secondary">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Confirm Pending')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-warning">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Packaging')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-info">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Shipping')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-info">{{ $order->status }}</span>
                                                 </td>
@@ -170,7 +203,10 @@
                                                 <span class="text-secondary text-xs font-weight-bold">
                                                     {{ $order->delivered_at }}</span>
                                             </td>
-
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{ $order->returned_at }}</span>
+                                            </td>
 
                                             <td class="align-middle">
                                                 <a class="text-secondary font-weight-bold text-xs" href="#"
@@ -223,13 +259,17 @@
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Product Name
                                             </th>
-                                            <th scope="col" colspan="4"
+                                            <th scope="col"
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                                 Category
                                             </th>
-                                            <th scope="col"
+                                            <th scope="col" colspan="7"
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
-                                                quantity
+
+                                            </th>
+                                            <th scope="col"
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                                Quantity
                                             </th>
                                             <th scope="col"
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
@@ -251,16 +291,20 @@
                                                     <p class="text-xs font-weight-bold mb-0 ">
                                                         {{ $order_item->product->product_name }}</p>
                                                 </td>
-                                                <td colspan="4" class=" text-sm">
+                                                <td class="align-middle text-center text-sm">
                                                     <span
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                         {{ $order_item->product->category_name }}
                                                     </span>
                                                 </td>
 
-                                                <td class=" text-sm">
-                                                    <div class="text-sm text-gray-900">{{ $order_item->quantity }}
-                                                    </div>
+                                                <td colspan="7" class="align-middle text-center text-sm">
+
+                                                </td>
+
+                                                <td class="align-middle text-cente text-sm">
+                                                    <p class="text-xs font-weight-bold mb-0 ">
+                                                        {{ $order_item->quantity }}</p>
                                                 </td>
                                                 <td class=" text-sm">
                                                     <div class="text-xs text-gray-900">PHP @convert($order_item->price)
@@ -308,7 +352,7 @@
                                                             {{ $custom->topping }}
                                                         </div>
                                                     </td>
-                                                    <td colspan="4" class=" whitespace-nowrap">
+                                                    <td colspan="8" class=" whitespace-nowrap">
                                                         <div class="text-xs text-gray-900">
                                                             <span class="text-xs font-bold">add-ins:</span>
                                                             {{ $custom->add_in }}
@@ -320,7 +364,7 @@
 
                                         {{-- order products total --}}
                                         <tr class="bg-gray-100">
-                                            <td colspan="8" class="text-right  whitespace-nowrap">
+                                            <td colspan="12" class="text-right  whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">Total:</div>
                                             </td>
                                             <td colspan="1" class=" whitespace-nowrap">
@@ -333,7 +377,7 @@
 
                                     @empty
                                         <tr>
-                                            <td colspan="9"
+                                            <td colspan="10"
                                                 class="pr-4 whitespace-nowrap text-sm font-medium text-center">
                                                 <img class="mx-auto d-block text-center py-4" style="width: 275px"
                                                     src="{{ asset('img/admin/no-products.svg') }}" alt="no orders">

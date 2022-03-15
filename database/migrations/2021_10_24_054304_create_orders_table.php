@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id('order_no')->from(100000);
             $table->foreignId('user_id');
+            $table->foreignId('rider_id')->nullable();
             $table->string('status');
             $table->string('payment_method');
             $table->timestamp('confirmed')->nullable();
@@ -31,6 +32,7 @@ class CreateOrdersTable extends Migration
             $table->timestamp('updated_at')->useCurrent();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('rider_id')->references('id')->on('users');
         });
     }
 
