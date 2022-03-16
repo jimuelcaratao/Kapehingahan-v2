@@ -94,7 +94,7 @@
         <div class="w-11/12 md:w-1/2 mx-auto p-5 bg-white rounded-lg shadow-md" style="margin-top: 0;">
 
             @foreach ($carts as $cart)
-                @if ($cart->product->stock > 0)
+                @if ($cart->product->stock > 0 || $cart->product->status == 'Available')
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-300">
                         <img class="block h-1/4 w-1/4 mx-auto"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}">
@@ -132,7 +132,7 @@
                 @php
                     $price = 0;
                     
-                    if ($cart->product->stock > 0) {
+                    if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                         $price = $cart->product->price;
                     
                         $total = $cart->quantity * $price + $total;

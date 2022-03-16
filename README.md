@@ -13,6 +13,7 @@
 -   npm install
 -   npm run dev
 -   php artisan migrate
+-   php artisan db:seed --class=UsersTableSeeder
 -   php artisan storage:link
 -   php artisan route:cache
 -   php artisan config:cache

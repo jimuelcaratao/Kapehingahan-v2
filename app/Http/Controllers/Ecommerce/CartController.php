@@ -48,15 +48,25 @@ class CartController extends Controller
         $product_info = Product::where('product_code', $product_code)
             ->first();
 
-        // validation for stock if nostocks
-        if ($product_info->stock <= 0) {
-            return Redirect::route('product', [$product_code])->with('toast_error', 'Opps no more stocks');
+
+        // Stock Validations
+        if ($product_info->is_customizable == 0) {
+            // validation for stock if nostocks
+            if ($product_info->stock <= 0) {
+                return Redirect::route('product', [$product_code])->with('toast_error', 'Opps no more stocks');
+            }
+
+            if ($product_info->stock < $request->input('quantity')) {
+                return Redirect::route('product', [$product_code])->with('toast_error', 'Opps only ' . $product_info->stock . ' stock left.');
+            }
         }
 
-        if ($product_info->stock < $request->input('quantity')) {
-            return Redirect::route('product', [$product_code])->with('toast_error', 'Opps only ' . $product_info->stock . ' stock left.');
+        if ($product_info->is_customizable == 1) {
+            // validation for stock if nostocks
+            if ($product_info->status == 'Not Available') {
+                return Redirect::route('product', [$product_code])->with('toast_error', 'Opps no more stocks');
+            }
         }
-
 
         $cart =  Cart::create([
             'user_id' => Auth::user()->id,
@@ -120,11 +130,14 @@ class CartController extends Controller
     public function change_quantity($cart_id, $product_code, Request $request)
     {
 
+
         $product_info = Product::where('product_code', $product_code)
             ->first();
 
-        if ($product_info->stock < $request->input('quantity')) {
-            return Redirect::route('cart')->with('toast_error', 'Opps only ' . $product_info->stock . ' stock left.');
+        if ($product_info->is_customizable == 0) {
+            if ($product_info->stock < $request->input('quantity')) {
+                return Redirect::route('cart')->with('toast_error', 'Opps only ' . $product_info->stock . ' stock left.');
+            }
         }
 
         if ($request->input('quantity') > 5) {

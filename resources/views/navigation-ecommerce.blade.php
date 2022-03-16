@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 
-<nav x-data="{ open: false }" class="bg-[#4F3428] sticky top-0 z-50">
+<nav x-data="{ open: false }" class="bg-[#4F3428] sticky top-0 z-100 always-top">
 
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
@@ -147,7 +147,6 @@
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}"
                                             class="ml-4 text-sm text-white dark:text-gray-500">Register</a>
-
                                     @endif
                                 </div>
                             @endif
@@ -202,7 +201,7 @@
 
                                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                                                            this.closest('form').submit();">
+                                                                                                                                                                                                                                    this.closest('form').submit();">
 
                                             {{ __('Log Out') }}
                                         </x-jet-dropdown-link>

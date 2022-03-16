@@ -19,6 +19,12 @@
 
     @livewireStyles
     @stack('styles')
+    <style>
+        .always-top {
+            z-index: 10000;
+        }
+
+    </style>
 
     <!-- Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">

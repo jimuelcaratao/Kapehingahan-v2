@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ProductCustom;
 use App\Models\UserCard;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -34,24 +35,24 @@ class PaymentController extends Controller
     {
         if (Auth::user()->user_address) {
             if ($request->input('payment_method') == "Online Payment") {
-                if (empty(Auth::user()->user_card)) {
-                    $request->validate([
-                        'cardname' => 'required',
-                        'cardnumber' => 'required|numeric|digits:16',
-                        'expmonth' => 'required|numeric|digits:2|max:12',
-                        'expyear' => 'required|numeric|digits:4',
-                        'ccv' => 'required|numeric|digits:3',
-                    ]);
+                // if (empty(Auth::user()->user_card)) {
+                //     $request->validate([
+                //         'cardname' => 'required',
+                //         'cardnumber' => 'required|numeric|digits:16',
+                //         'expmonth' => 'required|numeric|digits:2|max:12',
+                //         'expyear' => 'required|numeric|digits:4',
+                //         'ccv' => 'required|numeric|digits:3',
+                //     ]);
 
-                    UserCard::create([
-                        'user_id' => Auth::user()->id,
-                        'cardname' => $request->input('cardname'),
-                        'cardnumber' =>  $request->input('cardnumber'),
-                        'expmonth' =>  $request->input('expmonth'),
-                        'expyear' =>  $request->input('expyear'),
-                        'ccv' =>  $request->input('ccv'),
-                    ]);
-                }
+                //     UserCard::create([
+                //         'user_id' => Auth::user()->id,
+                //         'cardname' => $request->input('cardname'),
+                //         'cardnumber' =>  $request->input('cardnumber'),
+                //         'expmonth' =>  $request->input('expmonth'),
+                //         'expyear' =>  $request->input('expyear'),
+                //         'ccv' =>  $request->input('ccv'),
+                //     ]);
+                // }
             }
 
             $order = Order::create([
@@ -60,12 +61,19 @@ class PaymentController extends Controller
                 'payment_method' => $request->input('payment_method'),
             ]);
 
+            if ($request->input('payment_method') == "Online Payment") {
+                Order::where('order_no', $order->order_no)
+                    ->update([
+                        'paid_at' => Carbon::now(),
+                    ]);
+            }
+
             $my_carts =  Cart::where('user_id', Auth::user()->id)->get();
 
 
             foreach ($my_carts as $my_cart) {
 
-                if ($my_cart->product->stock > 0) {
+                if ($my_cart->product->stock > 0 || $my_cart->product->status == 'Available') {
 
                     $order_items = OrderItem::Create([
                         'order_no' => $order->order_no,
