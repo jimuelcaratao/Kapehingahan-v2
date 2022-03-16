@@ -1,13 +1,14 @@
 <footer class="px-4 divide-y bg-[#4F3428] text-gray-300">
-	<div class="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-		<div class="lg:w-1/3">
-			<a href="#" class="flex justify-center space-x-3 lg:justify-start">
-				<div class="flex items-center justify-center rounded-full dark:bg-violet-400 mb-4">
-					<img class="lg:block h-20 w-auto" src={{ asset('img/main-logo-1.png') }} alt="Workflow">
-				</div>
-			</a>
+    <div class="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+        <div class="lg:w-1/3">
+            <a href="#" class="flex justify-center space-x-3 lg:justify-start">
+                <div class="flex items-center justify-center rounded-full dark:bg-violet-400 mb-4">
+                    <img class="lg:block h-20 w-auto" src={{ asset('img/main-logo-1.png') }} alt="Workflow">
+                </div>
+            </a>
             <div class="w-full md:w-80">
-            <span class="self-center text-sm mx-auto">KapeHingahan will start your day with a cup of coffee. Serving high-quality espresso-based drinks as well as delectable meals.</span>
+                <span class="self-center text-sm mx-auto">KapeHingahan will start your day with a cup of coffee. Serving
+                    high-quality espresso-based drinks as well as delectable meals.</span>
             </div>
         </div>
         <div class="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/4 sm:grid-cols-3">

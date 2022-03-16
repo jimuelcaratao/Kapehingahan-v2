@@ -53,12 +53,24 @@
                                         </th>
                                         <th scope="col"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status
+                                            Rider
                                         </th>
                                         <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Payment Method
+                                        </th>
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Payment Date
+                                        </th>
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status
+                                        </th>
+                                        {{-- <th scope="col"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                             Confirmed Date
-                                        </th>
+                                        </th> --}}
                                         <th scope="col"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                             Canceled Date
@@ -75,6 +87,10 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                             Delivered Date
                                         </th>
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
+                                            Returned Date
+                                        </th>
                                         <th scope="col-2"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -89,67 +105,91 @@
 
                                             </td>
 
-                                            <td class="align-middle">
+                                            <td class="align-middle text-center text-sm">
                                                 <p class="text-xs font-weight-bold mb-0 ">{{ $order->user->name }}</p>
                                             </td>
 
+                                            <td class="align-middle text-center text-sm">
+                                                <p class="text-xs font-weight-bold mb-0 ">
+                                                    @if (!empty($order->rider->name))
+                                                        {{ $order->rider->name }}
+                                                    @endif
+                                                </p>
+                                            </td>
 
+
+                                            <td class="align-middle text-center text-sm">
+                                                <p class="text-xs font-weight-bold mb-0 ">{{ $order->payment_method }}
+                                                </p>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <p class="text-xs font-weight-bold mb-0 ">{{ $order->paid_at }}
+                                                </p>
+                                            </td>
                                             {{-- Order Status --}}
                                             @if ($order->status == 'Delivered')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-success">{{ $order->status }}</span>
                                                 </td>
                                             @endif
                                             @if ($order->status == 'Delivering')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-primary">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Canceled')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-danger">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Pending')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-secondary">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Confirm Pending')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-warning">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
-                                            @if ($order->status == 'Packaging')
-                                                <td class="align-middle  text-sm">
+                                            @if ($order->status == 'Preparing')
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-info">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             @if ($order->status == 'Shipping')
-                                                <td class="align-middle  text-sm">
+                                                <td class="align-middle text-center text-sm text-sm">
                                                     <span
                                                         class="badge badge-sm bg-gradient-info">{{ $order->status }}</span>
+                                                </td>
+                                            @endif
+
+                                            @if ($order->status == 'Returned')
+                                                <td class="align-middle text-center text-sm text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-danger">{{ $order->status }}</span>
                                                 </td>
                                             @endif
 
                                             {{-- End Order Status --}}
 
 
-                                            <td class="align-middle text-center">
+                                            {{-- <td class="align-middle text-center">
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{ $order->confirmed }}</span>
-                                            </td>
+                                            </td> --}}
 
                                             <td class="align-middle text-center">
                                                 <span
@@ -171,6 +211,10 @@
                                                     {{ $order->delivered_at }}</span>
                                             </td>
 
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{ $order->returned_at }}</span>
+                                            </td>
 
                                             <td class="align-middle">
                                                 <a class="text-secondary font-weight-bold text-xs" href="#"
@@ -179,6 +223,7 @@
                                                     data-item-order_no="{{ $order->order_no }}"
                                                     data-item-name="{{ $order->user->name }}"
                                                     data-item-email="{{ $order->user->email }}"
+                                                    data-item-rider="{{ $order->rider->name ?? null }}"
                                                     data-item-mobile_no="{{ $order->user->user_address->mobile_no ?? null }}"
                                                     data-item-house="{{ $order->user->user_address->house ?? null }}"
                                                     data-item-city="{{ $order->user->user_address->city ?? null }}"
@@ -189,7 +234,8 @@
                                                     data-item-packaged_at="{{ $order->packaged_at }}"
                                                     data-item-shipped_at="{{ $order->shipped_at }}"
                                                     data-item-delivered_at="{{ $order->delivered_at }}"
-                                                    id="view-order">
+                                                    data-item-returned_at="{{ $order->returned_at }}"
+                                                    data-item-paid_at="{{ $order->paid_at }}" id="view-order">
                                                     View
                                                 </a>
 
@@ -197,11 +243,14 @@
                                                     data-bs-toggle="modal" data-bs-target="#update-modal"
                                                     data-tooltip="tooltip" data-placement="top" title="Update"
                                                     data-item-update_order_no="{{ $order->order_no }}"
+                                                    data-item-update_rider_id="{{ $order->rider->id ?? null }}"
                                                     data-item-update_status="{{ $order->status }}"
                                                     data-item-update_packaged_at="{{ $order->packaged_at }}"
                                                     data-item-update_shipped_at="{{ $order->shipped_at }}"
                                                     data-item-update_delivered_at="{{ $order->delivered_at }}"
                                                     data-item-update_created_at="{{ $order->created_at }}"
+                                                    data-item-update_returned_at="{{ $order->returned_at }}"
+                                                    data-item-update_paid_at="{{ $order->paid_at }}"
                                                     id="update-order">
                                                     Update
                                                 </a>
@@ -223,13 +272,17 @@
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Product Name
                                             </th>
-                                            <th scope="col" colspan="4"
+                                            <th scope="col"
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                                 Category
                                             </th>
-                                            <th scope="col"
+                                            <th scope="col" colspan="6"
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
-                                                quantity
+
+                                            </th>
+                                            <th scope="col"
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                                Quantity
                                             </th>
                                             <th scope="col"
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
@@ -251,16 +304,20 @@
                                                     <p class="text-xs font-weight-bold mb-0 ">
                                                         {{ $order_item->product->product_name }}</p>
                                                 </td>
-                                                <td colspan="4" class=" text-sm">
+                                                <td class="align-middle text-center text-sm">
                                                     <span
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                         {{ $order_item->product->category_name }}
                                                     </span>
                                                 </td>
 
-                                                <td class=" text-sm">
-                                                    <div class="text-sm text-gray-900">{{ $order_item->quantity }}
-                                                    </div>
+                                                <td colspan="6" class="align-middle text-center text-sm">
+
+                                                </td>
+
+                                                <td class="align-middle text-cente text-sm">
+                                                    <p class="text-xs font-weight-bold mb-0 ">
+                                                        {{ $order_item->quantity }}</p>
                                                 </td>
                                                 <td class=" text-sm">
                                                     <div class="text-xs text-gray-900">PHP @convert($order_item->price)
@@ -308,7 +365,7 @@
                                                             {{ $custom->topping }}
                                                         </div>
                                                     </td>
-                                                    <td colspan="4" class=" whitespace-nowrap">
+                                                    <td colspan="7" class=" whitespace-nowrap">
                                                         <div class="text-xs text-gray-900">
                                                             <span class="text-xs font-bold">add-ins:</span>
                                                             {{ $custom->add_in }}
@@ -320,7 +377,7 @@
 
                                         {{-- order products total --}}
                                         <tr class="bg-gray-100">
-                                            <td colspan="8" class="text-right  whitespace-nowrap">
+                                            <td colspan="11" class="text-right  whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">Total:</div>
                                             </td>
                                             <td colspan="1" class=" whitespace-nowrap">

@@ -16,7 +16,7 @@ class MyOrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('user_id', 'like', '%' . Auth::user()->id . '%')->latest()->get();
+        $orders = Order::where('user_id', Auth::user()->id)->latest()->get();
 
 
         return view('pages.ecommerce.my_orders', [

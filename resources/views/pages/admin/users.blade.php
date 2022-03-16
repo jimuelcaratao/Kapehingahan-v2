@@ -109,6 +109,10 @@
                                                         <span class="badge badge-sm bg-gradient-info">
                                                             Staff
                                                         </span>
+                                                    @elseif($user->is_admin == 3)
+                                                        <span class="badge badge-sm bg-gradient-primary">
+                                                            Rider
+                                                        </span>
                                                     @else
                                                         <span class="badge badge-sm bg-gradient-secondary">
                                                             Customer

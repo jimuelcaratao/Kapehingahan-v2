@@ -17,6 +17,8 @@ class Review extends Model
         'product_code',
         'stars',
         'body',
+        'viewed_by_user',
+
     ];
 
     public function user()

@@ -1,4 +1,10 @@
 <x-ecommerce-layout>
+
+    <x-slot name="title">
+        Order Status |
+    </x-slot>
+
+
     @push('styles')
         <link rel="stylesheet" href="{{ asset('css/order_status.css') }}">
     @endpush
@@ -166,20 +172,24 @@
                                     </div>
 
 
-                                    @if (empty($order->confirmed))
-                                        <div class="overflow-hidden sm:rounded-md">
-                                            <form action="{{ route('my_orders.send', [$order->order_no]) }}"
-                                                method="POST">
-                                                @csrf
-                                                <div class="px-4 py-3  text-right sm:px-6">
-                                                    <button type="submit"
-                                                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                        Resend Confirm Order
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                    @if (!empty($order->delivered_at))
+                                    @else
+                                        @if (empty($order->confirmed))
+                                            <div class="overflow-hidden sm:rounded-md">
+                                                <form action="{{ route('my_orders.send', [$order->order_no]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <div class="px-4 py-3  text-right sm:px-6">
+                                                        <button type="submit"
+                                                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                            Resend Confirm Order
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        @endif
                                     @endif
+
 
                                     @if (empty($order->canceled_at))
                                         @if (empty($order->packaged_at) && !empty($order->confirmed))

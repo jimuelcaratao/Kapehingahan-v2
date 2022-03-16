@@ -34,7 +34,7 @@ class UserController extends Controller
                 // default returning
                 $users = User::where(request()->search_col ?? 'name', 'like', '%' . request()->search . '%')
                     ->oldest()
-                    ->paginate(5);
+                    ->paginate(10);
             }
         }
 

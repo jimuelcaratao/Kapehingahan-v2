@@ -1,50 +1,42 @@
 <x-ecommerce-layout>
 
-    <!-- Contact Form -->
-    <div class="grid grid-cols-1 gap-8 px-8 py-24 mx-auto md:grid-cols-2 md:px-12 lg:px-16 xl:px-32">
-        <div class="flex flex-col justify-between">
-            <div class="space-y-2">
-                    <img src={{ asset('img/logo.png') }} alt="ads">
-            </div>
+    <x-slot name="title">
+        Contact |
+    </x-slot>
+
+<div class="py-2 bg-white">
+    <div class="container mx-auto flex flex-col md:flex-row my-2 md:my-20">
+  <div class="flex flex-col w-full lg:w-2/5 p-8">
+    <p class="text-3xl md:text-5xl text-yellow-900 my-4 leading-relaxed md:leading-snug font-extrabold">Contact our team</p>
+    <p class="font-sans text-sm md:text-lg my-2 md:my-4 text-gray-800"><svg class="inline-block fill-current mr-2"
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
+      </svg>Guru Nank Dev Engineering College, Ludhiana</p>
+    <p class="font-sans text-sm md:text-lg my-2 md:my-4 text-gray-800"><svg class="inline-block fill-current mr-2"
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z" />
+      </svg> techfestgndec@gmail.com</p>
+    <p class="font-sans text-sm md:text-lg my-2 md:my-4 text-gray-800"><svg class="inline-block fill-current mr-2"
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z" />
+      </svg>+91745435433</p> <br> <br>
+    <p class="font-sans text-sm md:text-lg my-2 md:my-4 text-gray-800">Press the chat icon at the right bottom corner to have a
+      live chat with our team.
+    </p>
+  </div>
+  <div class=" flex flex-col lg:w-3/5 justify-center w-full lg:-mt-12">
+    <div class="container">
+      <div class="relative flex flex-col min-w-0 break-words w-full">
+        <div class="flex-auto p-5 lg:p-10">
+          <img src={{ asset('img/logo.png') }} alt="contact image">
         </div>
-
-        <div class="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
-            <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">
-                Get in touch
-            </h1>
-            <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">
-                Fill in the form to start a conversation
-            </p>
-
-            <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-                <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                    Acme Inc, Street, State,
-                    Postal Code
-                </div>
-            </div>
-
-            <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
-                <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                    +44 1234567890
-                </div>
-            </div>
-
-            <div class="flex items-center mt-2 text-gray-600 dark:text-gray-400">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                    info@acme.org
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
+</div>
+</div>
 
 </x-ecommerce-layout>

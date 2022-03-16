@@ -16,12 +16,13 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('product_code', 20);
+            $table->foreignId('product_code');
             $table->foreignId('order_no');
             $table->integer('stars')->nullable();
             $table->longText('body')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            $table->boolean('viewed_by_user')->default(0)->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('product_code')->references('product_code')->on('products');

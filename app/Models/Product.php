@@ -20,16 +20,16 @@ class Product extends Model
         'category_name',
         'brand_name',
         'description',
+        'status',
         'stock',
         'stock_measurement',
         'default_photo',
+        'is_customizable',
         'price',
+        'viewers',
     ];
 
-    public function product_photos()
-    {
-        return $this->hasOne(ProductPhoto::class, 'product_code', 'product_code');
-    }
+
 
     public function product_reviews()
     {

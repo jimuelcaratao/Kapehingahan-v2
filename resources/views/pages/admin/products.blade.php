@@ -66,15 +66,21 @@
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Product Name</th>
+
+                                        {{-- <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status</th> --}}
+
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Stocks</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Category</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Brand</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Stocks</th>
+
 
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -105,20 +111,51 @@
                                                     {{ \Illuminate\Support\Str::limit($product->description, 70) }}
                                                 </p>
                                             </td>
+                                            {{-- @if ($product->status == 'Available')
+                                                <td class="align-middle text-center text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-success">{{ $product->status }}</span>
+                                                </td>
+                                            @else
+                                                <td class="align-middle text-center text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-danger">{{ $product->status }}</span>
+                                                </td>
+                                            @endif --}}
+
+                                            @if ($product->status != null)
+                                                @if ($product->status == 'Available')
+                                                    <td class="align-middle text-center text-sm">
+                                                        <span
+                                                            class="badge badge-sm bg-gradient-success">{{ $product->status }}</span>
+                                                    </td>
+                                                @else
+                                                    <td class="align-middle text-center text-sm">
+                                                        <span
+                                                            class="badge badge-sm bg-gradient-danger">{{ $product->status }}</span>
+                                                    </td>
+                                                @endif
+                                            @else
+                                                <td class="align-middle text-center">
+                                                    <span
+                                                        class="text-secondary text-xs font-weight-bold">{{ $product->stock }}
+                                                        {{ $product->stock_measurement }}</span>
+                                                </td>
+                                            @endif
+
+
                                             <td class="align-middle text-center text-sm">
                                                 <span
-                                                    class="badge badge-sm bg-gradient-success">{{ $product->category_name }}</span>
+                                                    class="badge badge-sm bg-gradient-primary">{{ $product->category_name }}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{ $product->brand_name }}</span>
                                             </td>
 
-                                            <td class="align-middle text-center">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold">{{ $product->stock }}
-                                                    {{ $product->stock_measurement }}</span>
-                                            </td>
+
+
+
 
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold"> ₱ @convert(
@@ -135,6 +172,7 @@
                                                     data-item-brand="{{ $product->brand_name }}"
                                                     data-item-description="{{ $product->description }}"
                                                     data-item-price="{{ $product->price }}"
+                                                    data-item-status="{{ $product->status }}"
                                                     data-item-stock="{{ $product->stock }}"
                                                     data-item-is_customizable="{{ $product->is_customizable }}"
                                                     data-item-stock_measurement="{{ $product->stock_measurement }}"
@@ -218,7 +256,6 @@
 
 
     @push('scripts')
-
         <script>
             //delete
             $(".delete-product").click(function(e) {
@@ -241,7 +278,6 @@
                     });
             });
         </script>
-
     @endpush
 
 </x-admin-layout>

@@ -20,16 +20,23 @@
                                             <div class=" col-span-6 sm:col-span-4">
                                                 <label for="view_order_no"
                                                     class="block text-sm font-medium text-gray-700">Order No.</label>
-                                                <input type="text" name="order_no" id="view_order_no" required
+                                                <input type="text" name="order_no" id="view_order_no" required readonly
                                                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
                                             <div class=" col-span-6 sm:col-span-4">
                                                 <label for="view_order_status"
                                                     class="block text-sm font-medium text-gray-700">Order
-                                                    Status.</label>
+                                                    Status</label>
                                                 <input type="text" name="view_order_status" id="view_order_status"
-                                                    required
+                                                    required readonly
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+
+                                            <div class=" col-span-6 sm:col-span-4">
+                                                <label for="view_rider"
+                                                    class="block text-sm font-medium text-gray-700">Rider</label>
+                                                <input type="text" name="view_rider" id="view_rider" required readonly
                                                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
                                         </div>
@@ -120,7 +127,6 @@
 </div>
 
 @push('scripts')
-
     <script>
         $(document).ready(function() {
             $(".close-modal-view").click(function() {
@@ -163,6 +169,8 @@
                 var name = el.data("item-name");
                 var email = el.data("item-email");
                 var status = el.data("item-status");
+                var rider = el.data("item-rider");
+
                 var mobile_no = el.data("item-mobile_no");
 
                 var house = el.data("item-house");
@@ -177,6 +185,8 @@
                 $("#view_order_no").val(order_no);
                 $("#view_name").val(name);
                 $("#view_email").val(email);
+                $("#view_rider").val(rider);
+
                 $("#view_order_status").val(status);
                 $("#view_mobile_no").val(mobile_no);
 

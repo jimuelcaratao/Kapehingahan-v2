@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Order;
 
+use App\Models\User;
 use Illuminate\View\Component;
 
 class UpdateOrderModal extends Component
@@ -23,6 +24,9 @@ class UpdateOrderModal extends Component
      */
     public function render()
     {
-        return view('components.order.update-order-modal');
+        $riders = User::where('is_admin', 3)->get();
+        return view('components.order.update-order-modal', [
+            'riders' => $riders,
+        ]);
     }
 }

@@ -38,7 +38,8 @@ class OrderController extends Controller
                 $orders = Order::where('order_no', 'like', '%' . request()->search . '%')
                     // ->OrWhere('name', 'like', '%' . request()->search . '%')
                     ->latest('order_no')
-                    ->paginate(5);
+                    // ->orderByRaw("FIELD(status , 'Pending', 'Packaging', 'Shipping', 'Delivering', 'Delivered', 'Returned') DESC")
+                    ->paginate(10);
             }
         }
 
@@ -54,6 +55,15 @@ class OrderController extends Controller
         // if (empty($order->confirmed)) {
         //     return Redirect::route('orders')->withInfo('Order no.:' . $request->input('order_no') . '. Confirmation needed!');
         // }
+
+        // rider update
+        if ($request->input('update_rider_id') != null) {
+
+            Order::where('order_no', $request->input('order_no'))
+                ->update([
+                    'rider_id' => $request->input('update_rider_id'),
+                ]);
+        }
 
         if (!empty($order->canceled_at)) {
             return Redirect::route('orders')->withInfo('Order no.:' . $request->input('order_no') . '. Already Canceled!');
@@ -78,11 +88,18 @@ class OrderController extends Controller
 
                 //     $updated_stock = $get_products->stock - $item->quantity;
 
-                //     if ($updated_stock >= 0) {
+                //     if ($updated_stock <= 0) {
                 //         return  Redirect::back()->with('toast_error', 'No more Stocks');
                 //     }
 
-                //     if ($updated_stock >= 0) {
+
+                //     // if ($updated_stock > $item->quantity) {
+                //     //     Product::where('product_code', $item->product_code)->update([
+                //     //         'stock' => $updated_stock,
+                //     //     ]);
+                //     // }
+
+                //     if ($updated_stock > 0) {
                 //         Product::where('product_code', $item->product_code)->update([
                 //             'stock' => $updated_stock,
                 //         ]);
@@ -136,6 +153,41 @@ class OrderController extends Controller
                 ]);
         }
 
+        // returned
+        if ($order->returned_at == null) {
+            if ($request->has('returned_switch')) {
+                Order::where('order_no', $request->input('order_no'))
+                    ->update([
+                        'status' => 'Returned',
+                        'returned_at' => Carbon::now(),
+                        'viewed_by_user' => 0,
+                    ]);
+            }
+        }
+        if ($request->input('returned_switch') == null) {
+            Order::where('order_no', $request->input('order_no'))
+                ->update([
+                    'returned_at' => null,
+                    'status' => 'Pending',
+                ]);
+        }
+
+        // paid
+        if ($order->paid_at == null) {
+            if ($request->has('paid_switch')) {
+                Order::where('order_no', $request->input('order_no'))
+                    ->update([
+                        'paid_at' => Carbon::now(),
+                    ]);
+            }
+        }
+        if ($request->input('paid_switch') == null) {
+            Order::where('order_no', $request->input('order_no'))
+                ->update([
+                    'paid_at' => null,
+                ]);
+        }
+
         // text status
         if ($request->input('delivered_switch') == null) {
             Order::where('order_no', $request->input('order_no'))
@@ -154,7 +206,7 @@ class OrderController extends Controller
         if ($request->input('delivered_switch') == null && $request->input('shipped_switch') == null && $request->input('packaged_switch') == null) {
             Order::where('order_no', $request->input('order_no'))
                 ->update([
-                    'status' => 'Packaging',
+                    'status' => 'Preparing',
                 ]);
         }
 

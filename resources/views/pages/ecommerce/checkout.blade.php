@@ -1,5 +1,9 @@
 <x-ecommerce-layout>
 
+    <x-slot name="title">
+        Checkout |
+    </x-slot>
+
     @php
         $total = 0;
     @endphp
@@ -35,7 +39,6 @@
                     </div>
                 @endif
                 @empty(Auth::user()->user_address)
-
                     <!-- Mobile No. -->
                     <div class="mt-4">
                         <x-jet-label for="mobile_no" value="{{ __('Mobile No.') }}" />
@@ -91,8 +94,7 @@
         <div class="w-11/12 md:w-1/2 mx-auto p-5 bg-white rounded-lg shadow-md" style="margin-top: 0;">
 
             @foreach ($carts as $cart)
-
-                @if ($cart->product->stock > 0)
+                @if ($cart->product->stock > 0 || $cart->product->status == 'Available')
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-300">
                         <img class="block h-1/4 w-1/4 mx-auto"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}">
@@ -117,7 +119,6 @@
                                 @if ($item->add_in != null)
                                     <p>Add-ins: {{ $item->add_in }}</p>
                                 @endif
-
                             @endforeach
                             <p>Qty: {{ $cart->quantity }}</p>
 
@@ -131,14 +132,13 @@
                 @php
                     $price = 0;
                     
-                    if ($cart->product->stock > 0) {
+                    if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                         $price = $cart->product->price;
                     
                         $total = $cart->quantity * $price + $total;
                     }
                     
                 @endphp
-
             @endforeach
 
 
