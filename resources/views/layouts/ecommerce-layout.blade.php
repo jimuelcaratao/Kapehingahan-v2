@@ -21,7 +21,7 @@
     @stack('styles')
     <style>
         .always-top {
-            z-index: 10000;
+            z-index: 200;
         }
 
     </style>
