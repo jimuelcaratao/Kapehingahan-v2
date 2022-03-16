@@ -23,6 +23,6 @@ class IsRider
         } elseif (Auth::check() && Auth::user()->is_admin == 1) {
             return $next($request);
         }
-        return redirect('/rider/dashboard');
+        return redirect('/');
     }
 }

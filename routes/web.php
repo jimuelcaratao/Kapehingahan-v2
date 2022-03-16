@@ -19,6 +19,7 @@ use App\Http\Controllers\Ecommerce\WishListController;
 use App\Http\Controllers\Ecommerce\WriteReviewController;
 use App\Http\Controllers\OAuthController;
 use App\Http\Controllers\Rider\DashboardController as RiderDashboardController;
+use App\Http\Controllers\Rider\OrderController as RiderOrderController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -85,9 +86,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/wishlist/{product_code}', [WishListController::class, 'add_to_wishlist'])->name('wishlist.add');
     Route::delete('/wishlist/{product_code}/delete', [WishListController::class, 'remove_to_wishlist'])->name('wishlist.remove');
     Route::post('/wishlist/{product_code}/cart', [WishListController::class, 'move_to_cart'])->name('wishlist.move');
+});
 
-
+// Rider Account with verification
+Route::middleware(['auth:sanctum', 'is_rider'])->group(function () {
     Route::get('/rider/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
+    Route::get('/rider/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
 });
 
 // Ecommerce Account with verification

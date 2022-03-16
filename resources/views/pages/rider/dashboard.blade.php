@@ -1,101 +1,160 @@
 <x-rider-layout>
     @slot('header')
-        Rider
+        Rider | Dashboard
     @endslot
-
-    <div class="container-fluid py-4">
+    <div class="container-fluid pb-4 pt-2">
         <div class="row">
-            <div class="col-12">
-
-                {{-- Header --}}
-                <div class="flex flex-row pb-4 md:pb-6 justify-between ">
-                    <div>
-                        {{-- search --}}
-                        <form class="flex">
-                            <div>
-                                <div class="mt-1 relative rounded-md shadow-sm">
-                                    <input
-                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-20  sm:text-sm border-gray-300 rounded-md"
-                                        type="search" name="search" placeholder="Search.." aria-label="Search"
-                                        value="{{ request()->search }}">
-                                    <div class="absolute inset-y-0 left-0 flex items-center">
-                                        <label for="search_col" class="sr-only">Currency</label>
-                                        <select id="search_col" name="search_col"
-                                            class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
-                                            @if (!empty(request()->search_col))
-                                                <option class="bg-gray-200" disabled
-                                                    selected="{{ request()->search_col }}">
-                                                    {{ request()->search_col }}
-                                                </option>
-                                            @endif
-                                            <option value="Name">Name</option>
-                                            <option value="Email">Email</option>
-                                            {{-- <option>Type</option> --}}
-                                        </select>
-                                    </div>
+            <div class="col-12  mb-4">
+                <div class="card">
+                    <div class="card-body px-3 py-4">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <h2 class="font-bold text-lg md:text-4xl">{{ $dayTerm }},
+                                        <span class="uppercase"></span>{{ Auth::user()->name }}
+                                        👋
+                                    </h2>
+                                    <h5 class=" text-sm md:text-base">here is whats happening:</h5>
                                 </div>
                             </div>
-                            <button type="submit" class="text-secondary mx-2">
-                                <i class="fas fa-search"></i>
-                            </button>
-
-                            @if (!empty(request()->search))
-                                <a href="{{ route('users') }}" class="mt-2 text-danger">
-                                    <i class="fas fa-times-circle"></i>
-                                </a>
-                            @endif
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card mb-4">
-                    <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            TYPE</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Full name </th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Email</th>
-
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Social Media</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Banned Date</th>
-
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Date Created</th>
-                                        <th class="text-secondary opacity-7"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-
-
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Orders</p>
+                                    <h5 class="font-weight-bolder">
+                                        {{ $orders_count_today }}
+                                    </h5>
+                                    {{-- <p class="mb-0">
+                                        @if ($percentChangeOrder == 0)
+                                            <span class="text-secondary text-sm font-weight-bolder">No Changes since
+                                                Yesterday</span>
+                                        @else
+                                            @if ($more_less1 == 1)
+                                                <span
+                                                    class="text-success text-sm font-weight-bolder">+{{ round($percentChangeOrder, 1) }}%</span>
+                                            @else
+                                                <span
+                                                    class="text-danger text-sm font-weight-bolder">-{{ round($percentChangeOrder, 1) }}%</span>
+                                            @endif
 
+                                            since last month
+                                        @endif
+                                    </p> --}}
+                                </div>
+                            </div>
+                            <div class="col-4 text-end">
+                                <div
+                                    class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Users</p>
+                                    <h5 class="font-weight-bolder">
+                                        {{-- {{ $new_users }} --}}
+                                    </h5>
+                                    {{-- <p class="mb-0">
+                                        @if ($percentChange == 0)
+                                            <span class="text-secondary text-sm font-weight-bolder">No Changes since
+                                                Yesterday</span>
+                                        @else
+                                            @if ($more_less == 1)
+                                                <span
+                                                    class="text-success text-sm font-weight-bolder">+{{ round($percentChange, 1) }}%</span>
+                                            @else
+                                                <span
+                                                    class="text-danger text-sm font-weight-bolder">-{{ round($percentChange, 1) }}%</span>
+                                            @endif
+
+                                            since last month
+                                        @endif
+                                    </p> --}}
+                                </div>
+                            </div>
+                            <div class="col-4 text-end">
+                                <div
+                                    class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
+                                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Products</p>
+                                    <h5 class="font-weight-bolder">
+                                        {{-- {{ $products_count }} --}}
+                                    </h5>
+                                    <p class="mb-0">
+                                        <span class="text-secondary text-sm font-weight-bolder">
+                                            {{-- {{ $products_count_low }} --}}
+                                        </span>
+                                        are low in stocks
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-4 text-end">
+                                <div
+                                    class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+                                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Sales</p>
+                                    <h5 class="font-weight-bolder py-2">
+                                        {{-- {{ $revenue_today }} --}}
+                                    </h5>
+                                    {{-- <p class="mb-0">
+                                        <span class="text-success text-sm font-weight-bolder">+5%</span> than last
+                                        month
+                                    </p> --}}
+                                </div>
+                            </div>
+                            <div class="col-4 text-end">
+                                <div
+                                    class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
+                                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </x-rider-layout>

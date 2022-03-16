@@ -54,8 +54,8 @@
         <div class="collapse navbar-collapse  w-auto min-height-500" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{{ url('dashboard') }}"
-                        class="nav-link {{ Request::path() == 'dashboard' ? ' active' : '' }}">
+                    <a href="{{ route('rider.dashboard') }}"
+                        class="nav-link {{ Request::path() == 'rider/dashboard' ? ' active' : '' }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -65,8 +65,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('orders') }}"
-                        class="nav-link {{ Request::path() == 'orders' ? ' active' : '' }}">
+                    <a href="{{ route('rider.orders') }}"
+                        class="nav-link {{ Request::path() == 'rider/orders' ? ' active' : '' }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
