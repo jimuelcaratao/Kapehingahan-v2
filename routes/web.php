@@ -19,6 +19,7 @@ use App\Http\Controllers\Ecommerce\WishListController;
 use App\Http\Controllers\Ecommerce\WriteReviewController;
 use App\Http\Controllers\OAuthController;
 use App\Http\Controllers\Rider\DashboardController as RiderDashboardController;
+use App\Http\Controllers\Rider\OrderController as RiderOrderController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -90,6 +91,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 // Rider Account with verification
 Route::middleware(['auth:sanctum', 'is_rider'])->group(function () {
     Route::get('/rider/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
+    Route::get('/rider/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
 });
 
 // Ecommerce Account with verification

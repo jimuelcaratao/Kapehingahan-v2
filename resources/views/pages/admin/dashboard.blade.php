@@ -34,7 +34,7 @@
                                     <h5 class="font-weight-bolder">
                                         {{ $orders_count_today }}
                                     </h5>
-                                    <p class="mb-0">
+                                    {{-- <p class="mb-0">
                                         @if ($percentChangeOrder == 0)
                                             <span class="text-secondary text-sm font-weight-bolder">No Changes since
                                                 Yesterday</span>
@@ -49,7 +49,7 @@
 
                                             since last month
                                         @endif
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -72,7 +72,7 @@
                                     <h5 class="font-weight-bolder">
                                         {{ $new_users }}
                                     </h5>
-                                    <p class="mb-0">
+                                    {{-- <p class="mb-0">
                                         @if ($percentChange == 0)
                                             <span class="text-secondary text-sm font-weight-bolder">No Changes since
                                                 Yesterday</span>
@@ -87,7 +87,7 @@
 
                                             since last month
                                         @endif
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </div>
                             <div class="col-4 text-end">
