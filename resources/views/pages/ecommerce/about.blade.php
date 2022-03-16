@@ -36,7 +36,7 @@
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif" alt="Display Picture of Andres Berlin" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-1.jpg') }} alt="eric" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
@@ -44,7 +44,7 @@
                                     <p class="text-gray-800 text-sm text-center">Software Manager</p>
                                     <p class="text-center text-gray-600 text-base pt-3 font-normal">The CEO's role in raising a company's corporate IQ is to establish an atmosphere that promotes knowledge sharing and collaboration.</p>
                                     <div class="w-full flex justify-center pt-5 pb-5">
-                                        <a href="javascript:void(0)" class="mx-5">
+                                        <a href="https://github.com/jimuelcaratao" class="mx-5">
                                             <div aria-label="Github" role="img">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
                                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -59,7 +59,7 @@
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/photo-1530577197743-7adf14294584.jfif" alt="Display Picture of Silene Tokyo" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-2.jpg') }} alt="hj" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
@@ -67,7 +67,7 @@
                                     <p class="text-gray-800 text-sm text-center">Programmer</p>
                                     <p class="text-center text-gray-600 text-base pt-3 font-normal">The emphasis on innovation and technology in our companies has resulted in a few of them establishing global benchmarks in product design and development.</p>
                                     <div class="w-full flex justify-center pt-5 pb-5">
-                                        <a href="javascript:void(0)" class="mx-5">
+                                        <a href="https://github.com/Dxdiag14" class="mx-5">
                                             <div aria-label="Github" role="img">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
                                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -82,7 +82,7 @@
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/photo-1566753323558-f4e0952af115.jfif" alt="Display Picture of Johnson Stone" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-3.jpg') }} alt="jeff" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
@@ -105,7 +105,7 @@
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/boy-smiling_23-2148155640.jpg" alt="Display Picture of Dean Jones" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-4.jpg') }} alt="melmy" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
