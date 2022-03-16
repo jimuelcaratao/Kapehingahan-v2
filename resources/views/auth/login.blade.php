@@ -147,7 +147,7 @@
                 </ul>
             </div>
             <div
-                class="md:flex md:items-center md:justify-center sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white">
+                class="md:flex md:items-center md:justify-center sm:w-auto md:h-full w-full xl:w-2/5 p-8 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white">
                 <div class="max-w-md w-full space-y-8">
                     <x-jet-validation-errors class="mb-4" />
                     <div class="text-center">
