@@ -1,4 +1,12 @@
 <x-ecommerce-layout>
+    <!-- Styles -->
+    <style>
+    input:checked + label {
+	border-color: #B35706;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    </style>
+
     <x-slot name="title">
         Payment |
     </x-slot>
@@ -33,7 +41,28 @@
             <form action="{{ route('payment.order') }}" method="POST" id="payment_form">
                 @csrf
 
-                <div class="my-4 ml-2" id="rd-btn">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 items-center justify-center mb-4" id="rd-btn">
+                        <div>
+                            <input class="hidden" type="radio" name="payment_method" id="radio_1" value="Cash on Delivery" checked>
+                            <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer" for="radio_1">
+                                <span class="text-md font-bold text-center" for="radio_1">Cash on Delivery</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="hidden" type="radio" name="payment_method" id="radio_2" value="Pick Up">
+                            <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer" for="radio_2">
+                                <span class="text-md font-bold text-center" for="radio_2">Pick-up</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input class="hidden" type="radio" name="payment_method" id="radio_3" value="Online Payment">
+                            <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer" for="radio_3">
+                                <span class="text-md font-bold text-center" for="radio_3">Online Payment</span>
+                            </label>
+                        </div>
+                </div>
+
+                {{-- <div class="my-4 ml-2" id="rd-btn">
 
                     <div class="form-check">
                         <input
@@ -42,7 +71,7 @@
                         <label class="form-check-label inline-block text-gray-800" for="radio_cod">
                             Cash on Delivery
                         </label>
-                    </div>
+                    </div> --}}
 
 
 
@@ -55,7 +84,7 @@
                         </label>
                     </div> --}}
 
-                    <div class="form-check">
+                    {{-- <div class="form-check">
                         <input
                             class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                             type="radio" name="payment_method" id="radio_pick_up" value="Pick Up">
@@ -74,7 +103,7 @@
                     </div>
 
 
-                </div>
+                </div> --}}
 
 
                 @if (Auth::user()->user_address)
@@ -210,13 +239,13 @@
 
                 @php
                     $price = 0;
-                    
+
                     if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                         $price = $cart->product->price;
-                    
+
                         $total = $cart->quantity * $price + $total;
                     }
-                    
+
                 @endphp
             @endforeach
 
@@ -250,12 +279,12 @@
 
                 $('#card-form').hide();
 
-                $('#radio_card').click(function() {
+                $('#radio_3').click(function() {
                     $('#card-form').show();
                     $('#order_btn').hide();
                 });
 
-                $('#radio_cod').click(function() {
+                $('#radio_1').click(function() {
                     $('#card-form').hide();
                     $('#order_btn').show();
                 });
@@ -265,7 +294,7 @@
                 });
 
 
-                $('#radio_pick_up').click(function() {
+                $('#radio_2').click(function() {
                     $('#card-form').hide();
                     $('#order_btn').show();
 
