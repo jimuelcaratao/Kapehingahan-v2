@@ -14,14 +14,43 @@
                             <div>
                                 <div class="mt-1 relative rounded-md shadow-sm">
                                     <input
-                                        class="focus:ring-indigo-500 focus:border-indigo-500 w-full sm:text-sm border-gray-300 rounded-md"
+                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-36  sm:text-sm border-gray-300 rounded-md"
                                         type="search" name="search" placeholder="Order no." aria-label="Search"
                                         value="{{ request()->search }}">
+                                    <div class="absolute inset-y-0 left-0 flex items-center">
+                                        <label for="search_col" class="sr-only">Order status</label>
+                                        <select id="search_col" name="search_col"
+                                            class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-12 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                            @if (!empty(request()->search_col))
+                                                <option class="bg-gray-200" disabled
+                                                    selected="{{ request()->search_col }}">
+                                                    {{ request()->search_col }}
+                                                </option>
+                                            @endif
+                                            <option value="">
+                                                All</option>
+                                            <option class="text-xs py-2 font-bold uppercase" disabled>
+                                                Order Status</option>
+                                            <option>Pending</option>
+                                            <option>Preparing</option>
+                                            <option>Shipping</option>
+                                            <option>Delivering</option>
+                                            <option>Delivered</option>
+                                            <option>Cancelled</option>
+                                            <option>Returned</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="text-secondary mx-2">
                                 <i class="fas fa-search"></i>
                             </button>
+
+                            @if (!empty(request()->search))
+                                <a href="{{ route('orders') }}" class="mt-2 text-danger">
+                                    <i class="fas fa-times-circle"></i>
+                                </a>
+                            @endif
                         </form>
                     </div>
 
@@ -40,9 +69,14 @@
                 <div class="card mb-4">
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                            <table
+                                class="table align-items-center mb-0 whitespace-nowrap inline-table overscroll-x-contain">
                                 <thead>
                                     <tr>
+                                        <th scope="col-2"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Action
+                                        </th>
                                         <th scope="col"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">
                                             Order No.
@@ -71,10 +105,7 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                             Confirmed Date
                                         </th> --}}
-                                        <th scope="col"
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
-                                            Canceled Date
-                                        </th>
+
                                         <th scope="col"
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                             Packaged Date
@@ -91,22 +122,64 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
                                             Returned Date
                                         </th>
-                                        <th scope="col-2"
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Action
+                                        <th scope="col"
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  text-center">
+                                            Canceled Date
                                         </th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($orders as $order)
                                         <tr>
+                                            <td class="align-middle">
+                                                <a class="text-secondary font-weight-bold text-xs text-indigo-600 hover:text-indigo-900 ml-3 mr-3 text-decoration-none"
+                                                    href="#" data-bs-toggle="modal" data-bs-target="#view-modal"
+                                                    data-tooltip="tooltip" data-placement="top" title="view"
+                                                    data-item-order_no="{{ $order->order_no }}"
+                                                    data-item-name="{{ $order->user->name }}"
+                                                    data-item-email="{{ $order->user->email }}"
+                                                    data-item-rider="{{ $order->rider->name ?? null }}"
+                                                    data-item-mobile_no="{{ $order->user->user_address->mobile_no ?? null }}"
+                                                    data-item-house="{{ $order->user->user_address->house ?? null }}"
+                                                    data-item-city="{{ $order->user->user_address->city ?? null }}"
+                                                    data-item-province="{{ $order->user->user_address->province ?? null }}"
+                                                    data-item-barangay="{{ $order->user->user_address->barangay ?? null }}"
+                                                    data-item-status="{{ $order->status }}"
+                                                    data-item-confirmed="{{ $order->confirmed }}"
+                                                    data-item-packaged_at="{{ $order->packaged_at }}"
+                                                    data-item-shipped_at="{{ $order->shipped_at }}"
+                                                    data-item-delivered_at="{{ $order->delivered_at }}"
+                                                    data-item-returned_at="{{ $order->returned_at }}"
+                                                    data-item-paid_at="{{ $order->paid_at }}" id="view-order">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+
+                                                <a class="text-secondary font-weight-bold text-xs text-indigo-600 hover:text-indigo-900 mr-3 text-decoration-none"
+                                                    href="#" data-bs-toggle="modal" data-bs-target="#update-modal"
+                                                    data-tooltip="tooltip" data-placement="top" title="Update"
+                                                    data-item-update_order_no="{{ $order->order_no }}"
+                                                    data-item-update_rider_id="{{ $order->rider->id ?? null }}"
+                                                    data-item-update_status="{{ $order->status }}"
+                                                    data-item-update_packaged_at="{{ $order->packaged_at }}"
+                                                    data-item-update_shipped_at="{{ $order->shipped_at }}"
+                                                    data-item-update_delivered_at="{{ $order->delivered_at }}"
+                                                    data-item-update_created_at="{{ $order->created_at }}"
+                                                    data-item-update_returned_at="{{ $order->returned_at }}"
+                                                    data-item-update_paid_at="{{ $order->paid_at }}"
+                                                    id="update-order">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+
+                                            </td>
                                             <td class="align-middle text-center text-sm">
                                                 <h6 class="mb-0 text-sm">{{ $order->order_no }}</h6>
 
                                             </td>
 
                                             <td class="align-middle text-center text-sm">
-                                                <p class="text-xs font-weight-bold mb-0 ">{{ $order->user->name }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 ">{{ $order->user->name }}
+                                                </p>
                                             </td>
 
                                             <td class="align-middle text-center text-sm">
@@ -119,7 +192,8 @@
 
 
                                             <td class="align-middle text-center text-sm">
-                                                <p class="text-xs font-weight-bold mb-0 ">{{ $order->payment_method }}
+                                                <p class="text-xs font-weight-bold mb-0 ">
+                                                    {{ $order->payment_method }}
                                                 </p>
                                             </td>
 
@@ -191,10 +265,7 @@
                                                     class="text-secondary text-xs font-weight-bold">{{ $order->confirmed }}</span>
                                             </td> --}}
 
-                                            <td class="align-middle text-center">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold">{{ $order->canceled_at }}</span>
-                                            </td>
+
 
                                             <td class="align-middle text-center">
                                                 <span
@@ -215,47 +286,11 @@
                                                 <span class="text-secondary text-xs font-weight-bold">
                                                     {{ $order->returned_at }}</span>
                                             </td>
-
-                                            <td class="align-middle">
-                                                <a class="text-secondary font-weight-bold text-xs" href="#"
-                                                    data-bs-toggle="modal" data-bs-target="#view-modal"
-                                                    data-tooltip="tooltip" data-placement="top" title="view"
-                                                    data-item-order_no="{{ $order->order_no }}"
-                                                    data-item-name="{{ $order->user->name }}"
-                                                    data-item-email="{{ $order->user->email }}"
-                                                    data-item-rider="{{ $order->rider->name ?? null }}"
-                                                    data-item-mobile_no="{{ $order->user->user_address->mobile_no ?? null }}"
-                                                    data-item-house="{{ $order->user->user_address->house ?? null }}"
-                                                    data-item-city="{{ $order->user->user_address->city ?? null }}"
-                                                    data-item-province="{{ $order->user->user_address->province ?? null }}"
-                                                    data-item-barangay="{{ $order->user->user_address->barangay ?? null }}"
-                                                    data-item-status="{{ $order->status }}"
-                                                    data-item-confirmed="{{ $order->confirmed }}"
-                                                    data-item-packaged_at="{{ $order->packaged_at }}"
-                                                    data-item-shipped_at="{{ $order->shipped_at }}"
-                                                    data-item-delivered_at="{{ $order->delivered_at }}"
-                                                    data-item-returned_at="{{ $order->returned_at }}"
-                                                    data-item-paid_at="{{ $order->paid_at }}" id="view-order">
-                                                    View
-                                                </a>
-
-                                                <a class="text-secondary font-weight-bold text-xs" href="#"
-                                                    data-bs-toggle="modal" data-bs-target="#update-modal"
-                                                    data-tooltip="tooltip" data-placement="top" title="Update"
-                                                    data-item-update_order_no="{{ $order->order_no }}"
-                                                    data-item-update_rider_id="{{ $order->rider->id ?? null }}"
-                                                    data-item-update_status="{{ $order->status }}"
-                                                    data-item-update_packaged_at="{{ $order->packaged_at }}"
-                                                    data-item-update_shipped_at="{{ $order->shipped_at }}"
-                                                    data-item-update_delivered_at="{{ $order->delivered_at }}"
-                                                    data-item-update_created_at="{{ $order->created_at }}"
-                                                    data-item-update_returned_at="{{ $order->returned_at }}"
-                                                    data-item-update_paid_at="{{ $order->paid_at }}"
-                                                    id="update-order">
-                                                    Update
-                                                </a>
-
+                                            <td class="align-middle text-center">
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">{{ $order->canceled_at }}</span>
                                             </td>
+
                                         </tr>
 
 
@@ -411,7 +446,8 @@
             <div class="col-md-8 d-flex justify-content-center">
                 {{-- pagination --}}
                 <div class="pagination">
-                    {{ $orders->render('pagination::bootstrap-4') }}
+                    {{-- {{ $orders->render('pagination::bootstrap-4') }} --}}
+                    {{ $orders->appends(Request::except('page'))->render('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>

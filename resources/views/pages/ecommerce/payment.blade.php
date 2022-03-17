@@ -1,10 +1,11 @@
 <x-ecommerce-layout>
     <!-- Styles -->
     <style>
-    input:checked + label {
-	border-color: #B35706;
-	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
+        input:checked+label {
+            border-color: #B35706;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
     </style>
 
     <x-slot name="title">
@@ -20,13 +21,17 @@
     @endphp
 
     <div class="w-auto mb-5 p-5 flex flex-row justify-center items-center space-x-3 bg-white  shadow-sm">
-        <p class="text-yellow-700 font-semibold">Cart</p>
+        <a href="{{ route('cart') }}">
+            <p class="text-yellow-700 font-semibold">Cart</p>
+        </a>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-700" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"
                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                 clip-rule="evenodd" />
         </svg>
-        <p class="text-yellow-700 font-semibold">Checkout</p>
+        <a href="{{ route('checkout.index') }}">
+            <p class="text-yellow-700 font-semibold">Checkout</p>
+        </a>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-700" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"
                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -41,25 +46,31 @@
             <form action="{{ route('payment.order') }}" method="POST" id="payment_form">
                 @csrf
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 items-center justify-center mb-4" id="rd-btn">
-                        <div>
-                            <input class="hidden" type="radio" name="payment_method" id="radio_1" value="Cash on Delivery" checked>
-                            <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer" for="radio_1">
-                                <span class="text-md font-bold text-center" for="radio_1">Cash on Delivery</span>
-                            </label>
-                        </div>
-                        <div>
-                            <input class="hidden" type="radio" name="payment_method" id="radio_2" value="Pick Up">
-                            <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer" for="radio_2">
-                                <span class="text-md font-bold text-center" for="radio_2">Pick-up</span>
-                            </label>
-                        </div>
-                        <div>
-                            <input class="hidden" type="radio" name="payment_method" id="radio_3" value="Online Payment">
-                            <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer" for="radio_3">
-                                <span class="text-md font-bold text-center" for="radio_3">Online Payment</span>
-                            </label>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 items-center justify-center mb-4"
+                    id="rd-btn">
+                    <div>
+                        <input class="hidden" type="radio" name="payment_method" id="radio_1"
+                            value="Cash on Delivery" checked>
+                        <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer"
+                            for="radio_1">
+                            <span class="text-md font-bold text-center" for="radio_1">Cash on Delivery</span>
+                        </label>
+                    </div>
+                    <div>
+                        <input class="hidden" type="radio" name="payment_method" id="radio_2" value="Pick Up">
+                        <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer"
+                            for="radio_2">
+                            <span class="text-md font-bold text-center" for="radio_2">Pick-up</span>
+                        </label>
+                    </div>
+                    <div>
+                        <input class="hidden" type="radio" name="payment_method" id="radio_3"
+                            value="Online Payment">
+                        <label class="flex flex-col p-4 border shadow rounded-lg border-gray-200 cursor-pointer"
+                            for="radio_3">
+                            <span class="text-md font-bold text-center" for="radio_3">Online Payment</span>
+                        </label>
+                    </div>
                 </div>
 
                 {{-- <div class="my-4 ml-2" id="rd-btn">
@@ -75,7 +86,7 @@
 
 
 
-                    {{-- <div class="form-check">
+                {{-- <div class="form-check">
                         <input
                             class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                             type="radio" name="payment_method" id="radio_pay_pal" value="PayPal">
@@ -84,7 +95,7 @@
                         </label>
                     </div> --}}
 
-                    {{-- <div class="form-check">
+                {{-- <div class="form-check">
                         <input
                             class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                             type="radio" name="payment_method" id="radio_pick_up" value="Pick Up">
@@ -239,13 +250,13 @@
 
                 @php
                     $price = 0;
-
+                    
                     if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                         $price = $cart->product->price;
-
+                    
                         $total = $cart->quantity * $price + $total;
                     }
-
+                    
                 @endphp
             @endforeach
 

@@ -88,11 +88,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/wishlist/{product_code}/cart', [WishListController::class, 'move_to_cart'])->name('wishlist.move');
 });
 
-// Rider Account with verification
-Route::middleware(['auth:sanctum', 'is_rider'])->group(function () {
-    Route::get('/rider/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
-    Route::get('/rider/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
-});
+
 
 // Ecommerce Account with verification
 Route::middleware(['auth:sanctum'])->group(function () {
@@ -173,5 +169,12 @@ Route::middleware(['auth:sanctum',  'is_admin'])->group(function () {
 Route::middleware(['auth:sanctum',  'is_rider'])->group(function () {
     Route::prefix('rider')->group(function () {
         Route::get('/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
+        Route::get('/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
     });
 });
+
+// // Rider Account with verification
+// Route::middleware(['auth:sanctum', 'is_rider'])->group(function () {
+//     Route::get('/rider/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
+//     Route::get('/rider/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
+// });

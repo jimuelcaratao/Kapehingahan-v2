@@ -25,8 +25,8 @@ class OrderController extends Controller
 
         if ($tableOrders->isNotEmpty()) {
             // search validation
-            $search = Order::where('order_no', 'like', '%' . request()->search . '%')
-                // ->OrWhere('name', 'like', '%' . request()->search . '%')
+            $search = Order::searchfilter()
+                ->statusfilter()
                 ->first();
 
             if ($search === null) {
@@ -35,8 +35,8 @@ class OrderController extends Controller
 
             if ($search != null) {
                 // default returning
-                $orders = Order::where('order_no', 'like', '%' . request()->search . '%')
-                    // ->OrWhere('name', 'like', '%' . request()->search . '%')
+                $orders = Order::searchfilter()
+                    ->statusfilter()
                     ->latest('order_no')
                     // ->orderByRaw("FIELD(status , 'Pending', 'Packaging', 'Shipping', 'Delivering', 'Delivered', 'Returned') DESC")
                     ->paginate(10);
@@ -80,31 +80,34 @@ class OrderController extends Controller
                     ]);
 
 
-                // // minus in the stock
-                // $get_items = OrderItem::where('order_no', $request->input('order_no'))->get();
+                // minus in the stock
+                $get_items = OrderItem::where('order_no', $request->input('order_no'))->get();
 
-                // foreach ($get_items as $item) {
-                //     $get_products = Product::where('product_code', $item->product_code)->first();
+                foreach ($get_items as $item) {
+                    $get_products = Product::where('product_code', $item->product_code)->first();
 
-                //     $updated_stock = $get_products->stock - $item->quantity;
+                    $updated_stock = $get_products->stock - $item->quantity;
 
-                //     if ($updated_stock <= 0) {
-                //         return  Redirect::back()->with('toast_error', 'No more Stocks');
-                //     }
+                    if ($get_products->is_customizable == 0) {
+                        if ($updated_stock <= 0) {
+                            return  Redirect::back()->with('toast_error', 'No more Stocks');
+                        }
 
+                        if ($item->quantity > $get_products->stock) {
+                            Product::where('product_code', $item->product_code)->update([
+                                'stock' => $updated_stock,
+                            ]);
+                        } else {
+                            return  Redirect::back()->with('toast_error', 'Not enough stock');
+                        }
 
-                //     // if ($updated_stock > $item->quantity) {
-                //     //     Product::where('product_code', $item->product_code)->update([
-                //     //         'stock' => $updated_stock,
-                //     //     ]);
-                //     // }
-
-                //     if ($updated_stock > 0) {
-                //         Product::where('product_code', $item->product_code)->update([
-                //             'stock' => $updated_stock,
-                //         ]);
-                //     }
-                // }
+                        // if ($updated_stock > 0) {
+                        //     Product::where('product_code', $item->product_code)->update([
+                        //         'stock' => $updated_stock,
+                        //     ]);
+                        // }
+                    }
+                }
             }
         }
 

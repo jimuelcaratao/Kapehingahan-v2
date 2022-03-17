@@ -7,6 +7,7 @@ use App\Mail\OrderDelivered;
 use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
@@ -15,15 +16,15 @@ class OrderController extends Controller
     public function index()
     {
 
-        $tableOrders = Order::all();
+        $tableOrders = Order::where('rider_id', Auth::user()->id)->get();
 
         if ($tableOrders->isEmpty()) {
-            $orders = Order::latest('order_no')->paginate();
+            $orders = Order::where('rider_id', Auth::user()->id)->latest('order_no')->paginate();
         }
 
         if ($tableOrders->isNotEmpty()) {
             // search validation
-            $search = Order::where('order_no', 'like', '%' . request()->search . '%')
+            $search = Order::where('rider_id', Auth::user()->id)->where('order_no', 'like', '%' . request()->search . '%')
                 // ->OrWhere('name', 'like', '%' . request()->search . '%')
                 ->first();
 
@@ -33,7 +34,7 @@ class OrderController extends Controller
 
             if ($search != null) {
                 // default returning
-                $orders = Order::where('order_no', 'like', '%' . request()->search . '%')
+                $orders = Order::where('rider_id', Auth::user()->id)->where('order_no', 'like', '%' . request()->search . '%')
                     // ->OrWhere('name', 'like', '%' . request()->search . '%')
                     ->latest('order_no')
                     // ->orderByRaw("FIELD(status , 'Pending', 'Packaging', 'Shipping', 'Delivering', 'Delivered', 'Returned') DESC")

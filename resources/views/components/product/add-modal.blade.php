@@ -123,8 +123,8 @@
                                             </div>
                                         </div>
 
-                                        <div id="is_drink">
-                                            <div class="col-span-6 sm:col-span-4">
+                                        <div id="is_drink" class="col-span-6 sm:col-span-6 lg:col-span-4">
+                                            <div>
                                                 <label for="status"
                                                     class="block text-sm font-medium text-gray-700">Status
                                                     <span class="text-red-600">*</span></label>
@@ -138,18 +138,18 @@
                                         </div>
 
 
-                                        <div id="is_not_drink">
-                                            <div class=" col-span-6 sm:col-span-4 lg:col-span-2">
+                                        <div id="is_not_drink" class="col-span-6 sm:col-span-6 lg:col-span-4">
+                                            <div>
                                                 <label for="stock" class="block text-sm font-medium text-gray-700">Stock
                                                     <span class="text-red-600">*</span></label>
                                                 <input type="number" min="0" name="stock" id="stock"
                                                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
-                                            <div class="col-span-6 sm:col-span-4 lg:col-span-2">
+                                            <div>
                                                 <label for="stock_measurement"
-                                                    class="block text-sm font-medium text-gray-700">Measurement <span
-                                                        class="text-red-600">*</span></label>
+                                                    class="block text-sm font-medium text-gray-700 mt-2">Measurement
+                                                    <span class="text-red-600">*</span></label>
                                                 <select id="stock_measurement" name="stock_measurement"
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option selected disabled value="">Choose...</option>
@@ -208,7 +208,7 @@
 
                                                     <img id="output_default_photo" class="cursor-pointer mb-4"
                                                         src="{{ asset('img/cover-img.svg') }}"
-                                                        style="width:400px;height:200px;">
+                                                        style="width:400px;height:400px;">
 
                                                     <div class="flex text-sm text-gray-600 ">
                                                         <label for="default_photo"

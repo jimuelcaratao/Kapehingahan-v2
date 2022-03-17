@@ -28,12 +28,12 @@ class ProductController extends Controller
             // $products = Product::paginate(5);
 
             // search validation
-            $search = Product::where('product_code', 'like', '%' . request()->search . '%')
-                ->OrWhere('product_name', 'like', '%' . request()->search . '%')
+            $search = Product::searchfilter()
+                ->categoryfilter()
                 ->first();
 
-            $searchAdvance = Product::where('product_code', 'like', '%' . request()->advanceSearch . '%')
-                ->OrWhere('product_name', 'like', '%' . request()->advanceSearch . '%')
+            $searchAdvance = Product::searchfilter()
+                ->categoryfilter()
                 ->first();
 
             if ($search === null) {
@@ -43,8 +43,8 @@ class ProductController extends Controller
 
             if ($search != null) {
                 // default returning
-                $products = Product::Where('product_code', 'like', '%' . request()->search . '%')
-                    ->OrWhere('product_name', 'like', '%' . request()->search . '%')
+                $products = Product::searchfilter()
+                    ->categoryfilter()
                     ->latest()
                     ->paginate(10);
             }

@@ -104,7 +104,7 @@
                                 <div class="px-4  bg-white space-y-6 sm:p-6">
                                     <div class="grid grid-cols-12 gap-3">
 
-                                        <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                                        <div class="col-span-6 sm:col-span-6 lg:col-span-4">
                                             <div>
                                                 <label for="edit_price"
                                                     class="block text-sm font-medium text-gray-700">Price <span
@@ -125,8 +125,8 @@
                                             </div>
                                         </div>
 
-                                        <div id="edit_is_drink">
-                                            <div class="col-span-6 sm:col-span-4">
+                                        <div id="edit_is_drink" class="col-span-6 sm:col-span-6 lg:col-span-4">
+                                            <div>
                                                 <label for="status"
                                                     class="block text-sm font-medium text-gray-700">Status
                                                     <span class="text-red-600">*</span></label>
@@ -140,8 +140,8 @@
                                         </div>
 
 
-                                        <div id="edit_is_not_drink">
-                                            <div class=" col-span-6 sm:col-span-4 lg:col-span-2">
+                                        <div id="edit_is_not_drink" class="col-span-6 sm:col-span-6 lg:col-span-4">
+                                            <div>
                                                 <label for="edit_stock"
                                                     class="block text-sm font-medium text-gray-700">Stock
                                                     <span class="text-red-600">*</span></label>
@@ -149,10 +149,10 @@
                                                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
 
-                                            <div class="col-span-6 sm:col-span-4 lg:col-span-2">
+                                            <div>
                                                 <label for="edit_stock_measurement"
-                                                    class="block text-sm font-medium text-gray-700">Measurement <span
-                                                        class="text-red-600">*</span></label>
+                                                    class="block text-sm font-medium text-gray-700 mt-2">Measurement
+                                                    <span class="text-red-600">*</span></label>
                                                 <select id="edit_stock_measurement" name="edit_stock_measurement"
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option selected disabled value="">Choose...</option>

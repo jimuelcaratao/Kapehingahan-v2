@@ -76,18 +76,36 @@
 
         </style>
     @endpush
-
-    <div class="w-11/12 my-12 p-6 md:p-12 mx-auto">
+    <div class="w-auto mb-5 p-5 flex flex-row justify-center items-center space-x-3 bg-white  shadow-sm">
+        <a href="{{ route('cart') }}">
+            <p class="text-yellow-700 font-semibold">Cart</p>
+        </a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-700" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd" />
+        </svg>
+        <p class="font-semibold">Checkout</p>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd" />
+        </svg>
+        <p class="font-semibold">Payment</p>
+    </div>
+    <div class="w-11/12 my-12 p-6 md:pb-12 md:pt-6 mx-auto">
 
         @php
             $total = 0;
         @endphp
 
+
+
         <div class="flex flex-col md:flex-row justify-center items-center md:items-start space-y-5 md:space-x-3">
             <div class="p-4 bg-white shadow-md w-11/12 md:w-4/5">
                 <div class="flex justify-between">
-                <h1 class="text-left text-md md:text-2xl font-bold">Shopping Cart</h1>
-                <h1 class="text-left text-md md:text-2xl font-bold">{{ count($carts) }} Item/s</h1>
+                    <h1 class="text-left text-md md:text-2xl font-bold">Shopping Cart</h1>
+                    <h1 class="text-left text-md md:text-2xl font-bold">{{ count($carts) }} Item/s</h1>
                 </div>
                 <hr class="my-8 border-gray-200">
 
@@ -96,7 +114,8 @@
                         <img class="h-full w-full md:h-1/4 md:w-1/4 block mx-auto rounded"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}"
                             alt="{{ $cart->product->product_name }}">
-                        <div class="mt-4 px-4 w-full flex flex-col justify-center md:justify-around items-center md:items-start">
+                        <div
+                            class="mt-4 px-4 w-full flex flex-col justify-center md:justify-around items-center md:items-start">
                             <h1 class="font-bold">
                                 <a href="{{ route('product', [$cart->product->product_code]) }}">
                                     {{ $cart->product->product_name }}
@@ -107,13 +126,15 @@
                                 @if ($cart->product->status == 'Available')
                                     <p class="mt-2">Stock: <span style="color: #00C760;">Available</span></p>
                                 @else
-                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span></p>
+                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span>
+                                    </p>
                                 @endif
                             @else
                                 @if ($cart->product->stock > 0)
                                     <p class="mt-2">Stock: <span style="color: #00C760;">Available</span></p>
                                 @else
-                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span></p>
+                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span>
+                                    </p>
                                 @endif
                             @endif
 
@@ -188,7 +209,8 @@
                                             <td>
                                                 <div class="justify-content-center mt-4">
                                                     <div class=" mx-auto mb-0">
-                                                        <label class="flex justify-center md:justify-start" for="quantity">Quantity :</label>
+                                                        <label class="flex justify-center md:justify-start"
+                                                            for="quantity">Quantity :</label>
                                                         <div class="mt-4 md:mt-10 number-input">
 
                                                             <button class="qty-btn"
@@ -220,7 +242,8 @@
                                             <td>
                                                 <div class="justify-content-center mt-4">
                                                     <div class=" mx-auto mb-0">
-                                                        <label class="flex justify-center md:justify-start" for="quantity">Quantity :</label>
+                                                        <label class="flex justify-center md:justify-start"
+                                                            for="quantity">Quantity :</label>
                                                         <div class="mt-4 md:mt-10 number-input">
 
                                                             <button class="qty-btn"
@@ -254,9 +277,9 @@
                     @php
                         if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                             $price = 0;
-
+                        
                             $price = $cart->product->price;
-
+                        
                             $total = $cart->quantity * $price + $total;
                         }
                     @endphp

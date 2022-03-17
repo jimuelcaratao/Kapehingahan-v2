@@ -14,16 +14,38 @@
                             <div>
                                 <div class="mt-1 relative rounded-md shadow-sm">
                                     <input
-                                        class="focus:ring-indigo-500 focus:border-indigo-500 w-full sm:text-sm border-gray-300 rounded-md"
-                                        type="search" name="search" placeholder="Search.." aria-label="Search"
+                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-36  sm:text-sm border-gray-300 rounded-md"
+                                        type="search" name="search" placeholder="Order no." aria-label="Search"
                                         value="{{ request()->search }}">
+                                    <div class="absolute inset-y-0 left-0 flex items-center">
+                                        <label for="search_col" class="sr-only">Search..</label>
+                                        <select id="search_col" name="search_col"
+                                            class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-12 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                            @if (!empty(request()->search_col))
+                                                <option class="bg-gray-200" disabled
+                                                    selected="{{ request()->search_col }}">
+                                                    {{ request()->search_col }}
+                                                </option>
+                                            @endif
+                                            <option class="text-xs py-2 font-bold uppercase" disabled>
+                                                Category</option>
+                                            <option value="">
+                                                All</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->category_name }}">
+                                                    {{ $category->category_name }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="text-secondary mx-2">
                                 <i class="fas fa-search"></i>
                             </button>
+
                             @if (!empty(request()->search))
-                                <a href="{{ route('products') }}" class="mt-2 text-danger">
+                                <a href="{{ route('orders') }}" class="mt-2 text-danger">
                                     <i class="fas fa-times-circle"></i>
                                 </a>
                             @endif
@@ -216,7 +238,8 @@
             <div class="col-md-8 d-flex justify-content-center">
                 {{-- pagination --}}
                 <div class="pagination">
-                    {{ $products->render('pagination::bootstrap-4') }}
+                    {{-- {{ $products->render('pagination::bootstrap-4') }} --}}
+                    {{ $products->appends(Request::except('page'))->render('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>

@@ -47,4 +47,22 @@ class Order extends Model
             return $order_items->quantity * $order_items->price;
         });
     }
+
+    public function scopeSearchFilter($q)
+    {
+        if (!empty(request()->search)) {
+            $q->Where('order_no', 'LIKE', '%' .  request()->search  .  '%');
+            // ->OrWhere('', 'LIKE', '%' .  request()->search  .  '%')
+        }
+
+        return $q;
+    }
+
+    public function scopeStatusFilter($q)
+    {
+        if (request()->search_col != null) {
+            $q->Where('status', 'LIKE', '%' .  request()->search_col  .  '%');
+        }
+        return $q;
+    }
 }

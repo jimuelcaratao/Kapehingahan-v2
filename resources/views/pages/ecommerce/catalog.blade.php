@@ -144,11 +144,6 @@
     5 - round($product_ave_reviews, 0),
 ) !!}
 
-                                            ({{ round($product_ave_reviews, 0) }})
-                                            <span class="ml-2">{{ count($product->product_reviews) }}
-                                                Reviews
-                                            </span>
-
                                         </div>
                                         <p class="text-md text-yellow-900 mt-4">₱ @convert($product->price)</p>
                                     </div>

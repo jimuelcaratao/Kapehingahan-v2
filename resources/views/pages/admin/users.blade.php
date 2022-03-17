@@ -14,21 +14,33 @@
                             <div>
                                 <div class="mt-1 relative rounded-md shadow-sm">
                                     <input
-                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-20  sm:text-sm border-gray-300 rounded-md"
+                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-36  sm:text-sm border-gray-300 rounded-md"
                                         type="search" name="search" placeholder="Search.." aria-label="Search"
                                         value="{{ request()->search }}">
                                     <div class="absolute inset-y-0 left-0 flex items-center">
-                                        <label for="search_col" class="sr-only">Currency</label>
+                                        <label for="search_col" class="sr-only">Users role</label>
                                         <select id="search_col" name="search_col"
-                                            class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                            class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-12 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
                                             @if (!empty(request()->search_col))
                                                 <option class="bg-gray-200" disabled
                                                     selected="{{ request()->search_col }}">
                                                     {{ request()->search_col }}
                                                 </option>
                                             @endif
-                                            <option value="Name">Name</option>
-                                            <option value="Email">Email</option>
+                                            <option value="">
+                                                All</option>
+                                            <option class="text-xs py-2 font-bold uppercase" disabled>
+                                                User Role</option>
+                                            <option value="1">
+                                                Admin</option>
+
+                                            <option value="2">
+                                                Staff</option>
+
+                                            <option value="3">
+                                                Rider</option>
+                                            <option value="0">
+                                                Customers</option>
                                             {{-- <option>Type</option> --}}
                                         </select>
                                     </div>
@@ -211,7 +223,8 @@
             <div class="col-md-8 d-flex justify-content-center">
                 {{-- pagination --}}
                 <div class="pagination">
-                    {{ $users->render('pagination::bootstrap-4') }}
+                    {{-- {{ $users->render('pagination::bootstrap-4') }} --}}
+                    {{ $users->appends(Request::except('page'))->render('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>

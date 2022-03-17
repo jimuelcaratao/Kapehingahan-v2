@@ -40,4 +40,22 @@ class Product extends Model
     {
         return $this->hasOne(ProductCustom::class, 'product_code', 'product_code');
     }
+
+    public function scopeSearchFilter($q)
+    {
+        if (!empty(request()->search)) {
+            $q->Where('product_code', 'LIKE', '%' .  request()->search  .  '%')
+                ->OrWhere('product_name', 'LIKE', '%' .  request()->search  .  '%');
+        }
+
+        return $q;
+    }
+
+    public function scopeCategoryFilter($q)
+    {
+        if (request()->search_col != null) {
+            $q->Where('category_name', 'LIKE', '%' .  request()->search_col  .  '%');
+        }
+        return $q;
+    }
 }
