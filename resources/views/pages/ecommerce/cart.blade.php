@@ -84,17 +84,20 @@
         @endphp
 
         <div class="flex flex-col md:flex-row justify-center items-center md:items-start space-y-5 md:space-x-3">
-            <div class="p-4 bg-white shadow-md w-11/12 md:w-3/5">
-                <h1 class="text-left text-xl font-bold">My Cart ({{ count($carts) }} item/s)</h1>
-                <hr class="my-2 border-b border-gray-500">
+            <div class="p-4 bg-white shadow-md w-11/12 md:w-4/5">
+                <div class="flex justify-between">
+                <h1 class="text-left text-md md:text-2xl font-bold">Shopping Cart</h1>
+                <h1 class="text-left text-md md:text-2xl font-bold">{{ count($carts) }} Item/s</h1>
+                </div>
+                <hr class="my-8 border-gray-200">
 
                 @forelse ($carts as $cart)
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-500 hover:shadow-lg">
                         <img class="h-full w-full md:h-1/4 md:w-1/4 block mx-auto rounded"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}"
                             alt="{{ $cart->product->product_name }}">
-                        <div class="px-4 w-full flex flex-col justify-around items-start">
-                            <h1 class="text-gray-700 font-bold">
+                        <div class="mt-4 px-4 w-full flex flex-col justify-center md:justify-around items-center md:items-start">
+                            <h1 class="font-bold">
                                 <a href="{{ route('product', [$cart->product->product_code]) }}">
                                     {{ $cart->product->product_name }}
                                 </a>
@@ -102,15 +105,15 @@
 
                             @if ($cart->product->is_customizable == 1)
                                 @if ($cart->product->status == 'Available')
-                                    <p>Stock: Available</p>
+                                    <p class="mt-2">Stock: <span style="color: #00C760;">Available</span></p>
                                 @else
-                                    <p>Stock: Not Available</p>
+                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span></p>
                                 @endif
                             @else
                                 @if ($cart->product->stock > 0)
-                                    <p>Stock: Available</p>
+                                    <p class="mt-2">Stock: <span style="color: #00C760;">Available</span></p>
                                 @else
-                                    <p>Stock: Not Available</p>
+                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span></p>
                                 @endif
                             @endif
 
@@ -136,7 +139,7 @@
                             {{-- <p>Brand: {{ $cart->product->brand_name }}</p> --}}
 
                             {{-- Buttons --}}
-                            <div class="flex flex-row space-x-2">
+                            <div class="mt-2 flex flex-row space-x-2">
                                 <form action="{{ route('cart.remove', [$cart->product->product_code]) }}"
                                     method="POST">
                                     @csrf
@@ -183,10 +186,10 @@
 
 
                                             <td>
-                                                <div class="justify-content-center">
+                                                <div class="justify-content-center mt-4">
                                                     <div class=" mx-auto mb-0">
-                                                        <label for="quantity">Quantity :</label>
-                                                        <div class="number-input">
+                                                        <label class="flex justify-center md:justify-start" for="quantity">Quantity :</label>
+                                                        <div class="mt-4 md:mt-10 number-input">
 
                                                             <button class="qty-btn"
                                                                 onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
@@ -215,10 +218,10 @@
 
 
                                             <td>
-                                                <div class="justify-content-center">
+                                                <div class="justify-content-center mt-4">
                                                     <div class=" mx-auto mb-0">
-                                                        <label for="quantity">Quantity :</label>
-                                                        <div class="number-input">
+                                                        <label class="flex justify-center md:justify-start" for="quantity">Quantity :</label>
+                                                        <div class="mt-4 md:mt-10 number-input">
 
                                                             <button class="qty-btn"
                                                                 onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
@@ -241,7 +244,7 @@
                             </div>
 
 
-                            <h1 class="mt-5">&#8369;
+                            <h1 class="md:-ml-20 mt-4 md:-mt-4">&#8369;
                                 @convert(($cart->product->price * $cart->quantity))</h1>
 
 
@@ -251,9 +254,9 @@
                     @php
                         if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                             $price = 0;
-                        
+
                             $price = $cart->product->price;
-                        
+
                             $total = $cart->quantity * $price + $total;
                         }
                     @endphp
@@ -270,10 +273,11 @@
 
             </div>
 
-            <div class="p-4 bg-white shadow-md w-11/12 md:w-auto m-auto" style="margin-top: 0;">
-                <h1 class="mx-10 mb-5 text-center text-xl font-bold">The total amount of</h1>
-                <div class="flex flex-col">
-                    <div class="flex flex-row justify-between items-center">
+            <div class="p-4 bg-white shadow-md w-11/12 md:w-1/3 m-auto" style="margin-top: 0;">
+                <h1 class="mb-5 text-md md:text-2xl font-bold">The total amount of</h1>
+                <hr class="my-8 border-gray-200">
+                <div class="flex flex-col mt-14">
+                    <div class="flex flex-row justify-between items-center mb-2">
                         <p>Subtotal: ({{ count($carts) }} item/s)</p>
                         <p>&#8369; @convert($total) </p>
                     </div>
@@ -284,12 +288,12 @@
                 </div>
                 <hr class="my-5 border-b border-gray-500">
                 <div class="flex flex-row justify-between items-center font-bold mb-5">
-                    <p class="text-sm">The total amount: </p>
+                    <p>Total amount: </p>
                     <p>&#8369; @convert($total) </p>
                 </div>
 
                 @if ($total > 0)
-                    <x-jet-button>
+                    <x-jet-button class="mt-4">
                         <a href="{{ route('checkout.index') }}">
                             Go to checkout
                         </a>

@@ -29,14 +29,14 @@
                     <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-full w-5/6 mx-auto">Check our awesome team members</span></h1>
                 </div>
             </div>
-            <div class="w-full bg-gray-100 px-10 pt-10">
+            <div class="w-full px-10 pt-10">
                 <div class="container mx-auto">
                     <div role="list" aria-label="Behind the scenes People " class="lg:flex md:flex sm:flex items-center justify-center md:justify-around flex-wrap ">
                         <div role="listitem" class="xl:w-1/4 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif" alt="Display Picture of Andres Berlin" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-1.jpg') }} alt="Display Picture of Andres Berlin" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
@@ -59,7 +59,7 @@
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/photo-1530577197743-7adf14294584.jfif" alt="Display Picture of Silene Tokyo" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-2.jpg') }} alt="Display Picture of Silene Tokyo" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
@@ -82,7 +82,7 @@
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/photo-1566753323558-f4e0952af115.jfif" alt="Display Picture of Johnson Stone" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-3.jpg') }} alt="Display Picture of Johnson Stone" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
@@ -105,7 +105,7 @@
                             <div class="rounded overflow-hidden shadow-md bg-white">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://cdn.tuk.dev/assets/boy-smiling_23-2148155640.jpg" alt="Display Picture of Dean Jones" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src={{ asset('img/team/team-4.jpg') }} alt="Display Picture of Dean Jones" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
