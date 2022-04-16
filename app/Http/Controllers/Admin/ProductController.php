@@ -28,12 +28,12 @@ class ProductController extends Controller
             // $products = Product::paginate(5);
 
             // search validation
-            $search = Product::where('product_code', 'like', '%' . request()->search . '%')
-                ->OrWhere('product_name', 'like', '%' . request()->search . '%')
+            $search = Product::searchfilter()
+                ->categoryfilter()
                 ->first();
 
-            $searchAdvance = Product::where('product_code', 'like', '%' . request()->advanceSearch . '%')
-                ->OrWhere('product_name', 'like', '%' . request()->advanceSearch . '%')
+            $searchAdvance = Product::searchfilter()
+                ->categoryfilter()
                 ->first();
 
             if ($search === null) {
@@ -43,8 +43,8 @@ class ProductController extends Controller
 
             if ($search != null) {
                 // default returning
-                $products = Product::Where('product_code', 'like', '%' . request()->search . '%')
-                    ->OrWhere('product_name', 'like', '%' . request()->search . '%')
+                $products = Product::searchfilter()
+                    ->categoryfilter()
                     ->latest()
                     ->paginate(10);
             }
@@ -62,13 +62,12 @@ class ProductController extends Controller
     {
         // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'product_code' => 'required|unique:products|numeric',
+            // 'product_code' => 'required|unique:products|numeric',
             'product_name' => 'required',
             'category_name' => 'required',
             'brand_name' => 'required',
             'description' => 'required',
-            'stock' => 'required|numeric',
-            'stock_measurement' => 'required',
+            // 'stock' => 'numeric|min:0',
             'price' => 'required|numeric',
             'default_photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
@@ -79,21 +78,22 @@ class ProductController extends Controller
                 ->withInput();
         }
 
-
-        Product::insert([
-            'product_code' => $request->input('product_code'),
+        $product =  Product::create([
+            // 'product_code' => $request->input('product_code'),
             'product_name' => $request->input('product_name'),
             'description' => $request->input('description'),
             'category_name' => $request->input('category_name'),
             'brand_name' => $request->input('brand_name'),
+            'status' => $request->input('status'),
             'stock' => $request->input('stock'),
             'stock_measurement' => $request->input('stock_measurement'),
             'price' => $request->input('price'),
+            'viewers' => 0,
         ]);
 
 
         if ($request->has('is_customizable')) {
-            Product::where('product_code', $request->input('product_code'))
+            Product::where('product_code', $product->product_code)
                 ->update([
                     'is_customizable' => '1',
                 ]);
@@ -105,7 +105,7 @@ class ProductController extends Controller
                 // create images
                 $image       = $request->file('default_photo');
                 $filename    = $image->getClientOriginalName();
-                $product_code =  $request->input('product_code');
+                $product_code =  $product->product_code;
 
                 $image_resize = Image::make($image);
                 $image_resize->resize(300, 300);
@@ -129,12 +129,12 @@ class ProductController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'edit_product_code' => 'required|numeric',
+            // 'edit_product_code' => 'required|numeric',
             'edit_category_name' => 'required',
             'edit_brand' => 'required',
             'edit_product_name' => 'required',
-            'edit_stock' => 'required|numeric|min:0',
-            'edit_stock_measurement' => 'required',
+            // 'edit_stock' => 'numeric|min:0',
+            // 'edit_stock_measurement' => 'required',
             'edit_price' => 'required|numeric|min:0'
         ]);
 
@@ -146,13 +146,11 @@ class ProductController extends Controller
 
         Product::where('product_code',  $request->input('edit_product_code'))
             ->update([
-                'product_code' => $request->input('edit_product_code'),
+                // 'product_code' => $request->input('edit_product_code'),
                 'product_name' => $request->input('edit_product_name'),
                 'description' => $request->input('edit_description'),
                 'category_name' => $request->input('edit_category_name'),
                 'brand_name' => $request->input('edit_brand'),
-                'stock' => $request->input('edit_stock'),
-                'stock_measurement' => $request->input('edit_stock_measurement'),
                 'price' => $request->input('edit_price'),
             ]);
 
@@ -160,11 +158,17 @@ class ProductController extends Controller
             Product::where('product_code', $request->input('edit_product_code'))
                 ->update([
                     'is_customizable' => '1',
+                    'status' => $request->input('edit_status'),
+                    'stock' => null,
+                    'stock_measurement' => null,
                 ]);
         } else {
             Product::where('product_code', $request->input('edit_product_code'))
                 ->update([
                     'is_customizable' => '0',
+                    'status' => null,
+                    'stock' => $request->input('edit_stock'),
+                    'stock_measurement' => $request->input('edit_stock_measurement'),
                 ]);
         }
 

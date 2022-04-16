@@ -5,7 +5,6 @@
     </x-slot>
 
     @push('styles')
-
     @endpush
 
     <x-catalog.catalog-layout>
@@ -145,13 +144,6 @@
     5 - round($product_ave_reviews, 0),
 ) !!}
 
-                                            ( {{ round($product_ave_reviews, 0) }} )
-
-
-                                            <span class="ml-2">{{ count($product->product_reviews) }}
-                                                Reviews
-                                            </span>
-
                                         </div>
                                         <p class="text-md text-yellow-900 mt-4">₱ @convert($product->price)</p>
                                     </div>
@@ -168,7 +160,7 @@
 
                         </div>
                     @empty
-                        No {{ $category_found->category_name }} Available.. :(
+                        No Available.. :(
                     @endforelse
 
 
@@ -181,6 +173,5 @@
 
 
     @push('scripts')
-
     @endpush
 </x-ecommerce-layout>

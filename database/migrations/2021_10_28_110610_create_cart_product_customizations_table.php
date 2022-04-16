@@ -16,7 +16,7 @@ class CreateCartProductCustomizationsTable extends Migration
         Schema::create('cart_product_customizations', function (Blueprint $table) {
             $table->id('cart_product_customization_id');
             $table->foreignId('cart_id');
-            $table->string('product_code', 20);
+            $table->foreignId('product_code');
             $table->string('size')->nullable();
             $table->string('milk')->nullable();
             $table->string('flavor')->nullable();

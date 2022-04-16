@@ -14,16 +14,38 @@
                             <div>
                                 <div class="mt-1 relative rounded-md shadow-sm">
                                     <input
-                                        class="focus:ring-indigo-500 focus:border-indigo-500 w-full sm:text-sm border-gray-300 rounded-md"
-                                        type="search" name="search" placeholder="Search.." aria-label="Search"
+                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-36  sm:text-sm border-gray-300 rounded-md"
+                                        type="search" name="search" placeholder="Order no." aria-label="Search"
                                         value="{{ request()->search }}">
+                                    <div class="absolute inset-y-0 left-0 flex items-center">
+                                        <label for="search_col" class="sr-only">Search..</label>
+                                        <select id="search_col" name="search_col"
+                                            class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-12 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                            @if (!empty(request()->search_col))
+                                                <option class="bg-gray-200" disabled
+                                                    selected="{{ request()->search_col }}">
+                                                    {{ request()->search_col }}
+                                                </option>
+                                            @endif
+                                            <option class="text-xs py-2 font-bold uppercase" disabled>
+                                                Category</option>
+                                            <option value="">
+                                                All</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->category_name }}">
+                                                    {{ $category->category_name }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="text-secondary mx-2">
                                 <i class="fas fa-search"></i>
                             </button>
+
                             @if (!empty(request()->search))
-                                <a href="{{ route('products') }}" class="mt-2 text-danger">
+                                <a href="{{ route('orders') }}" class="mt-2 text-danger">
                                     <i class="fas fa-times-circle"></i>
                                 </a>
                             @endif
@@ -66,15 +88,21 @@
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Product Name</th>
+
+                                        {{-- <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status</th> --}}
+
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Stocks</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Category</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Brand</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Stocks</th>
+
 
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -105,20 +133,51 @@
                                                     {{ \Illuminate\Support\Str::limit($product->description, 70) }}
                                                 </p>
                                             </td>
+                                            {{-- @if ($product->status == 'Available')
+                                                <td class="align-middle text-center text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-success">{{ $product->status }}</span>
+                                                </td>
+                                            @else
+                                                <td class="align-middle text-center text-sm">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-danger">{{ $product->status }}</span>
+                                                </td>
+                                            @endif --}}
+
+                                            @if ($product->status != null)
+                                                @if ($product->status == 'Available')
+                                                    <td class="align-middle text-center text-sm">
+                                                        <span
+                                                            class="badge badge-sm bg-gradient-success">{{ $product->status }}</span>
+                                                    </td>
+                                                @else
+                                                    <td class="align-middle text-center text-sm">
+                                                        <span
+                                                            class="badge badge-sm bg-gradient-danger">{{ $product->status }}</span>
+                                                    </td>
+                                                @endif
+                                            @else
+                                                <td class="align-middle text-center">
+                                                    <span
+                                                        class="text-secondary text-xs font-weight-bold">{{ $product->stock }}
+                                                        {{ $product->stock_measurement }}</span>
+                                                </td>
+                                            @endif
+
+
                                             <td class="align-middle text-center text-sm">
                                                 <span
-                                                    class="badge badge-sm bg-gradient-success">{{ $product->category_name }}</span>
+                                                    class="badge badge-sm bg-gradient-primary">{{ $product->category_name }}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{ $product->brand_name }}</span>
                                             </td>
 
-                                            <td class="align-middle text-center">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold">{{ $product->stock }}
-                                                    {{ $product->stock_measurement }}</span>
-                                            </td>
+
+
+
 
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold"> ₱ @convert(
@@ -135,6 +194,7 @@
                                                     data-item-brand="{{ $product->brand_name }}"
                                                     data-item-description="{{ $product->description }}"
                                                     data-item-price="{{ $product->price }}"
+                                                    data-item-status="{{ $product->status }}"
                                                     data-item-stock="{{ $product->stock }}"
                                                     data-item-is_customizable="{{ $product->is_customizable }}"
                                                     data-item-stock_measurement="{{ $product->stock_measurement }}"
@@ -178,7 +238,8 @@
             <div class="col-md-8 d-flex justify-content-center">
                 {{-- pagination --}}
                 <div class="pagination">
-                    {{ $products->render('pagination::bootstrap-4') }}
+                    {{-- {{ $products->render('pagination::bootstrap-4') }} --}}
+                    {{ $products->appends(Request::except('page'))->render('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>
@@ -218,7 +279,6 @@
 
 
     @push('scripts')
-
         <script>
             //delete
             $(".delete-product").click(function(e) {
@@ -241,7 +301,6 @@
                     });
             });
         </script>
-
     @endpush
 
 </x-admin-layout>

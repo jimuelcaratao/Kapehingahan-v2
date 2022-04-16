@@ -9,7 +9,9 @@
     @endphp
 
     <div class="w-auto mb-5 p-5 flex flex-row justify-center items-center space-x-3 bg-white  shadow-sm">
-        <p class="text-yellow-700 font-semibold">Cart</p>
+        <a href="{{ route('cart') }}">
+            <p class="text-yellow-700 font-semibold">Cart</p>
+        </a>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-700" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"
                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -39,7 +41,6 @@
                     </div>
                 @endif
                 @empty(Auth::user()->user_address)
-
                     <!-- Mobile No. -->
                     <div class="mt-4">
                         <x-jet-label for="mobile_no" value="{{ __('Mobile No.') }}" />
@@ -95,7 +96,7 @@
         <div class="w-11/12 md:w-1/2 mx-auto p-5 bg-white rounded-lg shadow-md" style="margin-top: 0;">
 
             @foreach ($carts as $cart)
-                @if ($cart->product->stock > 0)
+                @if ($cart->product->stock > 0 || $cart->product->status == 'Available')
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-300">
                         <img class="block h-1/4 w-1/4 mx-auto"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}">
@@ -120,7 +121,6 @@
                                 @if ($item->add_in != null)
                                     <p>Add-ins: {{ $item->add_in }}</p>
                                 @endif
-
                             @endforeach
                             <p>Qty: {{ $cart->quantity }}</p>
 
@@ -134,14 +134,13 @@
                 @php
                     $price = 0;
                     
-                    if ($cart->product->stock > 0) {
+                    if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                         $price = $cart->product->price;
                     
                         $total = $cart->quantity * $price + $total;
                     }
                     
                 @endphp
-
             @endforeach
 
 

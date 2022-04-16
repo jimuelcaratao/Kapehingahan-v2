@@ -76,34 +76,68 @@
 
         </style>
     @endpush
-
-    <div class="w-11/12 my-12 p-6 md:p-12 mx-auto">
+    <div class="w-auto mb-5 p-5 flex flex-row justify-center items-center space-x-3 bg-white  shadow-sm">
+        <a href="{{ route('cart') }}">
+            <p class="text-yellow-700 font-semibold">Cart</p>
+        </a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-700" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd" />
+        </svg>
+        <p class="font-semibold">Checkout</p>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd" />
+        </svg>
+        <p class="font-semibold">Payment</p>
+    </div>
+    <div class="w-11/12 my-12 p-6 md:pb-12 md:pt-6 mx-auto">
 
         @php
             $total = 0;
         @endphp
 
+
+
         <div class="flex flex-col md:flex-row justify-center items-center md:items-start space-y-5 md:space-x-3">
-            <div class="p-4 bg-white shadow-md w-11/12 md:w-3/5">
-                <h1 class="text-left text-xl font-bold">My Cart ({{ count($carts) }} item/s)</h1>
-                <hr class="my-2 border-b border-gray-500">
+            <div class="p-4 bg-white shadow-md w-11/12 md:w-4/5">
+                <div class="flex justify-between">
+                    <h1 class="text-left text-md md:text-2xl font-bold">Shopping Cart</h1>
+                    <h1 class="text-left text-md md:text-2xl font-bold">{{ count($carts) }} Item/s</h1>
+                </div>
+                <hr class="my-8 border-gray-200">
 
                 @forelse ($carts as $cart)
                     <div class="flex flex-col md:flex-row p-2 border-b border-gray-500 hover:shadow-lg">
                         <img class="h-full w-full md:h-1/4 md:w-1/4 block mx-auto rounded"
                             src="{{ asset('storage/media/products/main_' . $cart->product->product_code . '_' . $cart->product->default_photo) }}"
                             alt="{{ $cart->product->product_name }}">
-                        <div class="px-4 w-full flex flex-col justify-around items-start">
-                            <h1 class="text-gray-700 font-bold">
+                        <div
+                            class="mt-4 px-4 w-full flex flex-col justify-center md:justify-around items-center md:items-start">
+                            <h1 class="font-bold">
                                 <a href="{{ route('product', [$cart->product->product_code]) }}">
                                     {{ $cart->product->product_name }}
                                 </a>
                             </h1>
-                            @if ($cart->product->stock > 0)
-                                <p>Stock: Available</p>
+
+                            @if ($cart->product->is_customizable == 1)
+                                @if ($cart->product->status == 'Available')
+                                    <p class="mt-2">Stock: <span style="color: #00C760;">Available</span></p>
+                                @else
+                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span>
+                                    </p>
+                                @endif
                             @else
-                                <p>Stock: Not Available</p>
+                                @if ($cart->product->stock > 0)
+                                    <p class="mt-2">Stock: <span style="color: #00C760;">Available</span></p>
+                                @else
+                                    <p class="mt-2">Stock: <span style="color: #EE4942;">Not Available</span>
+                                    </p>
+                                @endif
                             @endif
+
 
                             @foreach ($cart->cart_product_customizations as $item)
                                 <p>size: {{ $item->size }}</p>
@@ -121,13 +155,12 @@
                                 @if ($item->add_in != null)
                                     <p>Add-ins: {{ $item->add_in }}</p>
                                 @endif
-
                             @endforeach
 
                             {{-- <p>Brand: {{ $cart->product->brand_name }}</p> --}}
 
                             {{-- Buttons --}}
-                            <div class="flex flex-row space-x-2">
+                            <div class="mt-2 flex flex-row space-x-2">
                                 <form action="{{ route('cart.remove', [$cart->product->product_code]) }}"
                                     method="POST">
                                     @csrf
@@ -160,44 +193,81 @@
                         <div class="mt-3 md:mt-0 px-4 flex flex-col justify-around items-center">
                             <div class="flex flex-col items-center">
 
+                                @if ($cart->product->is_customizable == 1)
+                                    @if ($cart->product->status == 'Not Available')
+                                        Not Available
+                                    @else
+                                        <form class="formQuantity"
+                                            action="{{ route('cart.quantity', [$cart->cart_id, $cart->product->product_code]) }}"
+                                            method="POST">
+                                            @method('PUT')
+                                            @csrf
+                                            {{-- <label for="quantity">Quantity:</label> --}}
+                                            {{-- <input class="input_quantity"  type="number" name="quantity" min="1" max="5"  value="{{ $cart->quantity }}"> --}}
 
-                                @if ($cart->product->stock <= 0)
-                                    Not Available
-                                @else
-                                    <form class="formQuantity"
-                                        action="{{ route('cart.quantity', [$cart->cart_id, $cart->product->product_code]) }}"
-                                        method="POST">
-                                        @method('PUT')
-                                        @csrf
-                                        {{-- <label for="quantity">Quantity:</label> --}}
-                                        {{-- <input class="input_quantity"  type="number" name="quantity" min="1" max="5"  value="{{ $cart->quantity }}"> --}}
 
+                                            <td>
+                                                <div class="justify-content-center mt-4">
+                                                    <div class=" mx-auto mb-0">
+                                                        <label class="flex justify-center md:justify-start"
+                                                            for="quantity">Quantity :</label>
+                                                        <div class="mt-4 md:mt-10 number-input">
 
-                                        <td>
-                                            <div class="justify-content-center">
-                                                <div class=" mx-auto mb-0">
-                                                    <label for="quantity">Quantity :</label>
-                                                    <div class="number-input">
-
-                                                        <button class="qty-btn"
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                                        <input class="input_quantity quantity" min="1" max="5"
-                                                            name="quantity" value="{{ $cart->quantity }}"
-                                                            type="number">
-                                                        <button class="qty-btn plus"
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                                                            <button class="qty-btn"
+                                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                                            <input class="input_quantity quantity" min="1" max="5"
+                                                                name="quantity" value="{{ $cart->quantity }}"
+                                                                type="number">
+                                                            <button class="qty-btn plus"
+                                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </form>
+                                            </td>
+                                        </form>
+                                    @endif
+                                @else
+                                    @if ($cart->product->stock <= 0)
+                                        Not Available
+                                    @else
+                                        <form class="formQuantity"
+                                            action="{{ route('cart.quantity', [$cart->cart_id, $cart->product->product_code]) }}"
+                                            method="POST">
+                                            @method('PUT')
+                                            @csrf
+                                            {{-- <label for="quantity">Quantity:</label> --}}
+                                            {{-- <input class="input_quantity"  type="number" name="quantity" min="1" max="5"  value="{{ $cart->quantity }}"> --}}
+
+
+                                            <td>
+                                                <div class="justify-content-center mt-4">
+                                                    <div class=" mx-auto mb-0">
+                                                        <label class="flex justify-center md:justify-start"
+                                                            for="quantity">Quantity :</label>
+                                                        <div class="mt-4 md:mt-10 number-input">
+
+                                                            <button class="qty-btn"
+                                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                                            <input class="input_quantity quantity" min="1" max="5"
+                                                                name="quantity" value="{{ $cart->quantity }}"
+                                                                type="number">
+                                                            <button class="qty-btn plus"
+                                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </form>
+                                    @endif
                                 @endif
+
+
 
 
                             </div>
 
 
-                            <h1 class="mt-5">&#8369;
+                            <h1 class="md:-ml-20 mt-4 md:-mt-4">&#8369;
                                 @convert(($cart->product->price * $cart->quantity))</h1>
 
 
@@ -205,22 +275,13 @@
                     </div> {{-- end of item --}}
 
                     @php
-                        
-                        if ($cart->product->stock > 0) {
+                        if ($cart->product->stock > 0 || $cart->product->status == 'Available') {
                             $price = 0;
                         
-                            // if (optional($cart->product->product_price)->discounted_price != null) {
-                            //     $price = optional($cart->product->product_price)->discounted_price;
-                            // }
-                        
-                            // if (optional($cart->product->product_price)->discounted_price == null) {
-                            //     $price = optional($cart->product->product_price)->price;
-                            // }
                             $price = $cart->product->price;
                         
                             $total = $cart->quantity * $price + $total;
                         }
-                        
                     @endphp
 
                 @empty
@@ -235,10 +296,11 @@
 
             </div>
 
-            <div class="p-4 bg-white shadow-md w-11/12 md:w-auto m-auto" style="margin-top: 0;">
-                <h1 class="mx-10 mb-5 text-center text-xl font-bold">The total amount of</h1>
-                <div class="flex flex-col">
-                    <div class="flex flex-row justify-between items-center">
+            <div class="p-4 bg-white shadow-md w-11/12 md:w-1/3 m-auto" style="margin-top: 0;">
+                <h1 class="mb-5 text-md md:text-2xl font-bold">The total amount of</h1>
+                <hr class="my-8 border-gray-200">
+                <div class="flex flex-col mt-14">
+                    <div class="flex flex-row justify-between items-center mb-2">
                         <p>Subtotal: ({{ count($carts) }} item/s)</p>
                         <p>&#8369; @convert($total) </p>
                     </div>
@@ -249,12 +311,12 @@
                 </div>
                 <hr class="my-5 border-b border-gray-500">
                 <div class="flex flex-row justify-between items-center font-bold mb-5">
-                    <p class="text-sm">The total amount: </p>
+                    <p>Total amount: </p>
                     <p>&#8369; @convert($total) </p>
                 </div>
 
                 @if ($total > 0)
-                    <x-jet-button>
+                    <x-jet-button class="mt-4">
                         <a href="{{ route('checkout.index') }}">
                             Go to checkout
                         </a>

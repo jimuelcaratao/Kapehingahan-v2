@@ -18,6 +18,8 @@ use App\Http\Controllers\Ecommerce\SingleProductController;
 use App\Http\Controllers\Ecommerce\WishListController;
 use App\Http\Controllers\Ecommerce\WriteReviewController;
 use App\Http\Controllers\OAuthController;
+use App\Http\Controllers\Rider\DashboardController as RiderDashboardController;
+use App\Http\Controllers\Rider\OrderController as RiderOrderController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -86,8 +88,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/wishlist/{product_code}/cart', [WishListController::class, 'move_to_cart'])->name('wishlist.move');
 });
 
+
+
 // Ecommerce Account with verification
-Route::middleware(['verified', 'auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
 
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
@@ -160,3 +164,18 @@ Route::middleware(['auth:sanctum',  'is_admin'])->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::post('/users', [UserController::class, 'ban'])->name('user.ban');
 });
+
+// Admin Users
+Route::middleware(['auth:sanctum',  'is_rider'])->group(function () {
+    Route::prefix('rider')->group(function () {
+        Route::get('/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
+        Route::get('/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
+        Route::post('/orders/order-status', [RiderOrderController::class, 'order_status'])->name('rider.order_status');
+    });
+});
+
+// // Rider Account with verification
+// Route::middleware(['auth:sanctum', 'is_rider'])->group(function () {
+//     Route::get('/rider/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
+//     Route::get('/rider/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
+// });

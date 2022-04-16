@@ -1,6 +1,4 @@
 @push('styles')
-
-
 @endpush
 
 
@@ -39,7 +37,7 @@
                                             <div class="form-basic col-span-6 sm:col-span-2">
                                                 <div class="form-check form-switch pt-4">
                                                     <input class="switches form-check-input" type="checkbox"
-                                                        name="is_customizable" id="is_customizable">
+                                                        name="is_customizable" id="is_customizable" checked>
                                                     <label class="form-check-label" for="is_customizable">Drinks</label>
                                                 </div>
                                             </div>
@@ -56,13 +54,13 @@
                                                 </select>
                                             </div>
 
-                                            <div class="form-basic  col-span-6 sm:col-span-4">
+                                            {{-- <div class="form-basic  col-span-6 sm:col-span-4">
                                                 <label for="product_code"
                                                     class="block text-sm font-medium text-gray-700">Product code <span
                                                         class="text-red-600">*</span></label>
                                                 <input type="text" name="product_code" id="product_code" required
                                                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
-                                            </div>
+                                            </div> --}}
 
                                             <div class="form-basic  col-span-6 sm:col-span-4">
                                                 <label for="product_name"
@@ -78,8 +76,7 @@
                                                     Description
                                                 </label>
                                                 <div class="mt-1">
-                                                    <textarea id="description" name="description" rows="3"
-                                                        class="shadow focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                    <textarea id="description" name="description" rows="3" class="shadow focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                                                         placeholder="you@example.com"></textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
@@ -100,13 +97,13 @@
                             </div>
                         </div>
 
-                        <h4 class="form-basic ">Sales Management</h4>
+                        <h4 class="form-basic  mt-3">Sales Management</h4>
                         <div class="form-basic  mt-3 md:mt-0 md:col-span-2">
                             <div class=" sm:overflow-hidden">
                                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                                    <div class="grid grid-cols-6 gap-3">
+                                    <div class="grid grid-cols-12 gap-3">
 
-                                        <div class=" col-span-6 sm:col-span-6 lg:col-span-2">
+                                        <div class=" col-span-6 sm:col-span-4">
                                             <div>
                                                 <label for="price" class="block text-sm font-medium text-gray-700">Price
                                                     <span class="text-red-600">*</span></label>
@@ -126,27 +123,41 @@
                                             </div>
                                         </div>
 
-                                        <div class=" col-span-6 sm:col-span-3 lg:col-span-2">
-                                            <label for="stock" class="block text-sm font-medium text-gray-700">Stock
-                                                <span class="text-red-600">*</span></label>
-                                            <input type="number" min="0" name="stock" id="stock" required
-                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
+                                        <div id="is_drink" class="col-span-6 sm:col-span-6 lg:col-span-4">
+                                            <div>
+                                                <label for="status"
+                                                    class="block text-sm font-medium text-gray-700">Status
+                                                    <span class="text-red-600">*</span></label>
+                                                <select id="status" name="status"
+                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    <option selected disabled value="">Choose...</option>
+                                                    <option value="Available">Available</option>
+                                                    <option value="Not Available">Not Available</option>
+                                                </select>
+                                            </div>
                                         </div>
 
-                                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                            <label for="stock_measurement"
-                                                class="block text-sm font-medium text-gray-700">Measurement <span
-                                                    class="text-red-600">*</span></label>
-                                            <select id="stock_measurement" name="stock_measurement" required
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                <option selected disabled value="">Choose...</option>
-                                                <option value="pcs">Pieces</option>
-                                                <option value="Oz">Ounce</option>
-                                                <option value="g">Gram</option>
-                                                <option value="kg">Kilogram</option>
 
-                                            </select>
+                                        <div id="is_not_drink" class="col-span-6 sm:col-span-6 lg:col-span-4">
+                                            <div>
+                                                <label for="stock" class="block text-sm font-medium text-gray-700">Stock
+                                                    <span class="text-red-600">*</span></label>
+                                                <input type="number" min="0" name="stock" id="stock"
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+
+                                            <div>
+                                                <label for="stock_measurement"
+                                                    class="block text-sm font-medium text-gray-700 mt-2">Measurement
+                                                    <span class="text-red-600">*</span></label>
+                                                <select id="stock_measurement" name="stock_measurement"
+                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    <option selected disabled value="">Choose...</option>
+                                                    <option value="pcs">Pieces</option>
+                                                </select>
+                                            </div>
                                         </div>
+
 
                                     </div>
                                 </div>
@@ -161,11 +172,11 @@
                             </div>
                         </div>
 
-                        <h4 class="form-basic ">Media Management</h4>
+                        <h4 class="form-basic  mt-3">Media Management</h4>
                         <div class="form-basic  mt-3 md:mt-0 md:col-span-2">
                             <div class=" sm:overflow-hidden">
                                 <div class="px-4  bg-white space-y-6 sm:p-6">
-                                    <div class="grid grid-cols-8 gap-3">
+                                    <div class="grid">
 
 
                                         {{-- <div class="col-span-6 sm:col-span-6 lg:col-span-3">
@@ -197,7 +208,7 @@
 
                                                     <img id="output_default_photo" class="cursor-pointer mb-4"
                                                         src="{{ asset('img/cover-img.svg') }}"
-                                                        style="width:400px;height:200px;">
+                                                        style="width:400px;height:400px;">
 
                                                     <div class="flex text-sm text-gray-600 ">
                                                         <label for="default_photo"
@@ -238,10 +249,39 @@
 </div>
 
 @push('scripts')
-
     <script>
-        // autosize($('#description'));
-        // autosize($('#specs'));
+        // edit_is_customizable
+        $(document).ready(function() {
+            $('#is_drink').show();
+            $('#is_not_drink').hide();
+
+            // add/remove required
+            $("#status").prop('required', true);
+            $("#stock").prop('required', false);
+            $("#stock_measurement").prop('required', false);
+
+
+            $('input[name="is_customizable"]').click(function() {
+                if ($(this).is(":checked")) {
+                    $('#is_drink').show();
+                    $('#is_not_drink').hide();
+
+                    // add/remove required
+                    $("#status").prop('required', true);
+                    $("#stock").prop('required', false);
+                    $("#stock_measurement").prop('required', false);
+                } else if ($(this).is(":not(:checked)")) {
+                    $('#is_drink').hide();
+                    $('#is_not_drink').show();
+
+                    // add/remove required
+                    $("#status").prop('required', false);
+                    $("#stock").prop('required', true);
+                    $("#stock_measurement").prop('required', true);
+                }
+            });
+        });
+
 
         $('#output_default_photo').click(function() {
             $('#default_photo').trigger('click');
@@ -257,7 +297,8 @@
         });
 
         $(document).on("change", "#default_photo", function() {
-            document.getElementById('output_default_photo').src = window.URL.createObjectURL(this.files[0])
+            document.getElementById('output_default_photo').src = window.URL.createObjectURL(this.files[
+                0])
         });
 
         $(document).ready(function() {
@@ -288,5 +329,4 @@
 
         });
     </script>
-
 @endpush

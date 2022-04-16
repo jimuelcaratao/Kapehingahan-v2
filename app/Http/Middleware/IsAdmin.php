@@ -24,6 +24,6 @@ class IsAdmin
         } elseif (Auth::check() && Auth::user()->is_admin == 2) {
             return $next($request);
         }
-        return redirect('/');
+        return redirect('/rider/orders');
     }
 }

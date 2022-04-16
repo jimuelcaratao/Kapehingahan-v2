@@ -23,13 +23,53 @@
                                                         class="text-red-600">*</span></label>
                                                 <input type="text" name="order_no" id="update_order_no" readonly
                                                     required
-                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-300 rounded-md">
                                             </div>
+
+                                            @if (Auth::user()->is_admin == 2 || Auth::user()->is_admin == 1)
+                                                <div class="col-span-6 sm:col-span-4 mt-4">
+                                                    <label for="update_rider_id"
+                                                        class="block text-sm font-medium text-gray-700">Rider
+                                                        <span class="text-red-600">*</span></label>
+                                                    <select id="update_rider_id" name="update_rider_id"
+                                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option selected disabled value="">Choose...</option>
+                                                        @foreach ($riders as $rider)
+                                                            <option value="{{ $rider->id }}">
+                                                                {{ $rider->name }}
+                                                            </option>
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                            @endif
+
+                                            @if (Auth::user()->is_admin == 3)
+                                                <div class="col-span-6 sm:col-span-4 mt-4">
+                                                    <label for="update_rider_id"
+                                                        class="block text-sm font-medium text-gray-700">Rider
+                                                        <span class="text-red-600">*</span></label>
+                                                    <select id="update_rider_id" name="update_rider_id"
+                                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option selected disabled value="">Choose...</option>
+                                                        @foreach ($riders as $rider)
+                                                            <option disabled value="{{ $rider->id }}">
+                                                                {{ $rider->name }}
+                                                            </option>
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                            @endif
+
                                         </div>
+
+
                                         <hr class="mt-5 text-gray-500">
 
                                         <h4 class="py-3">Status</h4>
                                         <div class="grid grid-cols-6 gap-3">
+
                                             <div class=" col-span-6 sm:col-span-4">
                                                 <div class="form-check form-switch">
                                                     <input class="switches form-check-input" type="checkbox"
@@ -45,12 +85,34 @@
                                                     <label class="form-check-label" for="shipped_switch">Shipped</label>
                                                 </div>
                                             </div>
+
+
+
                                             <div class=" col-span-6 sm:col-span-4">
                                                 <div class="form-check form-switch">
                                                     <input class="switches form-check-input" type="checkbox"
                                                         name="delivered_switch" id="delivered_switch">
                                                     <label class="form-check-label"
                                                         for="delivered_switch">Delivered</label>
+                                                </div>
+                                            </div>
+
+
+                                            @if (Auth::user()->is_admin == 2 || Auth::user()->is_admin == 1)
+                                                <div class=" col-span-6 sm:col-span-4">
+                                                    <div class="form-check form-switch">
+                                                        <input class="switches form-check-input" type="checkbox"
+                                                            name="returned_switch" id="returned_switch" disabled>
+                                                        <label class="form-check-label"
+                                                            for="returned_switch">Returned</label>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            <div class=" col-span-6 sm:col-span-4">
+                                                <div class="form-check form-switch">
+                                                    <input class="switches form-check-input" type="checkbox"
+                                                        name="paid_switch" id="paid_switch">
+                                                    <label class="form-check-label" for="paid_switch">Paid</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,7 +138,6 @@
 </div>
 
 @push('scripts')
-
     <script>
         $(document).ready(function() {
             $(".close-modal-update").click(function() {
@@ -158,12 +219,17 @@
 
                 // get the data
                 var order_no = el.data("item-update_order_no");
+                var rider_id = el.data("item-update_rider_id");
                 var packaged_at = el.data("item-update_packaged_at");
                 var shipped_at = el.data("item-update_shipped_at");
                 var delivered_at = el.data("item-update_delivered_at");
                 var created_at = el.data("item-update_created_at");
+                var returned_at = el.data("item-update_returned_at");
+                var paid_at = el.data("item-update_paid_at");
 
                 $("#update_order_no").val(order_no);
+                $("#update_rider_id").val(rider_id);
+
 
                 if (packaged_at != '') {
                     $('#packaged_switch').attr('checked', 'checked');
@@ -175,9 +241,17 @@
 
                 if (delivered_at != '') {
                     $('#delivered_switch').attr('checked', 'checked');
+                    $('#returned_switch').prop("disabled", false);
+
                 }
 
+                if (returned_at != '') {
+                    $('#returned_switch').attr('checked', 'checked');
+                }
 
+                if (paid_at != '') {
+                    $('#paid_switch').attr('checked', 'checked');
+                }
                 // alert(category_name);
 
             });
@@ -191,7 +265,8 @@
                 $('#packaged_switch').attr('checked', false);
                 $('#shipped_switch').attr('checked', false);
                 $('#delivered_switch').attr('checked', false);
-
+                $('#paid_switch').attr('checked', false);
+                $('#returned_switch').prop("disabled", true);
             });
         });
     </script>

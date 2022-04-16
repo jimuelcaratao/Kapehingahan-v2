@@ -23,20 +23,23 @@ class UserController extends Controller
 
         if ($tableUsers->isNotEmpty()) {
             // search validation
-            $search = User::where(request()->search_col ?? 'name', 'like', '%' . request()->search . '%')
+            $search = User::namefilter()
+                ->rolefilter()
                 ->first();
 
             if ($search === null) {
-                return redirect('users')->with('info', 'No "' . request()->search . '" found in the database.');
+                return redirect('users')->with('info', 'No data found in the database.');
             }
 
             if ($search != null) {
                 // default returning
-                $users = User::where(request()->search_col ?? 'name', 'like', '%' . request()->search . '%')
+                $users = User::namefilter()
+                    ->rolefilter()
                     ->oldest()
-                    ->paginate(5);
+                    ->paginate(10);
             }
         }
+
 
         return view('pages.admin.users', [
             'users' =>   $users,
