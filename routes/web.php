@@ -170,6 +170,7 @@ Route::middleware(['auth:sanctum',  'is_rider'])->group(function () {
     Route::prefix('rider')->group(function () {
         Route::get('/dashboard', [RiderDashboardController::class, 'index'])->name('rider.dashboard');
         Route::get('/orders', [RiderOrderController::class, 'index'])->name('rider.orders');
+        Route::post('/orders/order-status', [RiderOrderController::class, 'order_status'])->name('rider.order_status');
     });
 });
 

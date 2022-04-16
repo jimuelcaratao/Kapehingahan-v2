@@ -220,9 +220,7 @@
                                 @if (count($product->product_reviews) <= 0)
                                     <p class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"> No
                                         reviews</p>
-
                                 @else
-
                                     <p class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                         {{ count($product->product_reviews) }} reviews</p>
                                 @endif
@@ -303,7 +301,7 @@
                                     <select id="size" name="size"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled value="">Choose...</option>
-                                        <option value="regular">Regular</option>
+                                        <option value="regular" selected>Regular</option>
                                         <option value="large">Large</option>
                                         <option value="extra_large">Extra Large</option>
                                     </select>

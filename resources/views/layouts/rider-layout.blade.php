@@ -53,7 +53,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto min-height-500" id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('rider.dashboard') }}"
                         class="nav-link {{ Request::path() == 'rider/dashboard' ? ' active' : '' }}">
                         <div
@@ -62,7 +62,7 @@
                         </div>
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="{{ route('rider.orders') }}"

@@ -73,11 +73,7 @@ class OrderController extends Controller
         if ($order->packaged_at == null) {
             if ($request->has('packaged_switch')) {
 
-                Order::where('order_no', $request->input('order_no'))
-                    ->update([
-                        'status' => 'Shipping',
-                        'packaged_at' => Carbon::now(),
-                    ]);
+
 
 
                 // minus in the stock
@@ -89,11 +85,11 @@ class OrderController extends Controller
                     $updated_stock = $get_products->stock - $item->quantity;
 
                     if ($get_products->is_customizable == 0) {
-                        if ($updated_stock <= 0) {
-                            return  Redirect::back()->with('toast_error', 'No more Stocks');
-                        }
+                        // if ($updated_stock <= 0) {
+                        //     return  Redirect::back()->with('toast_error', 'No more Stocks');
+                        // }
 
-                        if ($item->quantity > $get_products->stock) {
+                        if ($item->quantity <= $get_products->stock) {
                             Product::where('product_code', $item->product_code)->update([
                                 'stock' => $updated_stock,
                             ]);
@@ -108,6 +104,12 @@ class OrderController extends Controller
                         // }
                     }
                 }
+
+                Order::where('order_no', $request->input('order_no'))
+                    ->update([
+                        'status' => 'Shipping',
+                        'packaged_at' => Carbon::now(),
+                    ]);
             }
         }
 

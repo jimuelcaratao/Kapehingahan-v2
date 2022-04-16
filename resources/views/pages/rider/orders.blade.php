@@ -458,7 +458,7 @@
     <x-order.view-order-modal>
     </x-order.view-order-modal>
 
-    <x-order.update-order-modal>
-    </x-order.update-order-modal>
+    <x-order.update-order-rider>
+    </x-order.update-order-rider>
 
 </x-rider-layout>

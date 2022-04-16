@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <div>
-                    <form action="{{ route('order_status') }}" method="POST" id="update-form">
+                    <form action="{{ route('rider.order_status') }}" method="POST" id="update-form">
                         @csrf
                         <div class=" sm:mt-0">
                             <div class=" md:mt-0 md:col-span-2">

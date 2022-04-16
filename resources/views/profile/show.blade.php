@@ -64,9 +64,9 @@
                     <x-jet-section-border />
                 @endif
 
-                @livewire('user.address')
+                {{-- @livewire('user.address') --}}
 
-                <x-jet-section-border />
+                {{-- <x-jet-section-border /> --}}
 
                 @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                     <div class="sm:mt-0 profile-m-t">

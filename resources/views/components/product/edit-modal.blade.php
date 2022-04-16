@@ -130,7 +130,7 @@
                                                 <label for="status"
                                                     class="block text-sm font-medium text-gray-700">Status
                                                     <span class="text-red-600">*</span></label>
-                                                <select id="edit_status" name="edit_status" required
+                                                <select id="edit_status" name="edit_status"
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option selected disabled value="">Choose...</option>
                                                     <option>Available</option>
