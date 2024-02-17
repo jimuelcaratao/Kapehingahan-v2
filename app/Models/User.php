@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -66,5 +66,10 @@ class User extends Authenticatable
     public function user_address()
     {
         return $this->hasOne(UserAddress::class, 'user_id', 'id');
+    }
+
+    public function user_card()
+    {
+        return $this->hasOne(UserCard::class, 'user_id', 'id');
     }
 }
